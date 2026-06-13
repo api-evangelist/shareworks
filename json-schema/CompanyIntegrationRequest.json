@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/CompanyIntegrationRequest.json",
+  "title": "Company Integration Body",
+  "required": [
+    "integrationKey"
+  ],
+  "type": "object",
+  "properties": {
+    "integrationKey": {
+      "type": "string",
+      "description": "Integration key for the company"
+    }
+  }
+}

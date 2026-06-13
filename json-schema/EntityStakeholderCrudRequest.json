@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/EntityStakeholderCrudRequest.json",
+  "title": "Entity Stakeholder Body",
+  "type": "object",
+  "properties": {
+    "stakeholderNumber": {
+      "type": "string",
+      "description": "Number for the stakeholder, typically generated"
+    },
+    "entityName": {
+      "type": "string",
+      "description": "Name for the entity stakeholder"
+    }
+  }
+}

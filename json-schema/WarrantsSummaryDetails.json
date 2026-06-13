@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/WarrantsSummaryDetails.json",
+  "title": "Warrant Details Response",
+  "required": [
+    "numberOfWarrants",
+    "percentageFullyDiluted",
+    "totalCommonStockEquivalentShares"
+  ],
+  "type": "object",
+  "properties": {
+    "numberOfWarrants": {
+      "type": "integer",
+      "description": "Total number of warrants",
+      "format": "int32"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total Common Stock Equivalent shares represented by warrants",
+      "format": "double"
+    },
+    "percentageFullyDiluted": {
+      "type": "number",
+      "description": "Percentage of fully diluted shares outstanding across all warrants",
+      "format": "double"
+    }
+  },
+  "description": "Summary information on warrants for the company"
+}

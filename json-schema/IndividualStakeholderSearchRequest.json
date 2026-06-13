@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/IndividualStakeholderSearchRequest.json",
+  "title": "Individual Stakeholder Search Body",
+  "type": "object",
+  "properties": {
+    "firstName": {
+      "type": "string",
+      "description": "First name for the stakeholder"
+    },
+    "lastName": {
+      "type": "string",
+      "description": "Last name for the stakeholder"
+    },
+    "stakeholderNumber": {
+      "type": "string",
+      "description": "Number for the stakeholder, typically generated"
+    }
+  }
+}

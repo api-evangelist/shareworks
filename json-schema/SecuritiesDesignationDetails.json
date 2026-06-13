@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/SecuritiesDesignationDetails.json",
+  "title": "Designation Summary Response",
+  "required": [
+    "amountRaisedCurrency",
+    "dollarAmountRaised",
+    "numberOfCertificates",
+    "parValue",
+    "percentDiluted",
+    "percentOutstanding",
+    "percentOwnership",
+    "stockDesignationId",
+    "stockDesignationName",
+    "totalAuthorizedShares",
+    "totalAvailableShares",
+    "totalCommonStockEquivalentShares",
+    "totalOutstandingShares"
+  ],
+  "type": "object",
+  "properties": {
+    "stockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation",
+      "format": "int32"
+    },
+    "stockDesignationName": {
+      "type": "string",
+      "description": "Name for the stock designation"
+    },
+    "numberOfCertificates": {
+      "type": "integer",
+      "description": "The number of certificates associated to a specific stock designation",
+      "format": "int32"
+    },
+    "dollarAmountRaised": {
+      "type": "number",
+      "description": "The stock designation total dollar amount raised derived from the number of certificates issued multiplied by the price of each certificate.",
+      "format": "double"
+    },
+    "amountRaisedCurrency": {
+      "type": "string",
+      "description": "The three letter currency code of the currency used in the calculation of the amount raised"
+    },
+    "parValue": {
+      "type": "number",
+      "description": "Par value for the stock designation",
+      "format": "double"
+    },
+    "pricePerShare": {
+      "type": "number",
+      "description": "Price per share for the stock designation",
+      "format": "double"
+    },
+    "pricePerShareCurrency": {
+      "type": "string",
+      "description": "The three letter currency code of the price per share currency"
+    },
+    "filingDate": {
+      "type": "string",
+      "description": "The date of the stock filing",
+      "format": "date"
+    },
+    "conversionRatio": {
+      "type": "string",
+      "description": "When the stock designation is convertible, this ratio represents number of converted shares to each original share"
+    },
+    "rounding": {
+      "type": "string",
+      "description": "Rounding type used when converting shares from the stock designation",
+      "enum": [
+        "NORMAL",
+        "UP",
+        "DOWN"
+      ]
+    },
+    "convertsToStockDesignationName": {
+      "type": "string",
+      "description": "Name for the stock designation which the stock designation converts to"
+    },
+    "convertsToStockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation which the stock designation converts to",
+      "format": "int32"
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total number of authorized shares for the stock designation",
+      "format": "double"
+    },
+    "totalAvailableShares": {
+      "type": "number",
+      "description": "Total available shares across the stock designations for the class",
+      "format": "double"
+    },
+    "totalOutstandingShares": {
+      "type": "number",
+      "description": "Total outstanding shares across the stock designations for the class",
+      "format": "double"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total common equivalent (a.k.a. fully diluted) shares across the stock designations for the class",
+      "format": "double"
+    },
+    "percentOwnership": {
+      "type": "number",
+      "description": "Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares for the stock designation",
+      "format": "double"
+    },
+    "percentDiluted": {
+      "type": "number",
+      "description": "Percentage representing the fraction of total common equivalent (a.k.a fully diluted) and available shares for the stock designation",
+      "format": "double"
+    },
+    "percentOutstanding": {
+      "type": "number",
+      "description": "Percentage of fully diluted outstanding shares across all types of securities",
+      "format": "double"
+    }
+  }
+}

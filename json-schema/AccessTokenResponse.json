@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/AccessTokenResponse.json",
+  "title": "Token Response",
+  "required": [
+    "accessToken",
+    "expiresIn",
+    "issuedAt",
+    "issuer",
+    "tokenType"
+  ],
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "type": "string",
+      "description": "Token to accompany all API requests for authentication purposes"
+    },
+    "expiresIn": {
+      "type": "integer",
+      "description": "Token expiry period in seconds",
+      "format": "int32"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Access scope for the token"
+    },
+    "issuedAt": {
+      "type": "integer",
+      "description": "Issued instant for the token (Unix epoch time)",
+      "format": "int64"
+    },
+    "issuer": {
+      "type": "string",
+      "description": "Issuer of the token"
+    },
+    "audience": {
+      "type": "string",
+      "description": "Audience for the token"
+    },
+    "tokenType": {
+      "type": "string",
+      "description": "Type of the token"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StockCertificateCrudRequest.json",
+  "title": "Stock Certificate Body",
+  "required": [
+    "effectiveDate",
+    "issuePrice",
+    "quantity",
+    "stockCertificateNumber",
+    "stockDesignationId"
+  ],
+  "type": "object",
+  "properties": {
+    "stockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation",
+      "format": "int32"
+    },
+    "effectiveDate": {
+      "type": "string",
+      "description": "Effective date for the stock certificate",
+      "format": "date"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity of shares for the stock certificate",
+      "format": "double"
+    },
+    "issuePrice": {
+      "type": "number",
+      "description": "Issue price (a.k.a. strike price) for the stock certificate",
+      "format": "double"
+    },
+    "boardApprovalDate": {
+      "type": "string",
+      "description": "Board approval date for the stock certificate (if not supplied, the certificate will be created with an unapproved status)",
+      "format": "date"
+    },
+    "stockCertificateNumber": {
+      "type": "string",
+      "description": "Number for the stock certificate"
+    },
+    "vestingScheduleId": {
+      "type": "integer",
+      "description": "Identifier for the vesting schedule",
+      "format": "int32"
+    },
+    "vestingStartDate": {
+      "type": "string",
+      "description": "Vesting base or commencement date for the vesting schedule",
+      "format": "date"
+    },
+    "manualVestingRows": {
+      "type": "array",
+      "description": "List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule",
+      "items": {
+        "$ref": "#/components/schemas/ManualVestingRowCrudRequest"
+      }
+    }
+  }
+}

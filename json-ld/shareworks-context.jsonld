@@ -1,0 +1,80 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "shareworks": "https://shareworks.solium.com/rest/admin/v1/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "Company": "shareworks:company",
+    "Grant": "shareworks:grant",
+    "Plan": "shareworks:plan",
+    "Stakeholder": "shareworks:stakeholder",
+    "IndividualStakeholder": "shareworks:stakeholder/individual",
+    "EntityStakeholder": "shareworks:stakeholder/entity",
+    "VestingSchedule": "shareworks:vesting-schedule",
+    "AuthorizedCapital": "shareworks:authorized-capital",
+    "StockCertificate": "shareworks:stock-certificate",
+    "StockFiling": "shareworks:stock-filing",
+    "AwardType": "shareworks:award-type",
+    "CompanyBoard": "shareworks:board",
+    "Holdings": "shareworks:holdings",
+    "AuthenticationToken": "shareworks:auth/tokens",
+    "companyId": {
+      "@id": "shareworks:company/id",
+      "@type": "xsd:string"
+    },
+    "stakeholderId": {
+      "@id": "shareworks:stakeholder/id",
+      "@type": "xsd:string"
+    },
+    "grantId": {
+      "@id": "shareworks:grant/id",
+      "@type": "xsd:string"
+    },
+    "planId": {
+      "@id": "shareworks:plan/id",
+      "@type": "xsd:string"
+    },
+    "vestingScheduleId": {
+      "@id": "shareworks:vesting-schedule/id",
+      "@type": "xsd:string"
+    },
+    "appointmentId": {
+      "@id": "shareworks:board/appointment/id",
+      "@type": "xsd:string"
+    },
+    "stockCertificateId": {
+      "@id": "shareworks:stock-certificate/id",
+      "@type": "xsd:string"
+    },
+    "accessToken": {
+      "@id": "shareworks:auth/access-token",
+      "@type": "xsd:string"
+    },
+    "classOfSecurities": {
+      "@id": "shareworks:authorized-capital/class",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "description": "schema:description",
+    "email": "schema:email",
+    "identifier": "schema:identifier",
+    "startDate": {
+      "@id": "schema:startDate",
+      "@type": "xsd:date"
+    },
+    "endDate": {
+      "@id": "schema:endDate",
+      "@type": "xsd:date"
+    },
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "price": "schema:price",
+    "amount": "schema:amount"
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StockFilingDesignationDetails.json",
+  "title": "Stock Filing Designation Response",
+  "required": [
+    "convertible",
+    "parValue",
+    "stockDesignationId",
+    "stockDesignationName",
+    "totalAuthorizedShares"
+  ],
+  "type": "object",
+  "properties": {
+    "stockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation",
+      "format": "int32"
+    },
+    "stockDesignationName": {
+      "type": "string",
+      "description": "Name for the stock designation"
+    },
+    "fundingRound": {
+      "type": "integer",
+      "description": "Funding round number for the stock designation",
+      "format": "int64"
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total number of authorized shares for the stock designation",
+      "format": "double"
+    },
+    "parValue": {
+      "type": "number",
+      "description": "Par value for the stock designation",
+      "format": "double"
+    },
+    "pricePerShare": {
+      "type": "number",
+      "description": "Price per share for the stock designation",
+      "format": "double"
+    },
+    "convertible": {
+      "type": "boolean",
+      "description": "Whether the stock designation is convertible"
+    },
+    "convertsToStockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation which the stock designation converts to",
+      "format": "int32"
+    },
+    "conversionRatioAntecedent": {
+      "type": "number",
+      "description": "The antecedent of the conversion ratio. E.g. 2 for a 2:1 conversion (2 converted shares for each original share)",
+      "format": "double"
+    },
+    "conversionRatioConsequent": {
+      "type": "number",
+      "description": "The consequent of the conversion ratio. E.g. 1 for a 2:1 conversion (2 converted shares for each original share)",
+      "format": "double"
+    },
+    "rounding": {
+      "type": "string",
+      "description": "Rounding type used when converting shares from the stock designation",
+      "enum": [
+        "NORMAL",
+        "UP",
+        "DOWN"
+      ]
+    }
+  },
+  "description": "List of all stock designations for the class of securities"
+}

@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/DesignatedSharesSummaryDetails.json",
+  "title": "Class Designated Share Summary Response",
+  "required": [
+    "totalAvailableShares",
+    "totalCommonStockEquivalentShares",
+    "totalOutstandingShares"
+  ],
+  "type": "object",
+  "properties": {
+    "totalAvailableShares": {
+      "type": "number",
+      "description": "Total available shares across the stock designations for the class",
+      "format": "double"
+    },
+    "totalOutstandingShares": {
+      "type": "number",
+      "description": "Total outstanding shares across the stock designations for the class",
+      "format": "double"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total common equivalent (a.k.a. fully diluted) shares across the stock designations for the class",
+      "format": "double"
+    }
+  },
+  "description": "Summary of all shares across the stock designations for the class"
+}

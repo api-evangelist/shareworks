@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/ManualVestingRowCrudRequest.json",
+  "title": "Manual Vesting Row Body",
+  "type": "object",
+  "properties": {
+    "vestDate": {
+      "type": "string",
+      "description": "Date on which the vesting occurs for the row/tranche",
+      "format": "date"
+    },
+    "vestQuantity": {
+      "type": "number",
+      "description": "Quantity of shares to vest for the row/tranche",
+      "format": "double"
+    }
+  },
+  "description": "List of all manual vesting rows for the grant, specified when using a manual vesting schedule"
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/VestingScheduleDetails.json",
+  "title": "Vesting Schedule Response",
+  "required": [
+    "vestingBasis",
+    "vestingScheduleDescription",
+    "vestingScheduleId",
+    "vestingScheduleName",
+    "vestingScheduleRows",
+    "wholeUnitVesting"
+  ],
+  "type": "object",
+  "properties": {
+    "vestingScheduleId": {
+      "type": "integer",
+      "description": "Identifier for the vesting schedule",
+      "format": "int32"
+    },
+    "vestingScheduleName": {
+      "type": "string",
+      "description": "Name for the vesting schedule"
+    },
+    "vestingScheduleDescription": {
+      "type": "string",
+      "description": "Sentence(s) for describing the vesting schedule"
+    },
+    "vestingBasis": {
+      "type": "string",
+      "description": "Basis type to specify how the vesting start date is determined",
+      "enum": [
+        "GRANT_DATE",
+        "GRANT_VESTING_START_DATE",
+        "SPECIFIED_DATE",
+        "OTHER"
+      ]
+    },
+    "vestingBasisSpecifiedDate": {
+      "type": "string",
+      "description": "Date to be used as vesting start date for all grants/certificates using the schedule, only set when vestingBasis is SPECIFIED_DATE",
+      "format": "date"
+    },
+    "vestingScheduleAllocationType": {
+      "type": "string",
+      "description": "Strategy for determination allocation of uneven tranches",
+      "enum": [
+        "CUMULATIVE_ROUNDING",
+        "CUMUL_ROUND_V2",
+        "CUMULATIVE_ROUND_DOWN",
+        "FRONT_LOADED",
+        "FRONT_LOADED_TO_SINGLE_TRANCHE",
+        "BACK_LOADED",
+        "BACK_LOADED_TO_SINGLE_TRANCHE",
+        "OTHER"
+      ]
+    },
+    "wholeUnitVesting": {
+      "type": "boolean",
+      "description": "Whether fractional vesting tranches are disallowed (value 'true' indicates the allocation strategy will be used)"
+    },
+    "vestingScheduleRows": {
+      "type": "array",
+      "description": "List of all rows/tranches for the vesting schedule",
+      "items": {
+        "$ref": "#/components/schemas/VestingScheduleRowDetails"
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StakeholderGrantAcceleratedVestingCrudRequest.json",
+  "title": "Vesting Acceleration Body",
+  "required": [
+    "accelerationPercent",
+    "accelerationPeriod",
+    "accelerationTrigger"
+  ],
+  "type": "object",
+  "properties": {
+    "accelerationTrigger": {
+      "type": "string",
+      "description": "The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL"
+    },
+    "accelerationPeriod": {
+      "type": "integer",
+      "description": "The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration",
+      "format": "int32"
+    },
+    "accelerationPercent": {
+      "type": "integer",
+      "description": "The percent of the unvested shares that will be accelerated (1 to 100)",
+      "format": "int32"
+    }
+  },
+  "description": "(Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable."
+}

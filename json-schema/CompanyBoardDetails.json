@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/CompanyBoardDetails.json",
+  "title": "Company Board Response",
+  "required": [
+    "boardId",
+    "maximumSize",
+    "minimumSize",
+    "setAtSize"
+  ],
+  "type": "object",
+  "properties": {
+    "boardId": {
+      "type": "integer",
+      "description": "Identifier for the company board",
+      "format": "int32"
+    },
+    "minimumSize": {
+      "type": "integer",
+      "description": "Minimum number of stakeholders that must be on the board at one time",
+      "format": "int64"
+    },
+    "maximumSize": {
+      "type": "integer",
+      "description": "Maximum number of stakeholders that may be on the board at one time",
+      "format": "int64"
+    },
+    "setAtSize": {
+      "type": "integer",
+      "description": "The default, general, or target value at which the board is set and from which vacancies are relatively calculated",
+      "format": "int64"
+    },
+    "quorumSize": {
+      "type": "integer",
+      "description": "Minimum amount of members required to be present to have a quorum",
+      "format": "int64"
+    }
+  }
+}

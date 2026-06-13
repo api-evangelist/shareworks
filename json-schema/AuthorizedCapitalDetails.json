@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/AuthorizedCapitalDetails.json",
+  "title": "Authorized Capital Response",
+  "required": [
+    "certificatedShares",
+    "classesOfSecurities",
+    "companyId",
+    "percentageOfFullyDilutedAvailableShares",
+    "percentageOfFullyDilutedOutstandingShares",
+    "plans",
+    "totalAuthorizedShares",
+    "totalCommonStockEquivalentShares",
+    "totalOutstandingShares",
+    "warrants"
+  ],
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "integer",
+      "description": "Identifier for the company",
+      "format": "int32"
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total shares authorized across all types of securities",
+      "format": "double"
+    },
+    "totalOutstandingShares": {
+      "type": "number",
+      "description": "Total outstanding shares across all types of securities",
+      "format": "double"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total common equivalent (a.k.a. fully diluted) shares across all types of securities",
+      "format": "double"
+    },
+    "percentageOfFullyDilutedOutstandingShares": {
+      "type": "number",
+      "description": "Percentage of fully diluted outstanding shares across all types of securities",
+      "format": "double"
+    },
+    "percentageOfFullyDilutedAvailableShares": {
+      "type": "number",
+      "description": "Percentage of fully diluted available shares across all types of securities",
+      "format": "double"
+    },
+    "currentFMV": {
+      "type": "number",
+      "description": "The fair market value for the company per share (usually the latest 409A valuation for private companies)",
+      "format": "double"
+    },
+    "classesOfSecurities": {
+      "type": "array",
+      "description": "List of summary information for all classes of securities for the company",
+      "items": {
+        "$ref": "#/components/schemas/ClassOfSecuritiesSummaryDetails"
+      }
+    },
+    "warrants": {
+      "$ref": "#/components/schemas/WarrantsSummaryDetails"
+    },
+    "plans": {
+      "type": "array",
+      "description": "List of summary information for all plans for the company",
+      "items": {
+        "$ref": "#/components/schemas/PlanSummaryDetails"
+      }
+    },
+    "certificatedShares": {
+      "type": "boolean",
+      "description": "Whether the stock certificates are paper (value 'false' indicates they are digital)"
+    }
+  }
+}

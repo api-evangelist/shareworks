@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/AwardTypeDetails.json",
+  "title": "Award Type Response",
+  "required": [
+    "awardTypeId",
+    "awardTypeName"
+  ],
+  "type": "object",
+  "properties": {
+    "awardTypeId": {
+      "type": "integer",
+      "description": "Identifier for the company award type",
+      "format": "int32"
+    },
+    "awardTypeName": {
+      "type": "string",
+      "description": "Name for the company award type"
+    }
+  }
+}

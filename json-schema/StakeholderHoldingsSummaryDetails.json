@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StakeholderHoldingsSummaryDetails.json",
+  "title": "Stakeholder Holdings Response",
+  "required": [
+    "designationsParticipated",
+    "holdings",
+    "percentOwnershipTotalCommonStockEquivalent",
+    "percentOwnershipTotalOutstanding",
+    "stakeholderId",
+    "stakeholderName",
+    "totalCommonStockEquivalentShares",
+    "totalOutstandingShares"
+  ],
+  "type": "object",
+  "properties": {
+    "stakeholderId": {
+      "type": "integer",
+      "description": "Identifier for the stakeholder",
+      "format": "int32"
+    },
+    "stakeholderName": {
+      "type": "string",
+      "description": "Formatted full name for the stakeholder"
+    },
+    "totalOutstandingShares": {
+      "type": "number",
+      "description": "Total outstanding shares across all holdings for the stakeholder",
+      "format": "double"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder",
+      "format": "double"
+    },
+    "percentOwnershipTotalOutstanding": {
+      "type": "number",
+      "description": "Percentage representing the fraction of total outstanding shares across all holdings for the stakeholder",
+      "format": "double"
+    },
+    "percentOwnershipTotalCommonStockEquivalent": {
+      "type": "number",
+      "description": "Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder",
+      "format": "double"
+    },
+    "designationsParticipated": {
+      "type": "array",
+      "description": "List of all the designations a stakeholder has participated in",
+      "items": {
+        "type": "string",
+        "description": "List of all the designations a stakeholder has participated in"
+      }
+    },
+    "holdings": {
+      "$ref": "#/components/schemas/StakeholderHoldingsDetails"
+    }
+  }
+}

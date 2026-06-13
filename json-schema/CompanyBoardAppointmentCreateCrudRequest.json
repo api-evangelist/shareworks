@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/CompanyBoardAppointmentCreateCrudRequest.json",
+  "title": "Company Board Appointment Body",
+  "required": [
+    "dateAppointed",
+    "isDirector",
+    "isIndependent",
+    "isOfficer",
+    "stakeholderId",
+    "title"
+  ],
+  "type": "object",
+  "properties": {
+    "stakeholderId": {
+      "type": "integer",
+      "description": "Identifier for the stakeholder",
+      "format": "int32"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title of the stakeholder position on the board (e.g. CFO)"
+    },
+    "isIndependent": {
+      "type": "boolean",
+      "description": "Whether the company board appointment is an independent"
+    },
+    "isDirector": {
+      "type": "boolean",
+      "description": "Whether the company board appointment is a director"
+    },
+    "isOfficer": {
+      "type": "boolean",
+      "description": "Whether the company board appointment is an officer"
+    },
+    "dateAppointed": {
+      "type": "string",
+      "description": "Date of appointment for the company board appointment",
+      "format": "date"
+    },
+    "dateApproved": {
+      "type": "string",
+      "description": "Date of approval for the company board appointment",
+      "format": "date"
+    },
+    "dateTerminated": {
+      "type": "string",
+      "description": "Date of termination for the company board appointment",
+      "format": "date"
+    },
+    "note": {
+      "type": "string",
+      "description": "Notes for the company board appointment"
+    }
+  }
+}

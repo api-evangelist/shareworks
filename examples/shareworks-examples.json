@@ -1,0 +1,484 @@
+{
+  "examples": [
+    {
+      "operationId": "issue",
+      "summary": "POST Auth Token",
+      "method": "POST",
+      "path": "/v1/auth/tokens",
+      "tags": [
+        "Authentication Token",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "refresh",
+      "summary": "POST Refresh Auth Token",
+      "method": "POST",
+      "path": "/v1/refresh/tokens",
+      "tags": [
+        "Authentication Token",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "terminateSession",
+      "summary": "POST Terminate Token",
+      "method": "POST",
+      "path": "/v1/terminate/tokens",
+      "tags": [
+        "Authentication Token",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getCompanyEquityDetails",
+      "summary": "GET Authorized Capital",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital",
+      "tags": [
+        "Authorized Capital",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getCompanyPlanDetails",
+      "summary": "GET Authorized Capital Plan",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital/plan/{planId}",
+      "tags": [
+        "Authorized Capital",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getCompanySecuritiesDetails",
+      "summary": "GET Authorized Capital Class",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital/securities/{classOfSecurities}",
+      "tags": [
+        "Authorized Capital",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getFundDetails",
+      "summary": "GET 409A Valuations",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital/409a",
+      "tags": [
+        "Authorized Capital",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getStockDesignations",
+      "summary": "GET Stock Designations (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital/designations",
+      "tags": [
+        "Authorized Capital",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getAllAwardTypeDetails",
+      "summary": "GET Award Type (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/award-type",
+      "tags": [
+        "Award Type",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "submit",
+      "summary": "POST Company Integration Key",
+      "method": "POST",
+      "path": "/v1/company/integration",
+      "tags": [
+        "Company Integration",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getAllCompanyDetails",
+      "summary": "GET Company (All)",
+      "method": "GET",
+      "path": "/v1/company",
+      "tags": [
+        "Company",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createCompany",
+      "summary": "POST Company (Create)",
+      "method": "POST",
+      "path": "/v1/company",
+      "tags": [
+        "Company",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getCompanyDetails",
+      "summary": "GET Company (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}",
+      "tags": [
+        "Company",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateCompany",
+      "summary": "PUT Company (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}",
+      "tags": [
+        "Company",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "createEquityIncentivePlan",
+      "summary": "POST Plan (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/plan",
+      "tags": [
+        "Plan",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getStockCertificates",
+      "summary": "GET Stock Certificate (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/{stakeholderId}/stock-certificate",
+      "tags": [
+        "Stock Certificate",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createStockCertificate",
+      "summary": "POST Stock Certificate (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/{stakeholderId}/stock-certificate",
+      "tags": [
+        "Stock Certificate",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getStockCertificate",
+      "summary": "GET Stock Certificate (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/stock-certificate/{stockCertificateId}",
+      "tags": [
+        "Stock Certificate",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateStockCertificate",
+      "summary": "PUT Stock Certificate (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/stakeholder/stock-certificate/{stockCertificateId}",
+      "tags": [
+        "Stock Certificate",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "createStockFilingWithNewDesignation",
+      "summary": "POST Stock Filing Designation (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/authorized-capital/stock-designation",
+      "tags": [
+        "Stock Filing",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getStockFilingLatestDetails",
+      "summary": "GET Stock Filing (Latest)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/authorized-capital/stock-filing/latest",
+      "tags": [
+        "Stock Filing",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getAllVestingScheduleDetails",
+      "summary": "GET Vesting Schedule (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/vesting-schedule",
+      "tags": [
+        "Vesting Schedule",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createVestingSchedule",
+      "summary": "POST Vesting Schedule (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/vesting-schedule",
+      "tags": [
+        "Vesting Schedule",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getAllManualVestingScheduleDetails",
+      "summary": "GET Manual Vesting Schedules (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/vesting-schedule/manual",
+      "tags": [
+        "Vesting Schedule",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getVestingScheduleDetails",
+      "summary": "GET Vesting Schedule (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/vesting-schedule/{vestingScheduleId}",
+      "tags": [
+        "Vesting Schedule",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateVestingSchedule",
+      "summary": "PUT Vesting Schedule (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/vesting-schedule/{vestingScheduleId}",
+      "tags": [
+        "Vesting Schedule",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "createAppointment",
+      "summary": "POST Company Board Appointment (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/board/appointment",
+      "tags": [
+        "Company Board",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getCompanyBoard",
+      "summary": "GET Company Board",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/board",
+      "tags": [
+        "Company Board",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateCompanyBoard",
+      "summary": "PUT Company Board (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/board",
+      "tags": [
+        "Company Board",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "createCompanyBoard",
+      "summary": "POST Company Board (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/board",
+      "tags": [
+        "Company Board",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getBoardAppointment",
+      "summary": "GET Company Board Appointment",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/board/appointment/{appointmentId}",
+      "tags": [
+        "Company Board",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateAppointment",
+      "summary": "PUT Company Board Appointment (Update) ",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/board/appointment/{appointmentId}",
+      "tags": [
+        "Company Board",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getStakeholderGrants",
+      "summary": "GET Grant (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/{stakeholderId}/grant",
+      "tags": [
+        "Grant",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createStakeholderGrant",
+      "summary": "POST Grant (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/{stakeholderId}/grant",
+      "tags": [
+        "Grant",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getStakeholderGrant",
+      "summary": "GET Grant (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/grant/{grantId}",
+      "tags": [
+        "Grant",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateStakeholderGrant",
+      "summary": "PUT Grant (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/stakeholder/grant/{grantId}",
+      "tags": [
+        "Grant",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getAllStakeholderHoldings",
+      "summary": "GET Holdings (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/holdings",
+      "tags": [
+        "Holdings",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getStakeholderHoldings",
+      "summary": "GET Holdings (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/holdings/{stakeholderId}",
+      "tags": [
+        "Holdings",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "getCompanyStakeholderEntities",
+      "summary": "GET Entity Stakeholder (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/entity",
+      "tags": [
+        "Entity Stakeholder",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createEntityStakeholder",
+      "summary": "POST Entity Stakeholder (Create) ",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/entity",
+      "tags": [
+        "Entity Stakeholder",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getAllIndividualStakeholders",
+      "summary": "GET Individual Stakeholder (All)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/individual",
+      "tags": [
+        "Individual Stakeholder",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createIndividualStakeholder",
+      "summary": "POST Individual Stakeholder (Create)",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/individual",
+      "tags": [
+        "Individual Stakeholder",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getEntityStakeholder",
+      "summary": "GET Entity Stakeholder (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/entity/{stakeholderId}",
+      "tags": [
+        "Entity Stakeholder",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateEntityStakeholder",
+      "summary": "PUT Entity Stakeholder (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/stakeholder/entity/{stakeholderId}",
+      "tags": [
+        "Entity Stakeholder",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "getIndividualStakeholder",
+      "summary": "GET Individual Stakeholder (Single)",
+      "method": "GET",
+      "path": "/v1/company/{companyId}/stakeholder/individual/{stakeholderId}",
+      "tags": [
+        "Individual Stakeholder",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "updateIndividualStakeholder",
+      "summary": "PUT Individual Stakeholder (Update)",
+      "method": "PUT",
+      "path": "/v1/company/{companyId}/stakeholder/individual/{stakeholderId}",
+      "tags": [
+        "Individual Stakeholder",
+        "Write Access"
+      ]
+    },
+    {
+      "operationId": "createStakeholderSearchForEntities",
+      "summary": "POST Entity Search",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/entity/search",
+      "tags": [
+        "Entity Stakeholder",
+        "Read Access"
+      ]
+    },
+    {
+      "operationId": "createStakeholderSearchForIndividuals",
+      "summary": "POST Individual Search",
+      "method": "POST",
+      "path": "/v1/company/{companyId}/stakeholder/individual/search",
+      "tags": [
+        "Individual Stakeholder",
+        "Read Access"
+      ]
+    }
+  ]
+}

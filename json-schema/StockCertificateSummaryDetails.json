@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StockCertificateSummaryDetails.json",
+  "title": "Stock Certificate Summary Response",
+  "required": [
+    "effectiveDate",
+    "issuePrice",
+    "issueReason",
+    "quantity",
+    "stakeholderId",
+    "stockCertificateId",
+    "stockCertificateNumber",
+    "stockDesignationId",
+    "stockDesignationName",
+    "unvestedQuantity",
+    "vestedQuantity"
+  ],
+  "type": "object",
+  "properties": {
+    "stockCertificateId": {
+      "type": "integer",
+      "description": "Identifier for the stock certificate",
+      "format": "int32"
+    },
+    "stakeholderId": {
+      "type": "integer",
+      "description": "Identifier for the stakeholder",
+      "format": "int32"
+    },
+    "stockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation",
+      "format": "int32"
+    },
+    "stockDesignationName": {
+      "type": "string",
+      "description": "Name for the stock designation"
+    },
+    "stockCertificateNumber": {
+      "type": "string",
+      "description": "Number for the stock certificate"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity of shares for the stock certificate",
+      "format": "double"
+    },
+    "issuePrice": {
+      "type": "number",
+      "description": "Issue price (a.k.a. strike price) for the stock certificate",
+      "format": "double"
+    },
+    "issueReason": {
+      "type": "string",
+      "description": "Issue reason for the stock certificate",
+      "enum": [
+        "ORIGINAL_ISSUANCE",
+        "ORIGINAL_ISSUANCE_WITH_VESTING",
+        "OTHER"
+      ]
+    },
+    "effectiveDate": {
+      "type": "string",
+      "description": "Effective date for the stock certificate",
+      "format": "date"
+    },
+    "boardApprovalDate": {
+      "type": "string",
+      "description": "Board approval date for the stock certificate (if not supplied, the certificate will be created with an unapproved status)",
+      "format": "date"
+    },
+    "vestingScheduleId": {
+      "type": "integer",
+      "description": "Identifier for the vesting schedule",
+      "format": "int32"
+    },
+    "vestingScheduleName": {
+      "type": "string",
+      "description": "Name for the vesting schedule"
+    },
+    "vestingStartDate": {
+      "type": "string",
+      "description": "Vesting base or commencement date for the vesting schedule",
+      "format": "date"
+    },
+    "manualVestingRows": {
+      "type": "array",
+      "description": "List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule",
+      "items": {
+        "$ref": "#/components/schemas/ManualVestingRowDetails"
+      }
+    },
+    "vestedQuantity": {
+      "type": "number",
+      "description": "Quantity of the total shares which are vested",
+      "format": "double"
+    },
+    "unvestedQuantity": {
+      "type": "number",
+      "description": "Quantity of the total shares which are yet unvested, and are only held as the result of an early exercise",
+      "format": "double"
+    }
+  },
+  "description": "List of stock certificates held by the stakeholder"
+}

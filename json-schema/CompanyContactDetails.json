@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/CompanyContactDetails.json",
+  "title": "Company Contact Response",
+  "required": [
+    "contactId",
+    "name"
+  ],
+  "type": "object",
+  "properties": {
+    "contactId": {
+      "type": "integer",
+      "description": "Identifier for the company contact",
+      "format": "int32"
+    },
+    "name": {
+      "type": "string",
+      "description": "Full name for the company contact"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title for the company contact (e.g. CEO)"
+    },
+    "primaryEmailAddress": {
+      "type": "string",
+      "description": "Email address for the company contact"
+    },
+    "primaryPhone": {
+      "type": "string",
+      "description": "Primary phone number for the company contact"
+    },
+    "primaryPhoneExt": {
+      "type": "string",
+      "description": "Primary phone extension for the company contact, if applicable"
+    }
+  },
+  "description": "List of all company contacts"
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/AccessTokenWrapper.json",
+  "title": "Token Wrapper",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "$ref": "#/components/schemas/AccessTokenResponse"
+    }
+  }
+}

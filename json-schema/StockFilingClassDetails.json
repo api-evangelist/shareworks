@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StockFilingClassDetails.json",
+  "title": "Stock Filing Class Response",
+  "required": [
+    "classOfSecurities",
+    "designations",
+    "totalAuthorizedShares"
+  ],
+  "type": "object",
+  "properties": {
+    "classOfSecurities": {
+      "type": "string",
+      "description": "Whether the class is common or preferred stock",
+      "enum": [
+        "COMMON",
+        "PREFERRED",
+        "COMMON_STOCK",
+        "PREFERRED_STOCK"
+      ]
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total number of authorized shares for the class of securities",
+      "format": "double"
+    },
+    "designations": {
+      "type": "array",
+      "description": "List of all stock designations for the class of securities",
+      "items": {
+        "$ref": "#/components/schemas/StockFilingDesignationDetails"
+      }
+    }
+  },
+  "description": "List of all classes of securities for the stock filing"
+}

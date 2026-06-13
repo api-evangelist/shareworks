@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/ClassOfSecuritiesDetails.json",
+  "title": "Authorized Capital Class Detailed Response",
+  "required": [
+    "classOfSecurities",
+    "stockDesignations",
+    "totalAuthorizedShares",
+    "totalCommonStockEquivalentShares",
+    "totalDesignatedShares",
+    "totalOutstandingShares"
+  ],
+  "type": "object",
+  "properties": {
+    "classOfSecurities": {
+      "type": "string",
+      "description": "Whether the class is common or preferred stock",
+      "enum": [
+        "COMMON",
+        "PREFERRED",
+        "COMMON_STOCK",
+        "PREFERRED_STOCK"
+      ]
+    },
+    "parValue": {
+      "type": "number",
+      "description": "Par value for the class of securities",
+      "format": "double"
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total number of authorized shares for the class of securities",
+      "format": "double"
+    },
+    "totalDesignatedShares": {
+      "type": "number",
+      "description": "Total shares designated to one or more stock designations for the class",
+      "format": "double"
+    },
+    "totalOutstandingShares": {
+      "type": "number",
+      "description": "Total outstanding shares from all stock designations for the class",
+      "format": "double"
+    },
+    "totalCommonStockEquivalentShares": {
+      "type": "number",
+      "description": "Total fully diluted shares from all stock designations for the class",
+      "format": "double"
+    },
+    "stockDesignations": {
+      "type": "array",
+      "description": "List of all stock designations for the class of securities",
+      "items": {
+        "$ref": "#/components/schemas/SecuritiesDesignationDetails"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StockFilingDetails.json",
+  "title": "Stock Filing Response",
+  "required": [
+    "classesOfSecurities",
+    "companyId",
+    "filingDate",
+    "stockFilingId"
+  ],
+  "type": "object",
+  "properties": {
+    "stockFilingId": {
+      "type": "integer",
+      "description": "Identifier for the stock filing",
+      "format": "int32"
+    },
+    "companyId": {
+      "type": "integer",
+      "description": "Identifier for the company",
+      "format": "int32"
+    },
+    "filingDate": {
+      "type": "string",
+      "description": "Date on which the stock filing occurred",
+      "format": "date"
+    },
+    "classesOfSecurities": {
+      "type": "array",
+      "description": "List of all classes of securities for the stock filing",
+      "items": {
+        "$ref": "#/components/schemas/StockFilingClassDetails"
+      }
+    }
+  }
+}

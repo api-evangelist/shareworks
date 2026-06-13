@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/WrappedDataStockCertificateDetails.json",
+  "title": "WrappedDataStockCertificateDetails",
+  "type": "object",
+  "properties": {
+    "accessToken": {
+      "$ref": "#/components/schemas/AccessTokenResponse"
+    },
+    "data": {
+      "$ref": "#/components/schemas/StockCertificateDetails"
+    }
+  }
+}

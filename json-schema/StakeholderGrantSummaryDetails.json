@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/StakeholderGrantSummaryDetails.json",
+  "title": "Grant Summary Response",
+  "required": [
+    "allowEarlyExercise",
+    "awardTypeId",
+    "awardTypeName",
+    "cancelledShares",
+    "exercisedShares",
+    "expiryDate",
+    "grantCurrency",
+    "grantDate",
+    "grantId",
+    "grantName",
+    "grantNumber",
+    "grantPrice",
+    "grantedShares",
+    "marketPriceAtTimeOfGrant",
+    "outstandingShares",
+    "planId",
+    "stakeholderId",
+    "underRule701",
+    "vestingScheduleId",
+    "vestingScheduleName",
+    "vestingStartDate"
+  ],
+  "type": "object",
+  "properties": {
+    "grantId": {
+      "type": "integer",
+      "description": "Identifier for the grant",
+      "format": "int32"
+    },
+    "stakeholderId": {
+      "type": "integer",
+      "description": "Identifier for the stakeholder",
+      "format": "int32"
+    },
+    "planId": {
+      "type": "integer",
+      "description": "Identifier for the company plan",
+      "format": "int32"
+    },
+    "awardTypeId": {
+      "type": "integer",
+      "description": "Identifier for the company award type",
+      "format": "int32"
+    },
+    "awardTypeName": {
+      "type": "string",
+      "description": "Name for the company award type"
+    },
+    "grantName": {
+      "type": "string",
+      "description": "Name for the grant, typically generated"
+    },
+    "grantNumber": {
+      "type": "string",
+      "description": "Number for the grant, typically generated"
+    },
+    "grantPrice": {
+      "type": "number",
+      "description": "Price at which the shares are granted",
+      "format": "double"
+    },
+    "marketPriceAtTimeOfGrant": {
+      "type": "number",
+      "description": "The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)",
+      "format": "double"
+    },
+    "grantCurrency": {
+      "type": "string",
+      "description": "Currency for the grant price / market price at time of grant",
+      "enum": [
+        "USD",
+        "CAD",
+        "GBP",
+        "EUR",
+        "JPY",
+        "AUD",
+        "KRW",
+        "DZD",
+        "AOA",
+        "ARS",
+        "AMD",
+        "AWG",
+        "BSD",
+        "BHD",
+        "BDT",
+        "BBD",
+        "BOB",
+        "BWP",
+        "BRL",
+        "BND",
+        "BGN",
+        "BZD",
+        "KYD",
+        "CLP",
+        "CNY",
+        "COP",
+        "CRC",
+        "HRK",
+        "CZK",
+        "DKK",
+        "DOP",
+        "XCD",
+        "EGP",
+        "ETB",
+        "FJD",
+        "XAF",
+        "GMD",
+        "GHS",
+        "GIP",
+        "GTQ",
+        "HNL",
+        "HKD",
+        "HUF",
+        "ISK",
+        "INR",
+        "IDR",
+        "IQD",
+        "ILS",
+        "JMD",
+        "JOD",
+        "KZT",
+        "KES",
+        "KWD",
+        "LSL",
+        "MOP",
+        "MWK",
+        "MYR",
+        "MUR",
+        "MXN",
+        "MAD",
+        "MZN",
+        "MMK",
+        "NAD",
+        "ANG",
+        "NZD",
+        "NGN",
+        "NOK",
+        "OMR",
+        "PKR",
+        "PAB",
+        "PGK",
+        "PYG",
+        "PEN",
+        "PHP",
+        "PLN",
+        "QAR",
+        "RON",
+        "RUB",
+        "SAR",
+        "RSD",
+        "SCR",
+        "SGD",
+        "ZAR",
+        "SDG",
+        "LKR",
+        "SZL",
+        "SEK",
+        "CHF",
+        "TWD",
+        "TZS",
+        "THB",
+        "TTD",
+        "TND",
+        "TRY",
+        "UGX",
+        "UAH",
+        "AED",
+        "UYU",
+        "UZS",
+        "VEF",
+        "VES",
+        "VND",
+        "XOF",
+        "ZWL",
+        "ZMW"
+      ]
+    },
+    "grantDate": {
+      "type": "string",
+      "description": "Date on which the shares are granted",
+      "format": "date"
+    },
+    "expiryDate": {
+      "type": "string",
+      "description": "Expiry date for the grant",
+      "format": "date"
+    },
+    "allowEarlyExercise": {
+      "type": "boolean",
+      "description": "Whether early exercises are allowed for the grant"
+    },
+    "underRule701": {
+      "type": "boolean",
+      "description": "Whether rule 701 applies to the grant"
+    },
+    "vestingScheduleId": {
+      "type": "integer",
+      "description": "Identifier for the vesting schedule",
+      "format": "int32"
+    },
+    "vestingScheduleName": {
+      "type": "string",
+      "description": "Name for the vesting schedule"
+    },
+    "vestingStartDate": {
+      "type": "string",
+      "description": "Vesting base or commencement date for the vesting schedule",
+      "format": "date"
+    },
+    "manualVestingRows": {
+      "type": "array",
+      "description": "List of all manual vesting rows for the grant, specified when using a manual vesting schedule",
+      "items": {
+        "$ref": "#/components/schemas/ManualVestingRowDetails"
+      }
+    },
+    "grantedShares": {
+      "type": "number",
+      "description": "Quantity of shares for the grant",
+      "format": "double"
+    },
+    "cancelledShares": {
+      "type": "number",
+      "description": "Number of shares cancelled for the grant",
+      "format": "double"
+    },
+    "exercisedShares": {
+      "type": "number",
+      "description": "Number of shares exercised for the grant",
+      "format": "double"
+    },
+    "outstandingShares": {
+      "type": "number",
+      "description": "Number of shares outstanding for the grant",
+      "format": "double"
+    },
+    "vestingAcceleration": {
+      "type": "array",
+      "description": "List of the vesting acceleration stipulations of the grant. May be empty.",
+      "items": {
+        "$ref": "#/components/schemas/StakeholderGrantAcceleratedVestingDetails"
+      }
+    }
+  },
+  "description": "List of grants held by the stakeholder"
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/SharePoolPlanDetails.json",
+  "title": "Plan Response",
+  "required": [
+    "planId",
+    "planName",
+    "sharePoolInitialAuthorizedQuantity",
+    "sharePoolIssueDate",
+    "sharePoolStockDesignationId"
+  ],
+  "type": "object",
+  "properties": {
+    "planId": {
+      "type": "integer",
+      "description": "Identifier for the company plan",
+      "format": "int32"
+    },
+    "planName": {
+      "type": "string",
+      "description": "Name for the company plan"
+    },
+    "sharePoolIssueDate": {
+      "type": "string",
+      "description": "Issue date of the share pool",
+      "format": "date"
+    },
+    "sharePoolInitialAuthorizedQuantity": {
+      "type": "number",
+      "description": "Initial authorized quantity of the share pool",
+      "format": "double"
+    },
+    "sharePoolStockDesignationId": {
+      "type": "integer",
+      "description": "Identifier for the stock designation attached to the share pool",
+      "format": "int32"
+    }
+  }
+}

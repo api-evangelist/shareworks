@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/CompanyIntegrationDetails.json",
+  "title": "Company Integration Response",
+  "required": [
+    "companyName"
+  ],
+  "type": "object",
+  "properties": {
+    "companyId": {
+      "type": "integer",
+      "description": "Identifier for the company",
+      "format": "int32"
+    },
+    "companyName": {
+      "type": "string",
+      "description": "Name for the company"
+    }
+  }
+}

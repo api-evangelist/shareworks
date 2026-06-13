@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/FundDetails.json",
+  "title": "Fund Details Response",
+  "type": "object",
+  "properties": {
+    "fundName": {
+      "type": "string",
+      "description": "Full name of the fund"
+    },
+    "fmv": {
+      "type": "number",
+      "description": "Fair market value of the fund",
+      "format": "double"
+    },
+    "effectiveDate": {
+      "type": "string",
+      "description": "The effective date of the fund",
+      "format": "date"
+    },
+    "expirationDate": {
+      "type": "string",
+      "description": "The expiration date of the fund",
+      "format": "date"
+    }
+  }
+}

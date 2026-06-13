@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/ClassOfSecuritiesSummaryDetails.json",
+  "title": "Class Summary Response",
+  "required": [
+    "classOfSecurities",
+    "designationSummary",
+    "totalAuthorizedShares",
+    "totalAvailableToDesignate"
+  ],
+  "type": "object",
+  "properties": {
+    "classOfSecurities": {
+      "type": "string",
+      "description": "Whether the class is common or preferred stock",
+      "enum": [
+        "COMMON",
+        "PREFERRED",
+        "COMMON_STOCK",
+        "PREFERRED_STOCK"
+      ]
+    },
+    "parValue": {
+      "type": "number",
+      "description": "Par value for the class of securities",
+      "format": "double"
+    },
+    "totalAuthorizedShares": {
+      "type": "number",
+      "description": "Total number of authorized shares for the class of securities",
+      "format": "double"
+    },
+    "totalAvailableToDesignate": {
+      "type": "number",
+      "description": "Total shares remaining to designate to stock designations for the class",
+      "format": "double"
+    },
+    "designationSummary": {
+      "$ref": "#/components/schemas/DesignatedSharesSummaryDetails"
+    }
+  },
+  "description": "List of summary information for all classes of securities for the company"
+}

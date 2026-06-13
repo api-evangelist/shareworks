@@ -1,0 +1,310 @@
+name: Shareworks Vocabulary
+description: Domain vocabulary for equity compensation management on the Shareworks
+  platform
+provider: shareworks
+terms:
+- term: Authentication Token
+  description: JWT bearer token used to authenticate API requests via RS256 signing
+  type: concept
+- term: Authorized Capital
+  description: Total shares a company is authorized to issue under its charter
+  type: concept
+- term: Award Type
+  description: Category of equity award such as stock options, RSUs, or ESPP
+  type: concept
+- term: Company
+  description: Legal entity managing equity compensation plans on the Shareworks platform
+  type: concept
+- term: Company Board
+  description: Board of directors appointments and governance records for a company
+  type: concept
+- term: Company Integration
+  description: Third-party system integration configuration for a company
+  type: concept
+- term: Entity Stakeholder
+  description: Non-individual legal entity holding equity such as a trust or corporation
+  type: concept
+- term: Grant
+  description: Award of equity compensation issued to a stakeholder
+  type: concept
+- term: Holdings
+  description: Aggregate equity position held by a stakeholder across all grants
+  type: concept
+- term: Individual Stakeholder
+  description: A natural person who holds or may hold equity in a company
+  type: concept
+- term: Plan
+  description: Equity compensation plan defining award rules, pool sizes, and eligibility
+  type: concept
+- term: Read Access
+  description: API permission level allowing retrieval of data without modification
+  type: concept
+- term: Stock Certificate
+  description: Legal instrument representing ownership of shares
+  type: concept
+- term: Stock Filing
+  description: Regulatory filing related to stock issuance or capitalization
+  type: concept
+- term: Vesting Schedule
+  description: Timeline defining when equity awards become exercisable or deliverable
+  type: concept
+- term: Write Access
+  description: API permission level allowing creation or modification of data
+  type: concept
+- term: AccessToken
+  description: Token to accompany all API requests for authentication purposes
+  type: schema
+- term: AccessTokenRequest
+  description: Data model for AccessTokenRequest in the Shareworks API
+  type: schema
+- term: AccessTokenResponse
+  description: Data model for AccessTokenResponse in the Shareworks API
+  type: schema
+- term: AccessTokenWrapper
+  description: Data model for AccessTokenWrapper in the Shareworks API
+  type: schema
+- term: AuthorizedCapitalDetails
+  description: Data model for AuthorizedCapitalDetails in the Shareworks API
+  type: schema
+- term: AwardTypeDetails
+  description: Data model for AwardTypeDetails in the Shareworks API
+  type: schema
+- term: ClassOfSecuritiesDetails
+  description: Data model for ClassOfSecuritiesDetails in the Shareworks API
+  type: schema
+- term: ClassOfSecuritiesSummaryDetails
+  description: List of summary information for all classes of securities for the company
+  type: schema
+- term: CompanyAddressCrudRequest
+  description: List of up to three company addresses
+  type: schema
+- term: CompanyAddressDetails
+  description: List of up to three company addresses
+  type: schema
+- term: CompanyBoardAppointmentCreateCrudRequest
+  description: Data model for CompanyBoardAppointmentCreateCrudRequest in the Shareworks
+    API
+  type: schema
+- term: CompanyBoardAppointmentDetails
+  description: Data model for CompanyBoardAppointmentDetails in the Shareworks API
+  type: schema
+- term: CompanyBoardAppointmentUpdateCrudRequest
+  description: Data model for CompanyBoardAppointmentUpdateCrudRequest in the Shareworks
+    API
+  type: schema
+- term: CompanyBoardCrudRequest
+  description: Data model for CompanyBoardCrudRequest in the Shareworks API
+  type: schema
+- term: CompanyBoardDetails
+  description: Data model for CompanyBoardDetails in the Shareworks API
+  type: schema
+- term: CompanyBoardDetailsWithAppointments
+  description: Data model for CompanyBoardDetailsWithAppointments in the Shareworks
+    API
+  type: schema
+- term: CompanyContactCrudRequest
+  description: List of all company contacts
+  type: schema
+- term: CompanyContactDetails
+  description: List of all company contacts
+  type: schema
+- term: CompanyCrudRequest
+  description: Data model for CompanyCrudRequest in the Shareworks API
+  type: schema
+- term: CompanyDetails
+  description: Data model for CompanyDetails in the Shareworks API
+  type: schema
+- term: CompanyIntegrationDetails
+  description: Data model for CompanyIntegrationDetails in the Shareworks API
+  type: schema
+- term: CompanyIntegrationRequest
+  description: Data model for CompanyIntegrationRequest in the Shareworks API
+  type: schema
+- term: DesignatedSharesSummaryDetails
+  description: Summary of all shares across the stock designations for the class
+  type: schema
+- term: EntityStakeholderCrudRequest
+  description: Data model for EntityStakeholderCrudRequest in the Shareworks API
+  type: schema
+- term: EntityStakeholderDetails
+  description: Data model for EntityStakeholderDetails in the Shareworks API
+  type: schema
+- term: EntityStakeholderSearchRequest
+  description: Data model for EntityStakeholderSearchRequest in the Shareworks API
+  type: schema
+- term: ErrorWithCode
+  description: Data model for ErrorWithCode in the Shareworks API
+  type: schema
+- term: FundDetails
+  description: Data model for FundDetails in the Shareworks API
+  type: schema
+- term: IndividualStakeholderCrudRequest
+  description: Data model for IndividualStakeholderCrudRequest in the Shareworks API
+  type: schema
+- term: IndividualStakeholderDetails
+  description: Data model for IndividualStakeholderDetails in the Shareworks API
+  type: schema
+- term: IndividualStakeholderSearchRequest
+  description: Data model for IndividualStakeholderSearchRequest in the Shareworks
+    API
+  type: schema
+- term: ManualVestingRowCrudRequest
+  description: List of all manual vesting rows for the grant, specified when using
+    a manual vesting schedule
+  type: schema
+- term: ManualVestingRowDetails
+  description: List of all manual vesting rows for the grant, specified when using
+    a manual vesting schedule
+  type: schema
+- term: ManualVestingScheduleDetails
+  description: Data model for ManualVestingScheduleDetails in the Shareworks API
+  type: schema
+- term: PlanSummaryDetails
+  description: List of summary information for all plans for the company
+  type: schema
+- term: PlanSummaryDetailsWithGrants
+  description: Data model for PlanSummaryDetailsWithGrants in the Shareworks API
+  type: schema
+- term: RestApiErrorResponse
+  description: Data model for RestApiErrorResponse in the Shareworks API
+  type: schema
+- term: SecuritiesDesignationDetails
+  description: Data model for SecuritiesDesignationDetails in the Shareworks API
+  type: schema
+- term: SharePoolPlanCreationRequest
+  description: Data model for SharePoolPlanCreationRequest in the Shareworks API
+  type: schema
+- term: SharePoolPlanDetails
+  description: Data model for SharePoolPlanDetails in the Shareworks API
+  type: schema
+- term: StakeholderGrantAcceleratedVestingCrudRequest
+  description: (Optional) List of the vesting acceleration stipulations of the grant.
+    May be empty. Include one stipulation per trigger that is applicable.
+  type: schema
+- term: StakeholderGrantAcceleratedVestingDetails
+  description: List of the vesting acceleration stipulations of the grant. May be
+    empty.
+  type: schema
+- term: StakeholderGrantCrudRequest
+  description: Data model for StakeholderGrantCrudRequest in the Shareworks API
+  type: schema
+- term: StakeholderGrantDetails
+  description: Data model for StakeholderGrantDetails in the Shareworks API
+  type: schema
+- term: StakeholderGrantSummaryDetails
+  description: List of grants held by the stakeholder
+  type: schema
+- term: StakeholderHoldingsDetails
+  description: List of all stakeholder holdings (excepting warrants and convertible
+    promissory notes, as yet unsupported)
+  type: schema
+- term: StakeholderHoldingsSummaryDetails
+  description: Data model for StakeholderHoldingsSummaryDetails in the Shareworks
+    API
+  type: schema
+- term: StockCertificateCrudRequest
+  description: Data model for StockCertificateCrudRequest in the Shareworks API
+  type: schema
+- term: StockCertificateDetails
+  description: Data model for StockCertificateDetails in the Shareworks API
+  type: schema
+- term: StockCertificateSummaryDetails
+  description: List of stock certificates held by the stakeholder
+  type: schema
+- term: StockFilingClassDetails
+  description: List of all classes of securities for the stock filing
+  type: schema
+- term: StockFilingDesignationDetails
+  description: List of all stock designations for the class of securities
+  type: schema
+- term: StockFilingDetails
+  description: Data model for StockFilingDetails in the Shareworks API
+  type: schema
+- term: StockFilingWithNewDesignationCreationRequest
+  description: Data model for StockFilingWithNewDesignationCreationRequest in the
+    Shareworks API
+  type: schema
+- term: VestingScheduleCrudRequest
+  description: Data model for VestingScheduleCrudRequest in the Shareworks API
+  type: schema
+- term: VestingScheduleDetails
+  description: Data model for VestingScheduleDetails in the Shareworks API
+  type: schema
+- term: VestingScheduleRowDetails
+  description: List of all rows/tranches for the vesting schedule
+  type: schema
+- term: VestingScheduleRowRequest
+  description: List of all rows/tranches for the vesting schedule
+  type: schema
+- term: WarrantsSummaryDetails
+  description: Summary information on warrants for the company
+  type: schema
+- term: WrappedCollectionAwardTypeDetails
+  description: Data model for WrappedCollectionAwardTypeDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedCollectionFundDetails
+  description: Data model for WrappedCollectionFundDetails in the Shareworks API
+  type: schema
+- term: WrappedCollectionManualVestingScheduleDetails
+  description: Data model for WrappedCollectionManualVestingScheduleDetails in the
+    Shareworks API
+  type: schema
+- term: WrappedCollectionSecuritiesDesignationDetails
+  description: Data model for WrappedCollectionSecuritiesDesignationDetails in the
+    Shareworks API
+  type: schema
+- term: WrappedCollectionStakeholderHoldingsSummaryDetails
+  description: Data model for WrappedCollectionStakeholderHoldingsSummaryDetails in
+    the Shareworks API
+  type: schema
+- term: WrappedDataAuthorizedCapitalDetails
+  description: Data model for WrappedDataAuthorizedCapitalDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataClassOfSecuritiesDetails
+  description: Data model for WrappedDataClassOfSecuritiesDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataCompanyBoardAppointmentDetails
+  description: Data model for WrappedDataCompanyBoardAppointmentDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataCompanyBoardDetailsWithAppointments
+  description: Data model for WrappedDataCompanyBoardDetailsWithAppointments in the
+    Shareworks API
+  type: schema
+- term: WrappedDataCompanyDetails
+  description: Data model for WrappedDataCompanyDetails in the Shareworks API
+  type: schema
+- term: WrappedDataEntityStakeholderDetails
+  description: Data model for WrappedDataEntityStakeholderDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataIndividualStakeholderDetails
+  description: Data model for WrappedDataIndividualStakeholderDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataPlanSummaryDetailsWithGrants
+  description: Data model for WrappedDataPlanSummaryDetailsWithGrants in the Shareworks
+    API
+  type: schema
+- term: WrappedDataStakeholderGrantDetails
+  description: Data model for WrappedDataStakeholderGrantDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataStakeholderHoldingsSummaryDetails
+  description: Data model for WrappedDataStakeholderHoldingsSummaryDetails in the
+    Shareworks API
+  type: schema
+- term: WrappedDataStockCertificateDetails
+  description: Data model for WrappedDataStockCertificateDetails in the Shareworks
+    API
+  type: schema
+- term: WrappedDataStockFilingDetails
+  description: Data model for WrappedDataStockFilingDetails in the Shareworks API
+  type: schema
+- term: WrappedDataVestingScheduleDetails
+  description: Data model for WrappedDataVestingScheduleDetails in the Shareworks
+    API
+  type: schema

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/ManualVestingScheduleDetails.json",
+  "title": "Manual Vesting Schedule Response",
+  "required": [
+    "vestingScheduleDescription",
+    "vestingScheduleId",
+    "vestingScheduleName"
+  ],
+  "type": "object",
+  "properties": {
+    "vestingScheduleId": {
+      "type": "integer",
+      "description": "Identifier for the vesting schedule",
+      "format": "int32"
+    },
+    "vestingScheduleName": {
+      "type": "string",
+      "description": "Name for the vesting schedule"
+    },
+    "vestingScheduleDescription": {
+      "type": "string",
+      "description": "Sentence(s) for describing the vesting schedule"
+    }
+  }
+}

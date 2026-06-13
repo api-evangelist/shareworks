@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/VestingScheduleRowRequest.json",
+  "title": "Vesting Schedule Row Body",
+  "required": [
+    "amountDenominator",
+    "amountNumerator",
+    "vestingPeriodLength",
+    "vestingPeriodType"
+  ],
+  "type": "object",
+  "properties": {
+    "amountNumerator": {
+      "type": "integer",
+      "description": "Numerator of the vesting amount for the row/tranche",
+      "format": "int64"
+    },
+    "amountDenominator": {
+      "type": "integer",
+      "description": "Denominator of the vesting amount for the row/tranche",
+      "format": "int64"
+    },
+    "vestingPeriodLength": {
+      "type": "integer",
+      "description": "Number of periods between the row/tranche and the previous row/tranche (or vesting start date)",
+      "format": "int32"
+    },
+    "vestingPeriodType": {
+      "type": "string",
+      "description": "Type of vesting period for the row/tranche",
+      "enum": [
+        "YEAR",
+        "MONTH",
+        "WEEK",
+        "DAY"
+      ]
+    }
+  },
+  "description": "List of all rows/tranches for the vesting schedule"
+}

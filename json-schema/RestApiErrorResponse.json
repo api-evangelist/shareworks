@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/shareworks/main/json-schema/RestApiErrorResponse.json",
+  "title": "Error Response",
+  "required": [
+    "code",
+    "errorId",
+    "message"
+  ],
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string",
+      "description": "Code representing the type of error"
+    },
+    "message": {
+      "type": "string",
+      "description": "Message describing the error"
+    },
+    "errors": {
+      "type": "array",
+      "description": "List of all further error details, usually due to validation checks",
+      "items": {
+        "$ref": "#/components/schemas/ErrorWithCode"
+      }
+    },
+    "errorId": {
+      "type": "string",
+      "description": "Identifier for the error"
+    }
+  }
+}
