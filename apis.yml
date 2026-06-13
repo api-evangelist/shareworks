@@ -1,0 +1,76 @@
+aid: shareworks
+name: Shareworks
+description: >-
+  Shareworks by Morgan Stanley is an equity compensation management platform
+  offering REST APIs for managing stock option plans, RSU grants, ESPP, and
+  employee equity administration for both public and private companies. The
+  platform provides predictable resource-oriented URLs, JSON-encoded responses,
+  and JWT-based bearer token authentication. Access requires IP whitelisting and
+  initial setup through Morgan Stanley at Work.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/shareworks/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Equity Compensation
+  - Stock Options
+  - RSU
+  - ESPP
+  - Employee Equity
+  - Financial Services
+  - Morgan Stanley
+  - Equity Administration
+  - Private Companies
+  - Public Companies
+apis:
+  - aid: shareworks:shareworks-public-api
+    name: Shareworks Public API
+    description: >-
+      The Shareworks Public API is a REST-based system for managing equity
+      compensation plans including stock options, RSU grants, ESPP, and
+      participant data. The API supports both read-only and read-write access
+      levels, uses JWT bearer token authentication with RS256 signing, and
+      provides separate development and production environments. Access is
+      controlled via IP whitelisting.
+    humanURL: https://downloads.shareworks.com/api/index.html
+    baseURL: https://shareworks-api.solium.com/
+    tags:
+      - Equity Compensation
+      - Stock Options
+      - RSU
+      - ESPP
+      - Grants
+      - Participants
+    properties:
+      - type: Documentation
+        url: https://downloads.shareworks.com/api/index.html
+      - type: Sandbox
+        url: https://sum-qa02.shareworks.com/
+      - type: PostmanCollection
+        url: https://www.postman.com/
+common:
+  - type: Website
+    url: https://www.morganstanley.com/atwork/shareworks
+  - type: Documentation
+    url: https://downloads.shareworks.com/api/index.html
+  - type: GitHubOrg
+    url: https://github.com/shareworks
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/morgan-stanley-at-work
+  - type: Blog
+    url: https://www.morganstanley.com/press-releases/morgan-stanley-at-work-and-pave-announce-api-integration
+  - type: Pricing
+    url: https://www.vendr.com/marketplace/shareworks
+  - type: Support
+    url: https://support.solium.com/hc/en-us
+  - type: Plans
+    url: plans/shareworks-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/shareworks-rate-limits.yml
+  - type: FinOps
+    url: finops/shareworks-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

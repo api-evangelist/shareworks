@@ -1,0 +1,58 @@
+name: Shareworks Plans and Pricing
+description: >-
+  Shareworks by Morgan Stanley does not publish a public self-serve pricing
+  model for API access. The platform is an enterprise equity compensation
+  solution sold directly to companies. Pricing is customized based on the
+  number of participants, company stage (private or public), and the scope of
+  equity plan administration services required. API access requires direct
+  engagement with Morgan Stanley at Work sales and implementation teams.
+specificationVersion: '0.1'
+plans:
+  - name: Enterprise (Private Companies)
+    description: >-
+      Tailored equity compensation plan management for private companies
+      including cap table management, 409A valuations, stock option plans,
+      RSU grants, and liquidity event support. API access available with
+      IP whitelisting and read-only or read-write credentials.
+    type: Enterprise
+    access: Contact Sales
+    url: https://www.morganstanley.com/atwork/shareworks
+    features:
+      - Cap table management
+      - Stock option plan administration
+      - RSU grant management
+      - ESPP administration
+      - 409A valuation support
+      - Liquidity event management
+      - API access (read-only or read-write)
+      - Development sandbox environment
+      - JWT bearer token authentication
+      - IP whitelisting
+      - Postman collection import
+  - name: Enterprise (Public Companies)
+    description: >-
+      Comprehensive equity plan management for publicly traded companies,
+      including stock option administration, RSU and ESPP management,
+      compliance reporting, and integration with payroll and HRIS systems.
+      API access supports automated data exchange with third-party platforms.
+    type: Enterprise
+    access: Contact Sales
+    url: https://www.morganstanley.com/atwork/equity-solutions-public-companies
+    features:
+      - Public company equity plan administration
+      - Section 16 compliance support
+      - RSU and stock option management
+      - ESPP plan administration
+      - HRIS and payroll API integrations
+      - Participant portal
+      - API access (read-only or read-write)
+      - Development sandbox environment
+      - IP whitelisting
+notes: >-
+  Pricing is not publicly disclosed. Contact Morgan Stanley at Work for
+  enterprise pricing and implementation details. The Shareworks platform
+  serves roughly 40% of the S&P 500 in the US when combined with Equity Edge
+  Online (EEO).
+contact:
+  url: https://www.morganstanley.com/atwork/shareworks
+  support: https://support.solium.com/hc/en-us

@@ -1,0 +1,66 @@
+name: Shareworks API Rate Limits
+description: >-
+  The Shareworks Public API enforces rate limits to ensure fair use and
+  platform stability. Limits are applied per API client and differentiated
+  between non-POST (read) requests and POST (write) requests, with both
+  burst and active (sustained) thresholds. When limits are exceeded, the API
+  returns HTTP 429 Too Many Requests.
+specificationVersion: '0.1'
+rateLimits:
+  - name: Non-POST Burst Limit
+    description: >-
+      Maximum burst rate for non-POST (read) requests. Allows up to 18
+      requests within any 5-second window before throttling is applied.
+    requestType: Non-POST
+    threshold: 18
+    window: 5 seconds
+    windowType: Burst
+    httpStatus: 429
+  - name: Non-POST Active (Sustained) Limit
+    description: >-
+      Maximum sustained rate for non-POST (read) requests. Allows up to 12
+      requests per second averaged over a 2-minute rolling window.
+    requestType: Non-POST
+    threshold: 12
+    window: 2 minutes
+    windowType: Active (Sustained)
+    httpStatus: 429
+  - name: POST Burst Limit
+    description: >-
+      Maximum burst rate for POST (write) requests. Allows up to 5 requests
+      within any 5-second window before throttling is applied.
+    requestType: POST
+    threshold: 5
+    window: 5 seconds
+    windowType: Burst
+    httpStatus: 429
+  - name: POST Active (Sustained) Limit
+    description: >-
+      Maximum sustained rate for POST (write) requests. Allows up to 3
+      requests per second averaged over a 2-minute rolling window.
+    requestType: POST
+    threshold: 3
+    window: 2 minutes
+    windowType: Active (Sustained)
+    httpStatus: 429
+errorHandling:
+  - httpStatus: 429
+    description: >-
+      Returned when any rate limit threshold is exceeded. API clients should
+      implement exponential backoff and retry logic when receiving 429 responses.
+accessLevels:
+  - name: Read-Only
+    description: Access to non-POST endpoints only.
+    methods:
+      - GET
+  - name: Read-Write
+    description: Access to all endpoints including POST (write) operations.
+    methods:
+      - GET
+      - POST
+notes: >-
+  Rate limits are applied per API client credential set. Both burst and active
+  thresholds must be respected. IP whitelisting is required for all API access.
+  Access tokens are valid for 5400 seconds (90 minutes) and must be refreshed
+  after expiry.
+source: https://downloads.shareworks.com/api/index.html

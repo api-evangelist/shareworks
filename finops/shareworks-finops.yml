@@ -1,0 +1,102 @@
+name: Shareworks FinOps Framework
+description: >-
+  FinOps considerations for organizations integrating with the Shareworks
+  Public API. Shareworks is an enterprise equity compensation platform sold
+  on a custom pricing model. API usage costs are typically bundled within the
+  enterprise contract rather than metered separately. FinOps practices focus
+  on managing the overall platform contract value, integration costs, and the
+  operational overhead of equity plan administration.
+specificationVersion: '1.0'
+framework: FinOps Framework 1.0
+domains:
+  - name: Understand
+    description: >-
+      Gain visibility into Shareworks platform costs and API usage patterns
+      to inform equity compensation program management decisions.
+    capabilities:
+      - name: Cost Allocation
+        description: >-
+          Shareworks pricing is contract-based and not metered per API call.
+          Costs should be allocated to HR, Finance, or Legal departments
+          responsible for equity plan administration. Costs may scale with
+          participant count or plan complexity as negotiated in the contract.
+        tags:
+          - Enterprise Contract
+          - Per-Participant Pricing
+          - Cost Center Allocation
+      - name: Usage Monitoring
+        description: >-
+          Monitor API request volumes against rate limits (18 non-POST/5s burst,
+          12 non-POST/2min sustained; 5 POST/5s burst, 3 POST/2min sustained).
+          Track token refresh cycles (every 90 minutes) and integration uptime.
+          Use the development sandbox to test without impacting production rate
+          limits.
+        tags:
+          - Rate Limit Monitoring
+          - API Usage Tracking
+          - Sandbox Testing
+  - name: Optimize
+    description: >-
+      Optimize Shareworks API usage and contract value to align with actual
+      equity plan administration needs.
+    capabilities:
+      - name: API Efficiency
+        description: >-
+          Batch API operations where possible to stay within rate limits.
+          Implement caching for frequently accessed participant and grant data
+          to reduce redundant API calls. Use read-only credentials where
+          write access is not required to limit risk exposure.
+        tags:
+          - Request Batching
+          - Response Caching
+          - Least-Privilege Access
+      - name: Contract Optimization
+        description: >-
+          Right-size the Shareworks contract based on actual participant counts
+          and plan types in use. Evaluate whether private-company or
+          public-company tiers match current organizational stage. Negotiate
+          API access inclusions during renewal cycles.
+        tags:
+          - Contract Review
+          - Participant Count Optimization
+          - Tier Alignment
+  - name: Operate
+    description: >-
+      Establish operational practices for sustainable Shareworks API integration
+      management within equity compensation workflows.
+    capabilities:
+      - name: Integration Governance
+        description: >-
+          Maintain an inventory of all IP-whitelisted API client machines.
+          Rotate API credentials (Client ID and Secret Key) on a scheduled
+          basis. Document all read-write vs read-only client designations.
+          Ensure RSA 2048-bit key pairs are stored securely and rotated
+          periodically.
+        tags:
+          - IP Whitelisting Management
+          - Credential Rotation
+          - Security Governance
+      - name: Vendor Management
+        description: >-
+          Maintain active relationships with Morgan Stanley at Work account
+          management for contract renewals, API feature requests, and support
+          escalations. Monitor Morgan Stanley at Work press releases and
+          technology enhancement announcements for platform changes affecting
+          API integrations.
+        tags:
+          - Vendor Relationship Management
+          - Contract Renewal
+          - Platform Change Management
+costModel:
+  type: Enterprise Contract
+  pricingModel: Custom / Contact Sales
+  billingUnit: Per company / Per participant (estimated)
+  metering: Not metered per API call
+  notes: >-
+    API access is bundled within the Shareworks enterprise platform contract.
+    No separate per-call or per-request pricing is publicly documented.
+    Pricing varies by company size, stage (private/public), participant count,
+    and services scope. Contact Morgan Stanley at Work for pricing details.
+contact:
+  sales: https://www.morganstanley.com/atwork/shareworks
+  support: https://support.solium.com/hc/en-us
