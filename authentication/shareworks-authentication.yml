@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/shareworks-shareworks-public-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: accessToken
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/shareworks-shareworks-public-api-openapi.yml

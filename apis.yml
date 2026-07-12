@@ -51,6 +51,12 @@ apis:
       - type: PostmanCollection
         url: https://www.postman.com/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/shareworks-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/shareworks-domain-security.yml
+  - type: Authentication
+    url: authentication/shareworks-authentication.yml
   - type: Website
     url: https://www.morganstanley.com/atwork/shareworks
   - type: Documentation
