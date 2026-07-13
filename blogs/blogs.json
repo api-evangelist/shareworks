@@ -1,8 +1,11 @@
 {
   "repo": "shareworks",
   "feeds": [
-    {"source": "https://www.morganstanley.com/press-releases/morgan-stanley-at-work-and-pave-announce-api-integration", "saved": 0, "error": "fetch failed (socket hang up / timeout)"}
+    {
+      "source": "https://www.linkedin.com/company/morgan-stanley-at-work",
+      "error": "HTTPError"
+    }
   ],
   "post_count": 0,
-  "fetched": "2026-06-27T13:09:24Z"
+  "fetched": "2026-07-11T11:50:51Z"
 }
