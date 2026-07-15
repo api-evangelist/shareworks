@@ -51,6 +51,8 @@ apis:
       - type: PostmanCollection
         url: https://www.postman.com/
 common:
+  - type: AgenticAccess
+    url: agentic-access/shareworks-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/shareworks-vulnerability-disclosure.yml
   - type: DomainSecurity
