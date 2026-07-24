@@ -1,0 +1,597 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Holdings API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Holdings
+paths:
+  /v1/company/{companyId}/stakeholder/holdings:
+    get:
+      tags:
+      - Holdings
+      summary: GET Holdings (All)
+      description: Retrieve the calculated summary of the holding for all stakeholders in the company. This includes the calculated breakdown for all individual stock certificates and grants
+      operationId: getAllStakeholderHoldings
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StakeholderHoldingsSummaryDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/stakeholder/holdings/{stakeholderId}:
+    get:
+      tags:
+      - Holdings
+      summary: GET Holdings (Single)
+      description: Retrieve the calculated summary of the holding for a single stakeholder. This includes the calculated breakdown for all individual stock certificates and grants
+      operationId: getStakeholderHoldings
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: stakeholderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StakeholderHoldingsSummaryDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
+    StakeholderHoldingsDetails:
+      title: Holdings Summary Response
+      required:
+      - grants
+      - stockCertificates
+      type: object
+      properties:
+        stockCertificates:
+          type: array
+          description: List of stock certificates held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StockCertificateSummaryDetails'
+        grants:
+          type: array
+          description: List of grants held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
+      description: List of all stakeholder holdings (excepting warrants and convertible promissory notes, as yet unsupported)
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    StakeholderGrantSummaryDetails:
+      title: Grant Summary Response
+      required:
+      - allowEarlyExercise
+      - awardTypeId
+      - awardTypeName
+      - cancelledShares
+      - exercisedShares
+      - expiryDate
+      - grantCurrency
+      - grantDate
+      - grantId
+      - grantName
+      - grantNumber
+      - grantPrice
+      - grantedShares
+      - marketPriceAtTimeOfGrant
+      - outstandingShares
+      - planId
+      - stakeholderId
+      - underRule701
+      - vestingScheduleId
+      - vestingScheduleName
+      - vestingStartDate
+      type: object
+      properties:
+        grantId:
+          type: integer
+          description: Identifier for the grant
+          format: int32
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
+        awardTypeId:
+          type: integer
+          description: Identifier for the company award type
+          format: int32
+        awardTypeName:
+          type: string
+          description: Name for the company award type
+        grantName:
+          type: string
+          description: Name for the grant, typically generated
+        grantNumber:
+          type: string
+          description: Number for the grant, typically generated
+        grantPrice:
+          type: number
+          description: Price at which the shares are granted
+          format: double
+        marketPriceAtTimeOfGrant:
+          type: number
+          description: The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)
+          format: double
+        grantCurrency:
+          type: string
+          description: Currency for the grant price / market price at time of grant
+          enum:
+          - USD
+          - CAD
+          - GBP
+          - EUR
+          - JPY
+          - AUD
+          - KRW
+          - DZD
+          - AOA
+          - ARS
+          - AMD
+          - AWG
+          - BSD
+          - BHD
+          - BDT
+          - BBD
+          - BOB
+          - BWP
+          - BRL
+          - BND
+          - BGN
+          - BZD
+          - KYD
+          - CLP
+          - CNY
+          - COP
+          - CRC
+          - HRK
+          - CZK
+          - DKK
+          - DOP
+          - XCD
+          - EGP
+          - ETB
+          - FJD
+          - XAF
+          - GMD
+          - GHS
+          - GIP
+          - GTQ
+          - HNL
+          - HKD
+          - HUF
+          - ISK
+          - INR
+          - IDR
+          - IQD
+          - ILS
+          - JMD
+          - JOD
+          - KZT
+          - KES
+          - KWD
+          - LSL
+          - MOP
+          - MWK
+          - MYR
+          - MUR
+          - MXN
+          - MAD
+          - MZN
+          - MMK
+          - NAD
+          - ANG
+          - NZD
+          - NGN
+          - NOK
+          - OMR
+          - PKR
+          - PAB
+          - PGK
+          - PYG
+          - PEN
+          - PHP
+          - PLN
+          - QAR
+          - RON
+          - RUB
+          - SAR
+          - RSD
+          - SCR
+          - SGD
+          - ZAR
+          - SDG
+          - LKR
+          - SZL
+          - SEK
+          - CHF
+          - TWD
+          - TZS
+          - THB
+          - TTD
+          - TND
+          - TRY
+          - UGX
+          - UAH
+          - AED
+          - UYU
+          - UZS
+          - VEF
+          - VES
+          - VND
+          - XOF
+          - ZWL
+          - ZMW
+        grantDate:
+          type: string
+          description: Date on which the shares are granted
+          format: date
+        expiryDate:
+          type: string
+          description: Expiry date for the grant
+          format: date
+        allowEarlyExercise:
+          type: boolean
+          description: Whether early exercises are allowed for the grant
+        underRule701:
+          type: boolean
+          description: Whether rule 701 applies to the grant
+        vestingScheduleId:
+          type: integer
+          description: Identifier for the vesting schedule
+          format: int32
+        vestingScheduleName:
+          type: string
+          description: Name for the vesting schedule
+        vestingStartDate:
+          type: string
+          description: Vesting base or commencement date for the vesting schedule
+          format: date
+        manualVestingRows:
+          type: array
+          description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+          items:
+            $ref: '#/components/schemas/ManualVestingRowDetails'
+        grantedShares:
+          type: number
+          description: Quantity of shares for the grant
+          format: double
+        cancelledShares:
+          type: number
+          description: Number of shares cancelled for the grant
+          format: double
+        exercisedShares:
+          type: number
+          description: Number of shares exercised for the grant
+          format: double
+        outstandingShares:
+          type: number
+          description: Number of shares outstanding for the grant
+          format: double
+        vestingAcceleration:
+          type: array
+          description: List of the vesting acceleration stipulations of the grant. May be empty.
+          items:
+            $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
+      description: List of grants held by the stakeholder
+    StakeholderHoldingsSummaryDetails:
+      title: Stakeholder Holdings Response
+      required:
+      - designationsParticipated
+      - holdings
+      - percentOwnershipTotalCommonStockEquivalent
+      - percentOwnershipTotalOutstanding
+      - stakeholderId
+      - stakeholderName
+      - totalCommonStockEquivalentShares
+      - totalOutstandingShares
+      type: object
+      properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        stakeholderName:
+          type: string
+          description: Formatted full name for the stakeholder
+        totalOutstandingShares:
+          type: number
+          description: Total outstanding shares across all holdings for the stakeholder
+          format: double
+        totalCommonStockEquivalentShares:
+          type: number
+          description: Total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
+          format: double
+        percentOwnershipTotalOutstanding:
+          type: number
+          description: Percentage representing the fraction of total outstanding shares across all holdings for the stakeholder
+          format: double
+        percentOwnershipTotalCommonStockEquivalent:
+          type: number
+          description: Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
+          format: double
+        designationsParticipated:
+          type: array
+          description: List of all the designations a stakeholder has participated in
+          items:
+            type: string
+            description: List of all the designations a stakeholder has participated in
+        holdings:
+          $ref: '#/components/schemas/StakeholderHoldingsDetails'
+    StockCertificateSummaryDetails:
+      title: Stock Certificate Summary Response
+      required:
+      - effectiveDate
+      - issuePrice
+      - issueReason
+      - quantity
+      - stakeholderId
+      - stockCertificateId
+      - stockCertificateNumber
+      - stockDesignationId
+      - stockDesignationName
+      - unvestedQuantity
+      - vestedQuantity
+      type: object
+      properties:
+        stockCertificateId:
+          type: integer
+          description: Identifier for the stock certificate
+          format: int32
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        stockDesignationId:
+          type: integer
+          description: Identifier for the stock designation
+          format: int32
+        stockDesignationName:
+          type: string
+          description: Name for the stock designation
+        stockCertificateNumber:
+          type: string
+          description: Number for the stock certificate
+        quantity:
+          type: number
+          description: Quantity of shares for the stock certificate
+          format: double
+        issuePrice:
+          type: number
+          description: Issue price (a.k.a. strike price) for the stock certificate
+          format: double
+        issueReason:
+          type: string
+          description: Issue reason for the stock certificate
+          enum:
+          - ORIGINAL_ISSUANCE
+          - ORIGINAL_ISSUANCE_WITH_VESTING
+          - OTHER
+        effectiveDate:
+          type: string
+          description: Effective date for the stock certificate
+          format: date
+        boardApprovalDate:
+          type: string
+          description: Board approval date for the stock certificate (if not supplied, the certificate will be created with an unapproved status)
+          format: date
+        vestingScheduleId:
+          type: integer
+          description: Identifier for the vesting schedule
+          format: int32
+        vestingScheduleName:
+          type: string
+          description: Name for the vesting schedule
+        vestingStartDate:
+          type: string
+          description: Vesting base or commencement date for the vesting schedule
+          format: date
+        manualVestingRows:
+          type: array
+          description: List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule
+          items:
+            $ref: '#/components/schemas/ManualVestingRowDetails'
+        vestedQuantity:
+          type: number
+          description: Quantity of the total shares which are vested
+          format: double
+        unvestedQuantity:
+          type: number
+          description: Quantity of the total shares which are yet unvested, and are only held as the result of an early exercise
+          format: double
+      description: List of stock certificates held by the stakeholder
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

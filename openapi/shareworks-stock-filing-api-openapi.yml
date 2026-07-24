@@ -1,0 +1,373 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Stock Filing API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Stock Filing
+paths:
+  /v1/company/{companyId}/authorized-capital/stock-designation:
+    post:
+      tags:
+      - Stock Filing
+      summary: POST Stock Filing Designation (Create)
+      description: Create a new stock filing by adding one new stock designation to the most recent filing
+      operationId: createStockFilingWithNewDesignation
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StockFilingWithNewDesignationCreationRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockFilingDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/authorized-capital/stock-filing/latest:
+    get:
+      tags:
+      - Stock Filing
+      summary: GET Stock Filing (Latest)
+      description: Retrieve the details of the company's most recent stock filing
+      operationId: getStockFilingLatestDetails
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockFilingDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    StockFilingClassDetails:
+      title: Stock Filing Class Response
+      required:
+      - classOfSecurities
+      - designations
+      - totalAuthorizedShares
+      type: object
+      properties:
+        classOfSecurities:
+          type: string
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the class of securities
+          format: double
+        designations:
+          type: array
+          description: List of all stock designations for the class of securities
+          items:
+            $ref: '#/components/schemas/StockFilingDesignationDetails'
+      description: List of all classes of securities for the stock filing
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    StockFilingDesignationDetails:
+      title: Stock Filing Designation Response
+      required:
+      - convertible
+      - parValue
+      - stockDesignationId
+      - stockDesignationName
+      - totalAuthorizedShares
+      type: object
+      properties:
+        stockDesignationId:
+          type: integer
+          description: Identifier for the stock designation
+          format: int32
+        stockDesignationName:
+          type: string
+          description: Name for the stock designation
+        fundingRound:
+          type: integer
+          description: Funding round number for the stock designation
+          format: int64
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the stock designation
+          format: double
+        parValue:
+          type: number
+          description: Par value for the stock designation
+          format: double
+        pricePerShare:
+          type: number
+          description: Price per share for the stock designation
+          format: double
+        convertible:
+          type: boolean
+          description: Whether the stock designation is convertible
+        convertsToStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation which the stock designation converts to
+          format: int32
+        conversionRatioAntecedent:
+          type: number
+          description: The antecedent of the conversion ratio. E.g. 2 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        conversionRatioConsequent:
+          type: number
+          description: The consequent of the conversion ratio. E.g. 1 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        rounding:
+          type: string
+          description: Rounding type used when converting shares from the stock designation
+          enum:
+          - NORMAL
+          - UP
+          - DOWN
+      description: List of all stock designations for the class of securities
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    StockFilingWithNewDesignationCreationRequest:
+      title: Stock Filing Designation Body
+      required:
+      - classOfSecurities
+      - convertible
+      - filingDate
+      - initialNumberOfAuthorizedShares
+      - parValue
+      - stockDesignationName
+      type: object
+      properties:
+        filingDate:
+          type: string
+          description: Date on which the stock filing occurred
+          format: date
+        stockDesignationName:
+          type: string
+          description: Name for the stock designation
+        classOfSecurities:
+          type: string
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
+        fundingRound:
+          type: integer
+          description: Funding round number for the stock designation
+          format: int32
+        initialNumberOfAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the stock designation
+          format: double
+        parValue:
+          type: number
+          description: Par value for the stock designation
+          format: double
+        pricePerShare:
+          type: number
+          description: Price per share for the stock designation
+          format: double
+        convertible:
+          type: boolean
+          description: Whether the stock designation is convertible
+        convertsToStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation which the stock designation converts to
+          format: int32
+        conversionRatioAntecedent:
+          type: number
+          description: The antecedent of the conversion ratio. E.g. 2 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        conversionRatioConsequent:
+          type: number
+          description: The consequent of the conversion ratio. E.g. 1 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        rounding:
+          type: string
+          description: Rounding type used when converting shares from the stock designation
+          enum:
+          - NORMAL
+          - UP
+          - DOWN
+    StockFilingDetails:
+      title: Stock Filing Response
+      required:
+      - classesOfSecurities
+      - companyId
+      - filingDate
+      - stockFilingId
+      type: object
+      properties:
+        stockFilingId:
+          type: integer
+          description: Identifier for the stock filing
+          format: int32
+        companyId:
+          type: integer
+          description: Identifier for the company
+          format: int32
+        filingDate:
+          type: string
+          description: Date on which the stock filing occurred
+          format: date
+        classesOfSecurities:
+          type: array
+          description: List of all classes of securities for the stock filing
+          items:
+            $ref: '#/components/schemas/StockFilingClassDetails'
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

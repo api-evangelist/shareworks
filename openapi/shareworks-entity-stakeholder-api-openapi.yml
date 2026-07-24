@@ -1,0 +1,504 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Entity Stakeholder API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Entity Stakeholder
+paths:
+  /v1/company/{companyId}/stakeholder/entity:
+    get:
+      tags:
+      - Entity Stakeholder
+      summary: GET Entity Stakeholder (All)
+      description: Retrieve the details for all entity stakeholders in the company
+      operationId: getCompanyStakeholderEntities
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: pageSize
+        in: query
+        description: Number of items to return per page. Default is 100. Maximum is 500
+        schema:
+          type: integer
+          format: int32
+      - name: pageNumber
+        in: query
+        description: Which page of the data set to fetch. Default is 1.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          headers:
+            Page-Number:
+              description: Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)
+              style: simple
+            Page-Size:
+              description: The number of items per page used to paginate the target data set. (Only present when the response is paginated)
+              style: simple
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EntityStakeholderDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    post:
+      tags:
+      - Entity Stakeholder
+      summary: 'POST Entity Stakeholder (Create) '
+      description: Create an entity stakeholder for the specified company
+      operationId: createEntityStakeholder
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityStakeholderCrudRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityStakeholderDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/stakeholder/entity/{stakeholderId}:
+    get:
+      tags:
+      - Entity Stakeholder
+      summary: GET Entity Stakeholder (Single)
+      description: Retrieve the details of the specified entity stakeholder
+      operationId: getEntityStakeholder
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: stakeholderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityStakeholderDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    put:
+      tags:
+      - Entity Stakeholder
+      summary: PUT Entity Stakeholder (Update)
+      description: Update the details of the specified entity stakeholder
+      operationId: updateEntityStakeholder
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: stakeholderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityStakeholderCrudRequest'
+      responses:
+        '201':
+          description: Updated. An object is updates and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EntityStakeholderDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/stakeholder/entity/search:
+    post:
+      tags:
+      - Entity Stakeholder
+      summary: POST Entity Search
+      description: Create a search and retrieve a list of entity stakeholders matching the criteria
+      operationId: createStakeholderSearchForEntities
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: pageSize
+        in: query
+        description: Number of items to return per page. Default is 100. Maximum is 500
+        schema:
+          type: integer
+          format: int32
+      - name: pageNumber
+        in: query
+        description: Which page of the data set to fetch. Default is 1.
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/EntityStakeholderSearchRequest'
+      responses:
+        '200':
+          description: OK
+          headers:
+            Page-Number:
+              description: Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)
+              style: simple
+            Page-Size:
+              description: The number of items per page used to paginate the target data set. (Only present when the response is paginated)
+              style: simple
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/EntityStakeholderDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    EntityStakeholderSearchRequest:
+      title: Entity Stakeholder Search Body
+      type: object
+      properties:
+        entityName:
+          type: string
+          description: Name for the entity stakeholder
+        stakeholderNumber:
+          type: string
+          description: Number for the stakeholder, typically generated
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    EntityStakeholderDetails:
+      title: Entity Stakeholder Response
+      required:
+      - entityName
+      - stakeholderId
+      type: object
+      properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        entityName:
+          type: string
+          description: Name for the entity stakeholder
+        stakeholderNumber:
+          type: string
+          description: Number for the stakeholder, typically generated
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    EntityStakeholderCrudRequest:
+      title: Entity Stakeholder Body
+      type: object
+      properties:
+        stakeholderNumber:
+          type: string
+          description: Number for the stakeholder, typically generated
+        entityName:
+          type: string
+          description: Name for the entity stakeholder
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

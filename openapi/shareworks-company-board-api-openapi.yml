@@ -1,0 +1,721 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Company Board API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Company Board
+paths:
+  /v1/company/{companyId}/board/appointment:
+    post:
+      tags:
+      - Company Board
+      summary: POST Company Board Appointment (Create)
+      description: Create a company board appointment to assign a stakeholder to the board
+      operationId: createAppointment
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyBoardAppointmentCreateCrudRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardAppointmentDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/board:
+    get:
+      tags:
+      - Company Board
+      summary: GET Company Board
+      description: Retrieve the details of the company board for officer/director tracking, including details of the company board appointments
+      operationId: getCompanyBoard
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardDetailsWithAppointments'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    put:
+      tags:
+      - Company Board
+      summary: PUT Company Board (Update)
+      description: Update the details of the company board for officer/director tracking
+      operationId: updateCompanyBoard
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyBoardCrudRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    post:
+      tags:
+      - Company Board
+      summary: POST Company Board (Create)
+      description: Create the company board for officer/director tracking
+      operationId: createCompanyBoard
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyBoardCrudRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/board/appointment/{appointmentId}:
+    get:
+      tags:
+      - Company Board
+      summary: GET Company Board Appointment
+      description: Retrieve the details of the specified company board assignment
+      operationId: getBoardAppointment
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: appointmentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardAppointmentDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    put:
+      tags:
+      - Company Board
+      summary: 'PUT Company Board Appointment (Update) '
+      description: Update the details of the specified company board appointment
+      operationId: updateAppointment
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: appointmentId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyBoardAppointmentUpdateCrudRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyBoardAppointmentDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    CompanyBoardAppointmentUpdateCrudRequest:
+      title: Company Board Appointment Body
+      required:
+      - dateAppointed
+      - isDirector
+      - isIndependent
+      - isOfficer
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+          description: Title of the stakeholder position on the board (e.g. CFO)
+        isIndependent:
+          type: boolean
+          description: Whether the company board appointment is an independent
+        isDirector:
+          type: boolean
+          description: Whether the company board appointment is a director
+        isOfficer:
+          type: boolean
+          description: Whether the company board appointment is an officer
+        dateAppointed:
+          type: string
+          description: Date of appointment for the company board appointment
+          format: date
+        dateApproved:
+          type: string
+          description: Date of approval for the company board appointment
+          format: date
+        dateTerminated:
+          type: string
+          description: Date of termination for the company board appointment
+          format: date
+        note:
+          type: string
+          description: Notes for the company board appointment
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    CompanyBoardAppointmentCreateCrudRequest:
+      title: Company Board Appointment Body
+      required:
+      - dateAppointed
+      - isDirector
+      - isIndependent
+      - isOfficer
+      - stakeholderId
+      - title
+      type: object
+      properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        title:
+          type: string
+          description: Title of the stakeholder position on the board (e.g. CFO)
+        isIndependent:
+          type: boolean
+          description: Whether the company board appointment is an independent
+        isDirector:
+          type: boolean
+          description: Whether the company board appointment is a director
+        isOfficer:
+          type: boolean
+          description: Whether the company board appointment is an officer
+        dateAppointed:
+          type: string
+          description: Date of appointment for the company board appointment
+          format: date
+        dateApproved:
+          type: string
+          description: Date of approval for the company board appointment
+          format: date
+        dateTerminated:
+          type: string
+          description: Date of termination for the company board appointment
+          format: date
+        note:
+          type: string
+          description: Notes for the company board appointment
+    CompanyBoardCrudRequest:
+      title: Company Board Body
+      required:
+      - maximumSize
+      - minimumSize
+      - setAtSize
+      type: object
+      properties:
+        maximumSize:
+          type: integer
+          description: Maximum number of stakeholders that may be on the board at one time
+          format: int64
+        minimumSize:
+          type: integer
+          description: Minimum number of stakeholders that must be on the board at one time
+          format: int64
+        setAtSize:
+          type: integer
+          description: The default, general, or target value at which the board is set and from which vacancies are relatively calculated
+          format: int64
+        quorumSize:
+          type: integer
+          description: Minimum amount of members required to be present to have a quorum
+          format: int64
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    CompanyBoardDetailsWithAppointments:
+      title: Company Board Detailed Response
+      required:
+      - appointments
+      - boardId
+      - maximumSize
+      - minimumSize
+      - setAtSize
+      type: object
+      properties:
+        boardId:
+          type: integer
+          description: Identifier for the company board
+          format: int32
+        maximumSize:
+          type: integer
+          description: Maximum number of stakeholders that may be on the board at one time
+          format: int64
+        minimumSize:
+          type: integer
+          description: Minimum number of stakeholders that must be on the board at one time
+          format: int64
+        setAtSize:
+          type: integer
+          description: The default, general, or target value at which the board is set and from which vacancies are relatively calculated
+          format: int64
+        quorumSize:
+          type: integer
+          description: Minimum amount of members required to be present to have a quorum
+          format: int64
+        appointments:
+          type: array
+          description: List of all company board appointments
+          items:
+            $ref: '#/components/schemas/CompanyBoardAppointmentDetails'
+    CompanyBoardDetails:
+      title: Company Board Response
+      required:
+      - boardId
+      - maximumSize
+      - minimumSize
+      - setAtSize
+      type: object
+      properties:
+        boardId:
+          type: integer
+          description: Identifier for the company board
+          format: int32
+        minimumSize:
+          type: integer
+          description: Minimum number of stakeholders that must be on the board at one time
+          format: int64
+        maximumSize:
+          type: integer
+          description: Maximum number of stakeholders that may be on the board at one time
+          format: int64
+        setAtSize:
+          type: integer
+          description: The default, general, or target value at which the board is set and from which vacancies are relatively calculated
+          format: int64
+        quorumSize:
+          type: integer
+          description: Minimum amount of members required to be present to have a quorum
+          format: int64
+    CompanyBoardAppointmentDetails:
+      title: Company Board Appointment Response
+      required:
+      - appointmentId
+      - dateAppointed
+      - email
+      - isDeleted
+      - isDirector
+      - isIndependent
+      - isOfficer
+      - name
+      - stakeholderId
+      - title
+      type: object
+      properties:
+        appointmentId:
+          type: integer
+          description: Identifier for the company board appointment
+          format: int32
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        name:
+          type: string
+          description: Formatted full name for the stakeholder
+        email:
+          type: string
+          description: Personal email address for the stakeholder
+        title:
+          type: string
+          description: Title of the stakeholder position on the board (e.g. CFO)
+        isIndependent:
+          type: boolean
+          description: Whether the company board appointment is an independent
+        isDirector:
+          type: boolean
+          description: Whether the company board appointment is a director
+        isOfficer:
+          type: boolean
+          description: Whether the company board appointment is an officer
+        isDeleted:
+          type: boolean
+          description: Whether the company board appointment has been removed
+        dateAppointed:
+          type: string
+          description: Date of appointment for the company board appointment
+          format: date
+        dateApproved:
+          type: string
+          description: Date of approval for the company board appointment
+          format: date
+        dateTerminated:
+          type: string
+          description: Date of termination for the company board appointment
+          format: date
+        note:
+          type: string
+          description: Notes for the company board appointment
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

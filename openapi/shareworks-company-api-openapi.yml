@@ -1,0 +1,1669 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Company API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Company
+paths:
+  /v1/company:
+    get:
+      tags:
+      - Company
+      summary: GET Company (All)
+      description: Retrieve the details of all managed companies
+      operationId: getAllCompanyDetails
+      parameters:
+      - name: pageSize
+        in: query
+        description: Number of items to return per page. Default is 50. Maximum is 250
+        schema:
+          type: integer
+          format: int32
+      - name: pageNumber
+        in: query
+        description: Which page of the data set to fetch. Default is 1.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          headers:
+            Page-Number:
+              description: Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)
+              style: simple
+            Page-Size:
+              description: The number of items per page used to paginate the target data set. (Only present when the response is paginated)
+              style: simple
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompanyDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    post:
+      tags:
+      - Company
+      summary: POST Company (Create)
+      description: Create a new private company with the default setup
+      operationId: createCompany
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyCrudRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}:
+    get:
+      tags:
+      - Company
+      summary: GET Company (Single)
+      description: Retrieve the details of the specified company
+      operationId: getCompanyDetails
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    put:
+      tags:
+      - Company
+      summary: PUT Company (Update)
+      description: Update the details of the specified company
+      operationId: updateCompany
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompanyCrudRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompanyDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    CompanyContactDetails:
+      title: Company Contact Response
+      required:
+      - contactId
+      - name
+      type: object
+      properties:
+        contactId:
+          type: integer
+          description: Identifier for the company contact
+          format: int32
+        name:
+          type: string
+          description: Full name for the company contact
+        title:
+          type: string
+          description: Title for the company contact (e.g. CEO)
+        primaryEmailAddress:
+          type: string
+          description: Email address for the company contact
+        primaryPhone:
+          type: string
+          description: Primary phone number for the company contact
+        primaryPhoneExt:
+          type: string
+          description: Primary phone extension for the company contact, if applicable
+      description: List of all company contacts
+    CompanyContactCrudRequest:
+      title: Company Contact Body
+      required:
+      - name
+      - primaryEmailAddress
+      - primaryPhone
+      - title
+      type: object
+      properties:
+        name:
+          type: string
+          description: Full name for the company contact
+        title:
+          type: string
+          description: Title for the company contact (e.g. CEO)
+        primaryEmailAddress:
+          type: string
+          description: Email address for the company contact
+        primaryPhone:
+          type: string
+          description: Primary phone number for the company contact
+        primaryPhoneExt:
+          type: string
+          description: Primary phone extension for the company contact, if applicable
+      description: List of all company contacts
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    CompanyDetails:
+      title: Company Response
+      required:
+      - companyName
+      type: object
+      properties:
+        companyId:
+          type: integer
+          description: Identifier for the company
+          format: int32
+        companyName:
+          type: string
+          description: Name for the company
+        enforceOneToOneDesignationToFund:
+          type: boolean
+          description: Require unique Fund for each Designation
+        phone:
+          type: string
+          description: Primary phone number for the company
+        fiscalYearEnd:
+          type: string
+          description: Fiscal year end for the company
+          format: date
+        stateOfIncorporation:
+          type: string
+          description: The state of incorporation for the company, if it is U.S.-based
+          enum:
+          - CA_AB
+          - CA_BC
+          - CA_MB
+          - CA_NB
+          - CA_NL
+          - CA_NS
+          - CA_NT
+          - CA_NU
+          - CA_ON
+          - CA_PE
+          - CA_QC
+          - CA_SK
+          - CA_YT
+          - US_AK
+          - US_AL
+          - US_AR
+          - US_AZ
+          - US_CA
+          - US_CO
+          - US_CT
+          - US_DC
+          - US_DE
+          - US_FL
+          - US_GA
+          - US_HI
+          - US_IA
+          - US_ID
+          - US_IL
+          - US_IN
+          - US_KS
+          - US_KY
+          - US_LA
+          - US_MA
+          - US_MD
+          - US_ME
+          - US_MI
+          - US_MN
+          - US_MO
+          - US_MS
+          - US_MT
+          - US_NC
+          - US_ND
+          - US_NE
+          - US_NH
+          - US_NJ
+          - US_NM
+          - US_NV
+          - US_NY
+          - US_OH
+          - US_OK
+          - US_OR
+          - US_PA
+          - US_RI
+          - US_SC
+          - US_SD
+          - US_TN
+          - US_TX
+          - US_UT
+          - US_VA
+          - US_VT
+          - US_WA
+          - US_WI
+          - US_WV
+          - US_WY
+          - US_AA
+          - US_AE
+          - US_AP
+          - AS
+          - GU
+          - MP
+          - PR
+          - VI
+          - AU_ACT
+          - AU_NSW
+          - AU_NT
+          - AU_QLD
+          - AU_SA
+          - AU_TAS
+          - AU_VIC
+          - AU_WA
+          - DE_BW
+          - DE_BY
+          - DE_BE
+          - DE_BB
+          - DE_HB
+          - DE_HH
+          - DE_HE
+          - DE_MV
+          - DE_NI
+          - DE_NW
+          - DE_RP
+          - DE_SL
+          - DE_SN
+          - DE_ST
+          - DE_SH
+          - DE_TH
+          - CH_ZH
+          - CH_BE
+          - CH_LU
+          - CH_UR
+          - CH_SZ
+          - CH_OW
+          - CH_NW
+          - CH_GL
+          - CH_ZG
+          - CH_FR
+          - CH_SO
+          - CH_BS
+          - CH_BL
+          - CH_SH
+          - CH_AR
+          - CH_AI
+          - CH_SG
+          - CH_GR
+          - CH_AG
+          - CH_TG
+          - CH_TI
+          - CH_VD
+          - CH_VS
+          - CH_NE
+          - CH_GE
+          - CH_JU
+          - IT_21
+          - IT_23
+          - IT_25
+          - IT_32
+          - IT_34
+          - IT_36
+          - IT_42
+          - IT_45
+          - IT_52
+          - IT_55
+          - IT_57
+          - IT_62
+          - IT_65
+          - IT_67
+          - IT_72
+          - IT_75
+          - IT_77
+          - IT_78
+          - IT_82
+          - IT_88
+        dateOfIncorporation:
+          type: string
+          description: The date of incorporation for the company
+          format: date
+        entityType:
+          type: string
+          description: Entity type for the company (e.g. LLC)
+          enum:
+          - C_CORP
+          - S_CORP
+          - LLC
+          - SOLE_PROPRIETORSHIP
+          - PARTNERSHIP
+          - UNINCORPORATED_GROUP
+          - ASSOCIATION
+          - UNKNOWN
+        companyAddresses:
+          type: array
+          description: List of up to three company addresses
+          items:
+            $ref: '#/components/schemas/CompanyAddressDetails'
+        contacts:
+          type: array
+          description: List of all company contacts
+          items:
+            $ref: '#/components/schemas/CompanyContactDetails'
+    CompanyAddressCrudRequest:
+      title: Company Address Body
+      required:
+      - addressLine1
+      - addressType
+      - city
+      - country
+      - postalCode
+      type: object
+      properties:
+        addressLine1:
+          type: string
+          description: First address line
+        addressLine2:
+          type: string
+          description: Second address line, if needed
+        addressLine3:
+          type: string
+          description: Third address line, if needed
+        city:
+          type: string
+          description: City or municipality of the address
+        stateProvince:
+          type: string
+          description: State or province of the address
+          enum:
+          - CA_AB
+          - CA_BC
+          - CA_MB
+          - CA_NB
+          - CA_NL
+          - CA_NS
+          - CA_NT
+          - CA_NU
+          - CA_ON
+          - CA_PE
+          - CA_QC
+          - CA_SK
+          - CA_YT
+          - US_AK
+          - US_AL
+          - US_AR
+          - US_AZ
+          - US_CA
+          - US_CO
+          - US_CT
+          - US_DC
+          - US_DE
+          - US_FL
+          - US_GA
+          - US_HI
+          - US_IA
+          - US_ID
+          - US_IL
+          - US_IN
+          - US_KS
+          - US_KY
+          - US_LA
+          - US_MA
+          - US_MD
+          - US_ME
+          - US_MI
+          - US_MN
+          - US_MO
+          - US_MS
+          - US_MT
+          - US_NC
+          - US_ND
+          - US_NE
+          - US_NH
+          - US_NJ
+          - US_NM
+          - US_NV
+          - US_NY
+          - US_OH
+          - US_OK
+          - US_OR
+          - US_PA
+          - US_RI
+          - US_SC
+          - US_SD
+          - US_TN
+          - US_TX
+          - US_UT
+          - US_VA
+          - US_VT
+          - US_WA
+          - US_WI
+          - US_WV
+          - US_WY
+          - US_AA
+          - US_AE
+          - US_AP
+          - AS
+          - GU
+          - MP
+          - PR
+          - VI
+          - AU_ACT
+          - AU_NSW
+          - AU_NT
+          - AU_QLD
+          - AU_SA
+          - AU_TAS
+          - AU_VIC
+          - AU_WA
+          - DE_BW
+          - DE_BY
+          - DE_BE
+          - DE_BB
+          - DE_HB
+          - DE_HH
+          - DE_HE
+          - DE_MV
+          - DE_NI
+          - DE_NW
+          - DE_RP
+          - DE_SL
+          - DE_SN
+          - DE_ST
+          - DE_SH
+          - DE_TH
+          - CH_ZH
+          - CH_BE
+          - CH_LU
+          - CH_UR
+          - CH_SZ
+          - CH_OW
+          - CH_NW
+          - CH_GL
+          - CH_ZG
+          - CH_FR
+          - CH_SO
+          - CH_BS
+          - CH_BL
+          - CH_SH
+          - CH_AR
+          - CH_AI
+          - CH_SG
+          - CH_GR
+          - CH_AG
+          - CH_TG
+          - CH_TI
+          - CH_VD
+          - CH_VS
+          - CH_NE
+          - CH_GE
+          - CH_JU
+          - IT_21
+          - IT_23
+          - IT_25
+          - IT_32
+          - IT_34
+          - IT_36
+          - IT_42
+          - IT_45
+          - IT_52
+          - IT_55
+          - IT_57
+          - IT_62
+          - IT_65
+          - IT_67
+          - IT_72
+          - IT_75
+          - IT_77
+          - IT_78
+          - IT_82
+          - IT_88
+        country:
+          type: string
+          description: Country of the address
+          enum:
+          - CA
+          - US
+          - GB
+          - AU
+          - AD
+          - AE
+          - AF
+          - AG
+          - AI
+          - AL
+          - AM
+          - AO
+          - AQ
+          - AR
+          - AS
+          - AT
+          - AW
+          - AX
+          - AZ
+          - BA
+          - BB
+          - BD
+          - BE
+          - BF
+          - BG
+          - BH
+          - BI
+          - BJ
+          - BL
+          - BM
+          - BN
+          - BO
+          - BQ
+          - BR
+          - BS
+          - BT
+          - BV
+          - BW
+          - BY
+          - BZ
+          - CC
+          - CD
+          - CF
+          - CG
+          - CH
+          - CI
+          - CK
+          - CL
+          - CM
+          - CN
+          - CO
+          - CR
+          - CU
+          - CV
+          - CW
+          - CX
+          - CY
+          - CZ
+          - DE
+          - DJ
+          - DK
+          - DM
+          - DO
+          - DZ
+          - EA
+          - EC
+          - EE
+          - EG
+          - EH
+          - ER
+          - ES
+          - ET
+          - FI
+          - FJ
+          - FK
+          - FM
+          - FO
+          - FR
+          - GA
+          - GD
+          - GE
+          - GF
+          - GG
+          - GH
+          - GI
+          - GL
+          - GM
+          - GN
+          - GP
+          - GQ
+          - GR
+          - GS
+          - GT
+          - GU
+          - GW
+          - GY
+          - HK
+          - HM
+          - HN
+          - HR
+          - HT
+          - HU
+          - IC
+          - ID
+          - IE
+          - IL
+          - IM
+          - IN
+          - IO
+          - IQ
+          - IR
+          - IS
+          - IT
+          - JE
+          - JM
+          - JO
+          - JP
+          - KE
+          - KG
+          - KH
+          - KI
+          - KM
+          - KN
+          - KP
+          - KR
+          - KW
+          - KY
+          - KZ
+          - LA
+          - LB
+          - LC
+          - LI
+          - LK
+          - LR
+          - LS
+          - LT
+          - LU
+          - LV
+          - LY
+          - MA
+          - MC
+          - MD
+          - ME
+          - MF
+          - MG
+          - MH
+          - MK
+          - ML
+          - MM
+          - MN
+          - MO
+          - MP
+          - MQ
+          - MR
+          - MS
+          - MT
+          - MU
+          - MV
+          - MW
+          - MX
+          - MY
+          - MZ
+          - NA
+          - NC
+          - NE
+          - NF
+          - NG
+          - NI
+          - NL
+          - 'NO'
+          - NP
+          - NR
+          - NU
+          - NZ
+          - OM
+          - PA
+          - PE
+          - PF
+          - PG
+          - PH
+          - PK
+          - PL
+          - PM
+          - PN
+          - PR
+          - PS
+          - PT
+          - PW
+          - PY
+          - QA
+          - RE
+          - RO
+          - RS
+          - RU
+          - RW
+          - SA
+          - SB
+          - SC
+          - SD
+          - SE
+          - SG
+          - SH
+          - SI
+          - SJ
+          - SK
+          - SL
+          - SM
+          - SN
+          - SO
+          - SR
+          - SS
+          - ST
+          - SV
+          - SX
+          - SY
+          - SZ
+          - TC
+          - TD
+          - TF
+          - TG
+          - TH
+          - TJ
+          - TK
+          - TL
+          - TM
+          - TN
+          - TO
+          - TR
+          - TT
+          - TV
+          - TW
+          - TZ
+          - UA
+          - UG
+          - UM
+          - UY
+          - UZ
+          - VA
+          - VC
+          - VE
+          - VG
+          - VI
+          - VN
+          - VU
+          - WF
+          - WS
+          - XK
+          - YE
+          - YT
+          - ZA
+          - ZM
+          - ZW
+        postalCode:
+          type: string
+          description: Postal code / ZIP code of the address
+        addressType:
+          type: string
+          description: Whether the business address, mailing address, or address for funds delivery
+          enum:
+          - BUSINESS
+          - MAIL
+          - FUNDS_DELIVERY
+      description: List of up to three company addresses
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    CompanyCrudRequest:
+      title: Company Body
+      required:
+      - companyName
+      type: object
+      properties:
+        companyName:
+          type: string
+          description: Name for the company
+        phone:
+          type: string
+          description: Primary phone number for the company
+        fiscalYearEnd:
+          type: string
+          description: Fiscal year end for the company
+          format: date
+        initialNumberOfAuthorizedShares:
+          type: number
+          description: Number of shares used when creating the initial stock filing during company setup (if not provided, placeholder quantity of zero is used)
+          format: double
+        numberOfSharesWithVestingAllocatedToFounders:
+          type: number
+          description: Number of shares from the initial authorized shares that are allocated to the default vesting plan
+          format: double
+        parValue:
+          type: number
+          description: Par value used when creating the initial stock filing during company setup (if not provided, default value of 0.001 is used)
+          format: double
+        stateOfIncorporation:
+          type: string
+          description: The state of incorporation for the company, if it is U.S.-based
+          enum:
+          - CA_AB
+          - CA_BC
+          - CA_MB
+          - CA_NB
+          - CA_NL
+          - CA_NS
+          - CA_NT
+          - CA_NU
+          - CA_ON
+          - CA_PE
+          - CA_QC
+          - CA_SK
+          - CA_YT
+          - US_AK
+          - US_AL
+          - US_AR
+          - US_AZ
+          - US_CA
+          - US_CO
+          - US_CT
+          - US_DC
+          - US_DE
+          - US_FL
+          - US_GA
+          - US_HI
+          - US_IA
+          - US_ID
+          - US_IL
+          - US_IN
+          - US_KS
+          - US_KY
+          - US_LA
+          - US_MA
+          - US_MD
+          - US_ME
+          - US_MI
+          - US_MN
+          - US_MO
+          - US_MS
+          - US_MT
+          - US_NC
+          - US_ND
+          - US_NE
+          - US_NH
+          - US_NJ
+          - US_NM
+          - US_NV
+          - US_NY
+          - US_OH
+          - US_OK
+          - US_OR
+          - US_PA
+          - US_RI
+          - US_SC
+          - US_SD
+          - US_TN
+          - US_TX
+          - US_UT
+          - US_VA
+          - US_VT
+          - US_WA
+          - US_WI
+          - US_WV
+          - US_WY
+          - US_AA
+          - US_AE
+          - US_AP
+          - AS
+          - GU
+          - MP
+          - PR
+          - VI
+          - AU_ACT
+          - AU_NSW
+          - AU_NT
+          - AU_QLD
+          - AU_SA
+          - AU_TAS
+          - AU_VIC
+          - AU_WA
+          - DE_BW
+          - DE_BY
+          - DE_BE
+          - DE_BB
+          - DE_HB
+          - DE_HH
+          - DE_HE
+          - DE_MV
+          - DE_NI
+          - DE_NW
+          - DE_RP
+          - DE_SL
+          - DE_SN
+          - DE_ST
+          - DE_SH
+          - DE_TH
+          - CH_ZH
+          - CH_BE
+          - CH_LU
+          - CH_UR
+          - CH_SZ
+          - CH_OW
+          - CH_NW
+          - CH_GL
+          - CH_ZG
+          - CH_FR
+          - CH_SO
+          - CH_BS
+          - CH_BL
+          - CH_SH
+          - CH_AR
+          - CH_AI
+          - CH_SG
+          - CH_GR
+          - CH_AG
+          - CH_TG
+          - CH_TI
+          - CH_VD
+          - CH_VS
+          - CH_NE
+          - CH_GE
+          - CH_JU
+          - IT_21
+          - IT_23
+          - IT_25
+          - IT_32
+          - IT_34
+          - IT_36
+          - IT_42
+          - IT_45
+          - IT_52
+          - IT_55
+          - IT_57
+          - IT_62
+          - IT_65
+          - IT_67
+          - IT_72
+          - IT_75
+          - IT_77
+          - IT_78
+          - IT_82
+          - IT_88
+        dateOfIncorporation:
+          type: string
+          description: The date of incorporation for the company
+          format: date
+        entityType:
+          type: string
+          description: Entity type for the company (e.g. LLC)
+          enum:
+          - C_CORP
+          - S_CORP
+          - LLC
+          - SOLE_PROPRIETORSHIP
+          - PARTNERSHIP
+          - UNINCORPORATED_GROUP
+          - ASSOCIATION
+          - UNKNOWN
+        contacts:
+          type: array
+          description: List of all company contacts
+          items:
+            $ref: '#/components/schemas/CompanyContactCrudRequest'
+        companyAddresses:
+          type: array
+          description: List of up to three company addresses
+          items:
+            $ref: '#/components/schemas/CompanyAddressCrudRequest'
+        enforceOneToOneDesignationToFund:
+          type: boolean
+          description: Require unique Fund for each Designation
+    CompanyAddressDetails:
+      title: Company Address Response
+      required:
+      - addressLine1
+      - addressType
+      - city
+      - companyAddressId
+      - country
+      type: object
+      properties:
+        companyAddressId:
+          type: integer
+          description: Identifier for the company address
+          format: int32
+        addressLine1:
+          type: string
+          description: First address line
+        addressLine2:
+          type: string
+          description: Second address line, if needed
+        addressLine3:
+          type: string
+          description: Third address line, if needed
+        city:
+          type: string
+          description: City or municipality of the address
+        stateProvince:
+          type: string
+          description: State or province of the address
+          enum:
+          - CA_AB
+          - CA_BC
+          - CA_MB
+          - CA_NB
+          - CA_NL
+          - CA_NS
+          - CA_NT
+          - CA_NU
+          - CA_ON
+          - CA_PE
+          - CA_QC
+          - CA_SK
+          - CA_YT
+          - US_AK
+          - US_AL
+          - US_AR
+          - US_AZ
+          - US_CA
+          - US_CO
+          - US_CT
+          - US_DC
+          - US_DE
+          - US_FL
+          - US_GA
+          - US_HI
+          - US_IA
+          - US_ID
+          - US_IL
+          - US_IN
+          - US_KS
+          - US_KY
+          - US_LA
+          - US_MA
+          - US_MD
+          - US_ME
+          - US_MI
+          - US_MN
+          - US_MO
+          - US_MS
+          - US_MT
+          - US_NC
+          - US_ND
+          - US_NE
+          - US_NH
+          - US_NJ
+          - US_NM
+          - US_NV
+          - US_NY
+          - US_OH
+          - US_OK
+          - US_OR
+          - US_PA
+          - US_RI
+          - US_SC
+          - US_SD
+          - US_TN
+          - US_TX
+          - US_UT
+          - US_VA
+          - US_VT
+          - US_WA
+          - US_WI
+          - US_WV
+          - US_WY
+          - US_AA
+          - US_AE
+          - US_AP
+          - AS
+          - GU
+          - MP
+          - PR
+          - VI
+          - AU_ACT
+          - AU_NSW
+          - AU_NT
+          - AU_QLD
+          - AU_SA
+          - AU_TAS
+          - AU_VIC
+          - AU_WA
+          - DE_BW
+          - DE_BY
+          - DE_BE
+          - DE_BB
+          - DE_HB
+          - DE_HH
+          - DE_HE
+          - DE_MV
+          - DE_NI
+          - DE_NW
+          - DE_RP
+          - DE_SL
+          - DE_SN
+          - DE_ST
+          - DE_SH
+          - DE_TH
+          - CH_ZH
+          - CH_BE
+          - CH_LU
+          - CH_UR
+          - CH_SZ
+          - CH_OW
+          - CH_NW
+          - CH_GL
+          - CH_ZG
+          - CH_FR
+          - CH_SO
+          - CH_BS
+          - CH_BL
+          - CH_SH
+          - CH_AR
+          - CH_AI
+          - CH_SG
+          - CH_GR
+          - CH_AG
+          - CH_TG
+          - CH_TI
+          - CH_VD
+          - CH_VS
+          - CH_NE
+          - CH_GE
+          - CH_JU
+          - IT_21
+          - IT_23
+          - IT_25
+          - IT_32
+          - IT_34
+          - IT_36
+          - IT_42
+          - IT_45
+          - IT_52
+          - IT_55
+          - IT_57
+          - IT_62
+          - IT_65
+          - IT_67
+          - IT_72
+          - IT_75
+          - IT_77
+          - IT_78
+          - IT_82
+          - IT_88
+        country:
+          type: string
+          description: Country of the address
+          enum:
+          - CA
+          - US
+          - GB
+          - AU
+          - AD
+          - AE
+          - AF
+          - AG
+          - AI
+          - AL
+          - AM
+          - AO
+          - AQ
+          - AR
+          - AS
+          - AT
+          - AW
+          - AX
+          - AZ
+          - BA
+          - BB
+          - BD
+          - BE
+          - BF
+          - BG
+          - BH
+          - BI
+          - BJ
+          - BL
+          - BM
+          - BN
+          - BO
+          - BQ
+          - BR
+          - BS
+          - BT
+          - BV
+          - BW
+          - BY
+          - BZ
+          - CC
+          - CD
+          - CF
+          - CG
+          - CH
+          - CI
+          - CK
+          - CL
+          - CM
+          - CN
+          - CO
+          - CR
+          - CU
+          - CV
+          - CW
+          - CX
+          - CY
+          - CZ
+          - DE
+          - DJ
+          - DK
+          - DM
+          - DO
+          - DZ
+          - EA
+          - EC
+          - EE
+          - EG
+          - EH
+          - ER
+          - ES
+          - ET
+          - FI
+          - FJ
+          - FK
+          - FM
+          - FO
+          - FR
+          - GA
+          - GD
+          - GE
+          - GF
+          - GG
+          - GH
+          - GI
+          - GL
+          - GM
+          - GN
+          - GP
+          - GQ
+          - GR
+          - GS
+          - GT
+          - GU
+          - GW
+          - GY
+          - HK
+          - HM
+          - HN
+          - HR
+          - HT
+          - HU
+          - IC
+          - ID
+          - IE
+          - IL
+          - IM
+          - IN
+          - IO
+          - IQ
+          - IR
+          - IS
+          - IT
+          - JE
+          - JM
+          - JO
+          - JP
+          - KE
+          - KG
+          - KH
+          - KI
+          - KM
+          - KN
+          - KP
+          - KR
+          - KW
+          - KY
+          - KZ
+          - LA
+          - LB
+          - LC
+          - LI
+          - LK
+          - LR
+          - LS
+          - LT
+          - LU
+          - LV
+          - LY
+          - MA
+          - MC
+          - MD
+          - ME
+          - MF
+          - MG
+          - MH
+          - MK
+          - ML
+          - MM
+          - MN
+          - MO
+          - MP
+          - MQ
+          - MR
+          - MS
+          - MT
+          - MU
+          - MV
+          - MW
+          - MX
+          - MY
+          - MZ
+          - NA
+          - NC
+          - NE
+          - NF
+          - NG
+          - NI
+          - NL
+          - 'NO'
+          - NP
+          - NR
+          - NU
+          - NZ
+          - OM
+          - PA
+          - PE
+          - PF
+          - PG
+          - PH
+          - PK
+          - PL
+          - PM
+          - PN
+          - PR
+          - PS
+          - PT
+          - PW
+          - PY
+          - QA
+          - RE
+          - RO
+          - RS
+          - RU
+          - RW
+          - SA
+          - SB
+          - SC
+          - SD
+          - SE
+          - SG
+          - SH
+          - SI
+          - SJ
+          - SK
+          - SL
+          - SM
+          - SN
+          - SO
+          - SR
+          - SS
+          - ST
+          - SV
+          - SX
+          - SY
+          - SZ
+          - TC
+          - TD
+          - TF
+          - TG
+          - TH
+          - TJ
+          - TK
+          - TL
+          - TM
+          - TN
+          - TO
+          - TR
+          - TT
+          - TV
+          - TW
+          - TZ
+          - UA
+          - UG
+          - UM
+          - UY
+          - UZ
+          - VA
+          - VC
+          - VE
+          - VG
+          - VI
+          - VN
+          - VU
+          - WF
+          - WS
+          - XK
+          - YE
+          - YT
+          - ZA
+          - ZM
+          - ZW
+        postalCode:
+          type: string
+          description: Postal code / ZIP code of the address
+        addressType:
+          type: string
+          description: Whether the business address, mailing address, or address for funds delivery
+          enum:
+          - BUSINESS
+          - MAIL
+          - FUNDS_DELIVERY
+      description: List of up to three company addresses
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,832 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Grant API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Grant
+paths:
+  /v1/company/{companyId}/stakeholder/{stakeholderId}/grant:
+    get:
+      tags:
+      - Grant
+      summary: GET Grant (All)
+      description: Retrieve the details of all grants belonging to the specified stakeholder
+      operationId: getStakeholderGrants
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: stakeholderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: pageSize
+        in: query
+        description: Number of items to return per page. Default is 50. Maximum is 250
+        schema:
+          type: integer
+          format: int32
+      - name: pageNumber
+        in: query
+        description: Which page of the data set to fetch. Default is 1.
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          headers:
+            Page-Number:
+              description: Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)
+              style: simple
+            Page-Size:
+              description: The number of items per page used to paginate the target data set. (Only present when the response is paginated)
+              style: simple
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StakeholderGrantDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    post:
+      tags:
+      - Grant
+      summary: POST Grant (Create)
+      description: Create a grant for the specified stakeholder
+      operationId: createStakeholderGrant
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: true
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: stakeholderId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StakeholderGrantCrudRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StakeholderGrantDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+  /v1/company/{companyId}/stakeholder/grant/{grantId}:
+    get:
+      tags:
+      - Grant
+      summary: GET Grant (Single)
+      description: Retrieve the details of the specified grant
+      operationId: getStakeholderGrant
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: grantId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StakeholderGrantDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+    put:
+      tags:
+      - Grant
+      summary: PUT Grant (Update)
+      description: Update the details of the specified grant
+      operationId: updateStakeholderGrant
+      parameters:
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: grantId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StakeholderGrantCrudRequest'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StakeholderGrantDetails'
+        '400':
+          description: The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    StakeholderGrantCrudRequest:
+      title: Grant Body
+      required:
+      - allowEarlyExercise
+      - awardTypeId
+      - expiryDate
+      - grantCurrency
+      - grantDate
+      - grantPrice
+      - grantedShares
+      - planId
+      - underRule701
+      - vestingScheduleId
+      type: object
+      properties:
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
+        grantName:
+          type: string
+          description: Name for the grant, typically generated
+        awardTypeId:
+          type: integer
+          description: Identifier for the company award type
+          format: int32
+        grantDate:
+          type: string
+          description: Date on which the shares are granted
+          format: date
+        expiryDate:
+          type: string
+          description: Expiry date for the grant
+          format: date
+        grantPrice:
+          type: number
+          description: Price at which the shares are granted
+          format: double
+        grantCurrency:
+          type: string
+          description: Currency for the grant price / market price at time of grant
+          enum:
+          - USD
+          - CAD
+          - GBP
+          - EUR
+          - JPY
+          - AUD
+          - KRW
+          - DZD
+          - AOA
+          - ARS
+          - AMD
+          - AWG
+          - BSD
+          - BHD
+          - BDT
+          - BBD
+          - BOB
+          - BWP
+          - BRL
+          - BND
+          - BGN
+          - BZD
+          - KYD
+          - CLP
+          - CNY
+          - COP
+          - CRC
+          - HRK
+          - CZK
+          - DKK
+          - DOP
+          - XCD
+          - EGP
+          - ETB
+          - FJD
+          - XAF
+          - GMD
+          - GHS
+          - GIP
+          - GTQ
+          - HNL
+          - HKD
+          - HUF
+          - ISK
+          - INR
+          - IDR
+          - IQD
+          - ILS
+          - JMD
+          - JOD
+          - KZT
+          - KES
+          - KWD
+          - LSL
+          - MOP
+          - MWK
+          - MYR
+          - MUR
+          - MXN
+          - MAD
+          - MZN
+          - MMK
+          - NAD
+          - ANG
+          - NZD
+          - NGN
+          - NOK
+          - OMR
+          - PKR
+          - PAB
+          - PGK
+          - PYG
+          - PEN
+          - PHP
+          - PLN
+          - QAR
+          - RON
+          - RUB
+          - SAR
+          - RSD
+          - SCR
+          - SGD
+          - ZAR
+          - SDG
+          - LKR
+          - SZL
+          - SEK
+          - CHF
+          - TWD
+          - TZS
+          - THB
+          - TTD
+          - TND
+          - TRY
+          - UGX
+          - UAH
+          - AED
+          - UYU
+          - UZS
+          - VEF
+          - VES
+          - VND
+          - XOF
+          - ZWL
+          - ZMW
+        grantedShares:
+          type: number
+          description: Quantity of shares for the grant
+          format: double
+        vestingScheduleId:
+          type: integer
+          description: Identifier for the vesting schedule
+          format: int32
+        vestingStartDate:
+          type: string
+          description: Vesting base or commencement date for the vesting schedule
+          format: date
+        marketPriceAtTimeOfGrant:
+          type: number
+          description: The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)
+          format: double
+        allowEarlyExercise:
+          type: boolean
+          description: Whether early exercises are allowed for the grant
+        underRule701:
+          type: boolean
+          description: Whether rule 701 applies to the grant
+        manualVestingRows:
+          type: array
+          description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+          items:
+            $ref: '#/components/schemas/ManualVestingRowCrudRequest'
+        vestingAcceleration:
+          type: array
+          description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
+          items:
+            $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingCrudRequest'
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    ManualVestingRowCrudRequest:
+      title: Manual Vesting Row Body
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    StakeholderGrantAcceleratedVestingCrudRequest:
+      title: Vesting Acceleration Body
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
+    StakeholderGrantDetails:
+      title: Grant Response
+      required:
+      - allowEarlyExercise
+      - awardTypeId
+      - awardTypeName
+      - expiryDate
+      - grantCurrency
+      - grantDate
+      - grantId
+      - grantName
+      - grantNumber
+      - grantPrice
+      - grantedShares
+      - marketPriceAtTimeOfGrant
+      - planId
+      - stakeholderId
+      - underRule701
+      - vestingScheduleId
+      - vestingScheduleName
+      - vestingStartDate
+      type: object
+      properties:
+        grantId:
+          type: integer
+          description: Identifier for the grant
+          format: int32
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        awardTypeId:
+          type: integer
+          description: Identifier for the company award type
+          format: int32
+        awardTypeName:
+          type: string
+          description: Name for the company award type
+        grantName:
+          type: string
+          description: Name for the grant, typically generated
+        grantNumber:
+          type: string
+          description: Number for the grant, typically generated
+        grantPrice:
+          type: number
+          description: Price at which the shares are granted
+          format: double
+        marketPriceAtTimeOfGrant:
+          type: number
+          description: The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)
+          format: double
+        grantCurrency:
+          type: string
+          description: Currency for the grant price / market price at time of grant
+          enum:
+          - USD
+          - CAD
+          - GBP
+          - EUR
+          - JPY
+          - AUD
+          - KRW
+          - DZD
+          - AOA
+          - ARS
+          - AMD
+          - AWG
+          - BSD
+          - BHD
+          - BDT
+          - BBD
+          - BOB
+          - BWP
+          - BRL
+          - BND
+          - BGN
+          - BZD
+          - KYD
+          - CLP
+          - CNY
+          - COP
+          - CRC
+          - HRK
+          - CZK
+          - DKK
+          - DOP
+          - XCD
+          - EGP
+          - ETB
+          - FJD
+          - XAF
+          - GMD
+          - GHS
+          - GIP
+          - GTQ
+          - HNL
+          - HKD
+          - HUF
+          - ISK
+          - INR
+          - IDR
+          - IQD
+          - ILS
+          - JMD
+          - JOD
+          - KZT
+          - KES
+          - KWD
+          - LSL
+          - MOP
+          - MWK
+          - MYR
+          - MUR
+          - MXN
+          - MAD
+          - MZN
+          - MMK
+          - NAD
+          - ANG
+          - NZD
+          - NGN
+          - NOK
+          - OMR
+          - PKR
+          - PAB
+          - PGK
+          - PYG
+          - PEN
+          - PHP
+          - PLN
+          - QAR
+          - RON
+          - RUB
+          - SAR
+          - RSD
+          - SCR
+          - SGD
+          - ZAR
+          - SDG
+          - LKR
+          - SZL
+          - SEK
+          - CHF
+          - TWD
+          - TZS
+          - THB
+          - TTD
+          - TND
+          - TRY
+          - UGX
+          - UAH
+          - AED
+          - UYU
+          - UZS
+          - VEF
+          - VES
+          - VND
+          - XOF
+          - ZWL
+          - ZMW
+        grantDate:
+          type: string
+          description: Date on which the shares are granted
+          format: date
+        expiryDate:
+          type: string
+          description: Expiry date for the grant
+          format: date
+        grantedShares:
+          type: number
+          description: Quantity of shares for the grant
+          format: double
+        allowEarlyExercise:
+          type: boolean
+          description: Whether early exercises are allowed for the grant
+        underRule701:
+          type: boolean
+          description: Whether rule 701 applies to the grant
+        vestingScheduleId:
+          type: integer
+          description: Identifier for the vesting schedule
+          format: int32
+        vestingScheduleName:
+          type: string
+          description: Name for the vesting schedule
+        vestingStartDate:
+          type: string
+          description: Vesting base or commencement date for the vesting schedule
+          format: date
+        manualVestingRows:
+          type: array
+          description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+          items:
+            $ref: '#/components/schemas/ManualVestingRowDetails'
+        vestingAcceleration:
+          type: array
+          description: List of the vesting acceleration stipulations of the grant. May be empty.
+          items:
+            $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,188 @@
+openapi: 3.0.1
+info:
+  title: Shareworks Admin REST Authentication Token Plan API
+  description: Shareworks Admin REST API
+  version: 1.0.0
+servers:
+- url: https://shareworks.solium.com/rest/admin
+  description: Production
+- url: https://sum-qa02.shareworks.com/rest/admin
+  description: Sandbox
+security:
+- accessToken: []
+tags:
+- name: Plan
+paths:
+  /v1/company/{companyId}/plan:
+    post:
+      tags:
+      - Plan
+      summary: POST Plan (Create)
+      description: Create a plan for the specified company
+      operationId: createEquityIncentivePlan
+      parameters:
+      - name: Shareworks-Request-Id
+        in: header
+        description: An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.
+        required: false
+        schema:
+          type: string
+      - name: companyId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SharePoolPlanCreationRequest'
+      responses:
+        '201':
+          description: Created. An object is created and returned
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SharePoolPlanDetails'
+        '400':
+          description: "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '401':
+          description: You request was successful and valid but you do not have access to this resource.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '403':
+          description: When a request tries to access a resource that doesn't belong to them.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '422':
+          description: There was a validation error. Check the error message to see what values caused the error.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+        '500':
+          description: Servers are not working as expected.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RestApiErrorResponse'
+              encoding:
+                ? ''
+                : contentType: application/json
+components:
+  schemas:
+    SharePoolPlanDetails:
+      title: Plan Response
+      required:
+      - planId
+      - planName
+      - sharePoolInitialAuthorizedQuantity
+      - sharePoolIssueDate
+      - sharePoolStockDesignationId
+      type: object
+      properties:
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
+        planName:
+          type: string
+          description: Name for the company plan
+        sharePoolIssueDate:
+          type: string
+          description: Issue date of the share pool
+          format: date
+        sharePoolInitialAuthorizedQuantity:
+          type: number
+          description: Initial authorized quantity of the share pool
+          format: double
+        sharePoolStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation attached to the share pool
+          format: int32
+    SharePoolPlanCreationRequest:
+      title: Plan Body
+      required:
+      - planName
+      - sharePoolInitialAuthorizedQuantity
+      - sharePoolIssueDate
+      - sharePoolStockDesignationId
+      type: object
+      properties:
+        planName:
+          type: string
+          description: Name for the company plan
+        sharePoolIssueDate:
+          type: string
+          description: Issue date of the share pool
+          format: date
+        sharePoolInitialAuthorizedQuantity:
+          type: integer
+          description: Initial authorized quantity of the share pool
+          format: int64
+        sharePoolStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation attached to the share pool
+          format: int32
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+  securitySchemes:
+    accessToken:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
