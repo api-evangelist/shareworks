@@ -8,7 +8,20 @@ description: >-
   and JWT-based bearer token authentication. Access requires IP whitelisting and
   initial setup through Morgan Stanley at Work.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: enterprise
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Enterprise · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/shareworks.png
 url: https://raw.githubusercontent.com/api-evangelist/shareworks/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -25,31 +38,190 @@ tags:
   - Private Companies
   - Public Companies
 apis:
-  - aid: shareworks:shareworks-public-api
-    name: Shareworks Public API
-    description: >-
-      The Shareworks Public API is a REST-based system for managing equity
-      compensation plans including stock options, RSU grants, ESPP, and
-      participant data. The API supports both read-only and read-write access
-      levels, uses JWT bearer token authentication with RS256 signing, and
-      provides separate development and production environments. Access is
-      controlled via IP whitelisting.
-    humanURL: https://downloads.shareworks.com/api/index.html
-    baseURL: https://shareworks-api.solium.com/
-    tags:
-      - Equity Compensation
-      - Stock Options
-      - RSU
-      - ESPP
-      - Grants
-      - Participants
-    properties:
-      - type: Documentation
-        url: https://downloads.shareworks.com/api/index.html
-      - type: Sandbox
-        url: https://sum-qa02.shareworks.com/
-      - type: PostmanCollection
-        url: https://www.postman.com/
+- aid: shareworks:shareworks-public-api
+  name: Shareworks Public API
+  description: >-
+    The Shareworks Public API is a REST-based system for managing equity compensation plans including
+    stock options, RSU grants, ESPP, and participant data. The API supports both read-only and read-write
+    access levels, uses JWT bearer token authentication with RS256 signing, and provides separate development
+    and production environments. Access is controlled via IP whitelisting.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Equity Compensation
+  - Stock Options
+  - RSU
+  - ESPP
+  - Grants
+  - Participants
+  properties:
+  - type: Documentation
+    url: https://downloads.shareworks.com/api/index.html
+  - type: Sandbox
+    url: https://sum-qa02.shareworks.com/
+  - type: PostmanCollection
+    url: https://www.postman.com/
+- aid: shareworks:shareworks-authentication-token-api
+  name: Shareworks Authentication Token API
+  description: The Authentication Token API from Shareworks — 3 operation(s) for authentication token.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Authentication Token
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-authentication-token-api-openapi.yml
+- aid: shareworks:shareworks-authorized-capital-api
+  name: Shareworks Authorized Capital API
+  description: The Authorized Capital API from Shareworks — 5 operation(s) for authorized capital.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Authorized Capital
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-authorized-capital-api-openapi.yml
+- aid: shareworks:shareworks-award-type-api
+  name: Shareworks Award Type API
+  description: The Award Type API from Shareworks — 1 operation(s) for award type.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Award Type
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-award-type-api-openapi.yml
+- aid: shareworks:shareworks-company-api
+  name: Shareworks Company API
+  description: The Company API from Shareworks — 2 operation(s) for company.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Company
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-company-api-openapi.yml
+- aid: shareworks:shareworks-company-board-api
+  name: Shareworks Company Board API
+  description: The Company Board API from Shareworks — 3 operation(s) for company board.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Company Board
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-company-board-api-openapi.yml
+- aid: shareworks:shareworks-company-integration-api
+  name: Shareworks Company Integration API
+  description: The Company Integration API from Shareworks — 1 operation(s) for company integration.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Company Integration
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-company-integration-api-openapi.yml
+- aid: shareworks:shareworks-entity-stakeholder-api
+  name: Shareworks Entity Stakeholder API
+  description: The Entity Stakeholder API from Shareworks — 3 operation(s) for entity stakeholder.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Entity Stakeholder
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-entity-stakeholder-api-openapi.yml
+- aid: shareworks:shareworks-grant-api
+  name: Shareworks Grant API
+  description: The Grant API from Shareworks — 2 operation(s) for grant.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Grant
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-grant-api-openapi.yml
+- aid: shareworks:shareworks-holdings-api
+  name: Shareworks Holdings API
+  description: The Holdings API from Shareworks — 2 operation(s) for holdings.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Holdings
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-holdings-api-openapi.yml
+- aid: shareworks:shareworks-individual-stakeholder-api
+  name: Shareworks Individual Stakeholder API
+  description: >-
+    The Individual Stakeholder API from Shareworks — 3 operation(s) for individual stakeholder.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Individual Stakeholder
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-individual-stakeholder-api-openapi.yml
+- aid: shareworks:shareworks-plan-api
+  name: Shareworks Plan API
+  description: The Plan API from Shareworks — 1 operation(s) for plan.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-plan-api-openapi.yml
+- aid: shareworks:shareworks-read-access-api
+  name: Shareworks Read Access API
+  description: The Read Access API from Shareworks — 30 operation(s) for read access.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Read Access
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-read-access-api-openapi.yml
+- aid: shareworks:shareworks-stock-certificate-api
+  name: Shareworks Stock Certificate API
+  description: The Stock Certificate API from Shareworks — 2 operation(s) for stock certificate.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Stock Certificate
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-stock-certificate-api-openapi.yml
+- aid: shareworks:shareworks-stock-filing-api
+  name: Shareworks Stock Filing API
+  description: The Stock Filing API from Shareworks — 2 operation(s) for stock filing.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Stock Filing
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-stock-filing-api-openapi.yml
+- aid: shareworks:shareworks-vesting-schedule-api
+  name: Shareworks Vesting Schedule API
+  description: The Vesting Schedule API from Shareworks — 3 operation(s) for vesting schedule.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Vesting Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-vesting-schedule-api-openapi.yml
+- aid: shareworks:shareworks-write-access-api
+  name: Shareworks Write Access API
+  description: The Write Access API from Shareworks — 17 operation(s) for write access.
+  humanURL: https://downloads.shareworks.com/api/index.html
+  baseURL: https://shareworks-api.solium.com/
+  tags:
+  - Write Access
+  properties:
+  - type: OpenAPI
+    url: openapi/shareworks-write-access-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/shareworks-agentic-access.yml
