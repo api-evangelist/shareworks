@@ -1,0 +1,77 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication Token",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST Auth Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/auth/tokens"
+          },
+          "docs": "Create a JWT authentication request and retrieve an access token"
+        },
+        {
+          "info": {
+            "name": "POST Refresh Auth Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/refresh/tokens",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a JWT authentication request and get a new access token"
+        },
+        {
+          "info": {
+            "name": "POST Terminate Token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/terminate/tokens",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Revoke access to the token "
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

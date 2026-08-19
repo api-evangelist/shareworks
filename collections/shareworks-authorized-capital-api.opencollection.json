@@ -1,0 +1,124 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Authorized Capital API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authorized Capital",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET Authorized Capital",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the top-level calculated cap table information for the company"
+        },
+        {
+          "info": {
+            "name": "GET Authorized Capital Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/plan/:planId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "planId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an in-depth calculated summary for the specified plan"
+        },
+        {
+          "info": {
+            "name": "GET Authorized Capital Class",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/securities/:classOfSecurities",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "classOfSecurities",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an in-depth calculated summary for the specified class of securities"
+        },
+        {
+          "info": {
+            "name": "GET 409A Valuations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/409a",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of the 409A valuations for all funds within a company"
+        },
+        {
+          "info": {
+            "name": "GET Stock Designations (All)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/designations",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a list of all stock designations within a company"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

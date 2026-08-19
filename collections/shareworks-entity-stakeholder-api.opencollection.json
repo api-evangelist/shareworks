@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Entity Stakeholder API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Entity Stakeholder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET Entity Stakeholder (All)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page. Default is 100. Maximum is 500"
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Which page of the data set to fetch. Default is 1."
+              }
+            ]
+          },
+          "docs": "Retrieve the details for all entity stakeholders in the company"
+        },
+        {
+          "info": {
+            "name": "POST Entity Stakeholder (Create) ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an entity stakeholder for the specified company"
+        },
+        {
+          "info": {
+            "name": "GET Entity Stakeholder (Single)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the specified entity stakeholder"
+        },
+        {
+          "info": {
+            "name": "PUT Entity Stakeholder (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified entity stakeholder"
+        },
+        {
+          "info": {
+            "name": "POST Entity Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity/search",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page. Default is 100. Maximum is 500"
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Which page of the data set to fetch. Default is 1."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a search and retrieve a list of entity stakeholders matching the criteria"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Holdings API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Holdings",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET Holdings (All)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/holdings",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the calculated summary of the holding for all stakeholders in the company. This includes the calculated breakdown for all individual stock certificates and grants"
+        },
+        {
+          "info": {
+            "name": "GET Holdings (Single)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/holdings/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the calculated summary of the holding for a single stakeholder. This includes the calculated breakdown for all individual stock certificates and grants"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

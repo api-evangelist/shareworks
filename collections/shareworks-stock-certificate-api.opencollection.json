@@ -1,0 +1,142 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Stock Certificate API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stock Certificate",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET Stock Certificate (All)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/:stakeholderId/stock-certificate",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page. Default is 50. Maximum is 250"
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Which page of the data set to fetch. Default is 1."
+              }
+            ]
+          },
+          "docs": "Retrieve the details of all stock certificates belonging to the specified stakeholder"
+        },
+        {
+          "info": {
+            "name": "POST Stock Certificate (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/:stakeholderId/stock-certificate",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a stock certificate for the specified stakeholder"
+        },
+        {
+          "info": {
+            "name": "GET Stock Certificate (Single)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/stock-certificate/:stockCertificateId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stockCertificateId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the specified stock certificates"
+        },
+        {
+          "info": {
+            "name": "PUT Stock Certificate (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/stock-certificate/:stockCertificateId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stockCertificateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified stock certificate"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

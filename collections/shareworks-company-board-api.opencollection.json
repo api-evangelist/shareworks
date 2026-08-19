@@ -1,0 +1,170 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Company Board API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Company Board",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST Company Board Appointment (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board/appointment",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a company board appointment to assign a stakeholder to the board"
+        },
+        {
+          "info": {
+            "name": "GET Company Board",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the company board for officer/director tracking, including details of the company board appointments"
+        },
+        {
+          "info": {
+            "name": "POST Company Board (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the company board for officer/director tracking"
+        },
+        {
+          "info": {
+            "name": "PUT Company Board (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the company board for officer/director tracking"
+        },
+        {
+          "info": {
+            "name": "GET Company Board Appointment",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board/appointment/:appointmentId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointmentId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the specified company board assignment"
+        },
+        {
+          "info": {
+            "name": "PUT Company Board Appointment (Update) ",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board/appointment/:appointmentId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointmentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified company board appointment"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,2016 @@
+{
+  "item": [
+    {
+      "id": "ac3a69d1-f389-401b-a406-71fc5213a47f",
+      "name": "Stock Certificate",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66d5675b-c28c-4aa5-b7fa-1a8d7291e146",
+          "name": "GET Stock Certificate (All)",
+          "request": {
+            "name": "GET Stock Certificate (All)",
+            "description": {
+              "content": "Retrieve the details of all stock certificates belonging to the specified stakeholder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                ":stakeholderId",
+                "stock-certificate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Number of items to return per page. Default is 50. Maximum is 250"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNumber",
+                  "value": "<integer>",
+                  "description": "Which page of the data set to fetch. Default is 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stakeholderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a94d04d6-d062-475c-9b1c-e06b31a98600",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)",
+                  "key": "Page-Number",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of items per page used to paginate the target data set. (Only present when the response is paginated)",
+                  "key": "Page-Size",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"effectiveDate\": \"1994-03-11\",\n    \"issuePrice\": 2679.1480072515396,\n    \"issueReason\": \"ORIGINAL_ISSUANCE_WITH_VESTING\",\n    \"quantity\": 6803.667590088562,\n    \"stakeholderId\": 6342,\n    \"stockCertificateId\": 992,\n    \"stockCertificateNumber\": \"string\",\n    \"stockDesignationId\": 6913,\n    \"stockDesignationName\": \"string\",\n    \"boardApprovalDate\": \"1950-01-11\",\n    \"vestingScheduleId\": 1213,\n    \"vestingScheduleName\": \"string\",\n    \"vestingStartDate\": \"1978-12-13\",\n    \"manualVestingRows\": [\n      {\n        \"vestQuantity\": 2841.708759467592,\n        \"vestDate\": \"2021-05-26\"\n      },\n      {\n        \"vestQuantity\": 6757.062409520477,\n        \"vestDate\": \"2014-09-07\"\n      }\n    ]\n  },\n  {\n    \"effectiveDate\": \"1992-05-23\",\n    \"issuePrice\": 6047.240468559103,\n    \"issueReason\": \"OTHER\",\n    \"quantity\": 7173.7546141486155,\n    \"stakeholderId\": 2168,\n    \"stockCertificateId\": 3806,\n    \"stockCertificateNumber\": \"string\",\n    \"stockDesignationId\": 2362,\n    \"stockDesignationName\": \"string\",\n    \"boardApprovalDate\": \"1980-12-17\",\n    \"vestingScheduleId\": 577,\n    \"vestingScheduleName\": \"string\",\n    \"vestingStartDate\": \"2019-02-16\",\n    \"manualVestingRows\": [\n      {\n        \"vestQuantity\": 4480.977368855118,\n        \"vestDate\": \"1996-12-25\"\n      },\n      {\n        \"vestQuantity\": 5834.421332484774,\n        \"vestDate\": \"1973-01-28\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "530e84ed-9316-469f-9ff6-498329c5c669",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6294,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 410,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6a39e26b-2c0b-4d0e-93fd-d9afa8e55c2e",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7c785c70-432f-4fee-b1a5-488dba3eaf25",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f2e104ad-f729-4db0-9ef7-6b2d23898e3f",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "169115a8-5923-4719-bff2-91dae4d3901d",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a08bcb2c-308e-4cf8-9924-3a50a6f36a88",
+          "name": "POST Stock Certificate (Create)",
+          "request": {
+            "name": "POST Stock Certificate (Create)",
+            "description": {
+              "content": "Create a stock certificate for the specified stakeholder",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                ":stakeholderId",
+                "stock-certificate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stakeholderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                "key": "Shareworks-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e69e82f8-4ee3-47bb-a933-1f8ea893d412",
+              "name": "Created. An object is created and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"effectiveDate\": \"1962-11-09\",\n  \"issuePrice\": 4157.470153433548,\n  \"issueReason\": \"ORIGINAL_ISSUANCE\",\n  \"quantity\": 2244.032569983154,\n  \"stakeholderId\": 2793,\n  \"stockCertificateId\": 8903,\n  \"stockCertificateNumber\": \"string\",\n  \"stockDesignationId\": 6002,\n  \"stockDesignationName\": \"string\",\n  \"boardApprovalDate\": \"2022-02-20\",\n  \"vestingScheduleId\": 4827,\n  \"vestingScheduleName\": \"string\",\n  \"vestingStartDate\": \"1959-05-28\",\n  \"manualVestingRows\": [\n    {\n      \"vestQuantity\": 3758.615608486334,\n      \"vestDate\": \"2012-07-30\"\n    },\n    {\n      \"vestQuantity\": 6689.847754647877,\n      \"vestDate\": \"1955-05-04\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60b33159-b00d-4b91-8794-c44f1eb098a7",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce654545-961f-44da-b52b-cd4ca6f260d7",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6f002a8e-3293-49ed-8160-12c456dfb467",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de1596ca-f546-4896-8a17-3d4a46f4e0a0",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6674cf6-fa57-4b08-8cc0-46e8aa370290",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    ":stakeholderId",
+                    "stock-certificate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f412da9b-1138-4dfe-8428-6be8444cce9b",
+          "name": "GET Stock Certificate (Single)",
+          "request": {
+            "name": "GET Stock Certificate (Single)",
+            "description": {
+              "content": "Retrieve the details of the specified stock certificates",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                "stock-certificate",
+                ":stockCertificateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stockCertificateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "38bf7718-f52e-4e42-8b61-72871842d854",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"effectiveDate\": \"1962-11-09\",\n  \"issuePrice\": 4157.470153433548,\n  \"issueReason\": \"ORIGINAL_ISSUANCE\",\n  \"quantity\": 2244.032569983154,\n  \"stakeholderId\": 2793,\n  \"stockCertificateId\": 8903,\n  \"stockCertificateNumber\": \"string\",\n  \"stockDesignationId\": 6002,\n  \"stockDesignationName\": \"string\",\n  \"boardApprovalDate\": \"2022-02-20\",\n  \"vestingScheduleId\": 4827,\n  \"vestingScheduleName\": \"string\",\n  \"vestingStartDate\": \"1959-05-28\",\n  \"manualVestingRows\": [\n    {\n      \"vestQuantity\": 3758.615608486334,\n      \"vestDate\": \"2012-07-30\"\n    },\n    {\n      \"vestQuantity\": 6689.847754647877,\n      \"vestDate\": \"1955-05-04\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "31aeb056-cd47-4354-8bdd-6e0c407633f3",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c18e378-e640-4b34-b351-b67e5ec4b253",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b78fdd3f-1ecd-4a6c-be36-0ee479582dc4",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "73fac050-c3de-474f-a843-28761f0fa156",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "25348a87-6f2c-4b90-987d-17fe612c0709",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3f5dc074-d7ee-41c1-b56e-087b7e66d966",
+          "name": "PUT Stock Certificate (Update)",
+          "request": {
+            "name": "PUT Stock Certificate (Update)",
+            "description": {
+              "content": "Update the details of the specified stock certificate",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                "stock-certificate",
+                ":stockCertificateId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stockCertificateId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e1a92c9c-2f12-4c87-9fa0-7f502dc86800",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"effectiveDate\": \"1962-11-09\",\n  \"issuePrice\": 4157.470153433548,\n  \"issueReason\": \"ORIGINAL_ISSUANCE\",\n  \"quantity\": 2244.032569983154,\n  \"stakeholderId\": 2793,\n  \"stockCertificateId\": 8903,\n  \"stockCertificateNumber\": \"string\",\n  \"stockDesignationId\": 6002,\n  \"stockDesignationName\": \"string\",\n  \"boardApprovalDate\": \"2022-02-20\",\n  \"vestingScheduleId\": 4827,\n  \"vestingScheduleName\": \"string\",\n  \"vestingStartDate\": \"1959-05-28\",\n  \"manualVestingRows\": [\n    {\n      \"vestQuantity\": 3758.615608486334,\n      \"vestDate\": \"2012-07-30\"\n    },\n    {\n      \"vestQuantity\": 6689.847754647877,\n      \"vestDate\": \"1955-05-04\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "661ba0e0-bd18-4c1e-8ff7-a7af8dcb3b11",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "05a256f0-8c0a-4fb9-9c91-6ebf4e25c22e",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f41a3108-8b81-495e-bfca-3a357f64d0fa",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bf4586f8-7fa4-49b0-bb7a-38e0f01d9451",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38001094-aa49-40ca-b4c3-6b2f1fd07a67",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "stock-certificate",
+                    ":stockCertificateId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stockCertificateId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"effectiveDate\": \"<date>\",\n  \"issuePrice\": \"<double>\",\n  \"quantity\": \"<double>\",\n  \"stockCertificateNumber\": \"<string>\",\n  \"stockDesignationId\": \"<integer>\",\n  \"boardApprovalDate\": \"<date>\",\n  \"vestingScheduleId\": \"<integer>\",\n  \"vestingStartDate\": \"<date>\",\n  \"manualVestingRows\": [\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    },\n    {\n      \"vestDate\": \"<date>\",\n      \"vestQuantity\": \"<double>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 615,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3744,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shareworks.solium.com/rest/admin",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c5570ca0-e9af-44fb-aed7-4ac8937dcf95",
+    "name": "Shareworks Admin REST Authentication Token Stock Certificate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Shareworks Admin REST API",
+      "type": "text/plain"
+    }
+  }
+}

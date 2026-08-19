@@ -1,0 +1,851 @@
+{
+  "item": [
+    {
+      "id": "b5d2962c-c6f4-4971-9313-f6e831a14633",
+      "name": "Holdings",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8c92b5a7-471a-4c72-80c0-f1140404de03",
+          "name": "GET Holdings (All)",
+          "request": {
+            "name": "GET Holdings (All)",
+            "description": {
+              "content": "Retrieve the calculated summary of the holding for all stakeholders in the company. This includes the calculated breakdown for all individual stock certificates and grants",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                "holdings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce7a23b7-5026-4996-a1ec-8103cbd0be1c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"designationsParticipated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"holdings\": {\n      \"grants\": [\n        {\n          \"allowEarlyExercise\": false,\n          \"awardTypeId\": 878,\n          \"awardTypeName\": \"string\",\n          \"cancelledShares\": 761.2890439929076,\n          \"exercisedShares\": 6868.8070935022215,\n          \"expiryDate\": \"1962-09-19\",\n          \"grantCurrency\": \"MAD\",\n          \"grantDate\": \"2021-08-13\",\n          \"grantId\": 5042,\n          \"grantName\": \"string\",\n          \"grantNumber\": \"string\",\n          \"grantPrice\": 6139.798486866903,\n          \"grantedShares\": 9189.710733784916,\n          \"marketPriceAtTimeOfGrant\": 258.8344103957296,\n          \"outstandingShares\": 9701.166311659877,\n          \"planId\": 4211,\n          \"stakeholderId\": 4945,\n          \"underRule701\": false,\n          \"vestingScheduleId\": 9375,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"2017-09-26\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"vestingAcceleration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"allowEarlyExercise\": false,\n          \"awardTypeId\": 4311,\n          \"awardTypeName\": \"string\",\n          \"cancelledShares\": 8610.00369592139,\n          \"exercisedShares\": 5883.939215548575,\n          \"expiryDate\": \"2006-12-18\",\n          \"grantCurrency\": \"SZL\",\n          \"grantDate\": \"2016-04-07\",\n          \"grantId\": 1709,\n          \"grantName\": \"string\",\n          \"grantNumber\": \"string\",\n          \"grantPrice\": 2229.1537941466677,\n          \"grantedShares\": 4472.656638425326,\n          \"marketPriceAtTimeOfGrant\": 7557.905434210214,\n          \"outstandingShares\": 4342.665174814947,\n          \"planId\": 6539,\n          \"stakeholderId\": 3310,\n          \"underRule701\": false,\n          \"vestingScheduleId\": 9091,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"2022-02-17\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"vestingAcceleration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"stockCertificates\": [\n        {\n          \"effectiveDate\": \"2017-04-12\",\n          \"issuePrice\": 5674.701715248953,\n          \"issueReason\": \"ORIGINAL_ISSUANCE_WITH_VESTING\",\n          \"quantity\": 647.295857567024,\n          \"stakeholderId\": 5910,\n          \"stockCertificateId\": 3955,\n          \"stockCertificateNumber\": \"string\",\n          \"stockDesignationId\": 4819,\n          \"stockDesignationName\": \"string\",\n          \"unvestedQuantity\": 3503.8257137641635,\n          \"vestedQuantity\": 3520.286835927239,\n          \"boardApprovalDate\": \"1975-12-14\",\n          \"vestingScheduleId\": 2326,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"1981-10-14\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"effectiveDate\": \"2025-12-14\",\n          \"issuePrice\": 2414.7159900631755,\n          \"issueReason\": \"ORIGINAL_ISSUANCE_WITH_VESTING\",\n          \"quantity\": 9084.98979563933,\n          \"stakeholderId\": 8104,\n          \"stockCertificateId\": 5481,\n          \"stockCertificateNumber\": \"string\",\n          \"stockDesignationId\": 6316,\n          \"stockDesignationName\": \"string\",\n          \"unvestedQuantity\": 3262.049578475328,\n          \"vestedQuantity\": 2052.612543549789,\n          \"boardApprovalDate\": \"2001-08-06\",\n          \"vestingScheduleId\": 5933,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"1983-05-17\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"percentOwnershipTotalCommonStockEquivalent\": 9418.98519191002,\n    \"percentOwnershipTotalOutstanding\": 7282.677381865582,\n    \"stakeholderId\": 1890,\n    \"stakeholderName\": \"string\",\n    \"totalCommonStockEquivalentShares\": 4683.568523455276,\n    \"totalOutstandingShares\": 5293.699512967101\n  },\n  {\n    \"designationsParticipated\": [\n      \"string\",\n      \"string\"\n    ],\n    \"holdings\": {\n      \"grants\": [\n        {\n          \"allowEarlyExercise\": false,\n          \"awardTypeId\": 4010,\n          \"awardTypeName\": \"string\",\n          \"cancelledShares\": 728.4123044796175,\n          \"exercisedShares\": 8887.803128914917,\n          \"expiryDate\": \"1991-08-29\",\n          \"grantCurrency\": \"ZWL\",\n          \"grantDate\": \"2003-12-03\",\n          \"grantId\": 3834,\n          \"grantName\": \"string\",\n          \"grantNumber\": \"string\",\n          \"grantPrice\": 4542.25353295123,\n          \"grantedShares\": 9396.882912362236,\n          \"marketPriceAtTimeOfGrant\": 7465.682091627833,\n          \"outstandingShares\": 6816.1062050994315,\n          \"planId\": 1546,\n          \"stakeholderId\": 3977,\n          \"underRule701\": true,\n          \"vestingScheduleId\": 8132,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"1951-06-26\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"vestingAcceleration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"allowEarlyExercise\": false,\n          \"awardTypeId\": 955,\n          \"awardTypeName\": \"string\",\n          \"cancelledShares\": 3881.3265769913983,\n          \"exercisedShares\": 5969.149224491752,\n          \"expiryDate\": \"1957-04-02\",\n          \"grantCurrency\": \"CLP\",\n          \"grantDate\": \"1961-05-28\",\n          \"grantId\": 5176,\n          \"grantName\": \"string\",\n          \"grantNumber\": \"string\",\n          \"grantPrice\": 8276.872410081192,\n          \"grantedShares\": 6309.697066259502,\n          \"marketPriceAtTimeOfGrant\": 9393.579397407917,\n          \"outstandingShares\": 9596.639600583734,\n          \"planId\": 8443,\n          \"stakeholderId\": 5381,\n          \"underRule701\": false,\n          \"vestingScheduleId\": 7437,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"2010-06-26\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"vestingAcceleration\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"stockCertificates\": [\n        {\n          \"effectiveDate\": \"1951-04-07\",\n          \"issuePrice\": 9587.232515433258,\n          \"issueReason\": \"OTHER\",\n          \"quantity\": 7514.86268133261,\n          \"stakeholderId\": 278,\n          \"stockCertificateId\": 6899,\n          \"stockCertificateNumber\": \"string\",\n          \"stockDesignationId\": 8258,\n          \"stockDesignationName\": \"string\",\n          \"unvestedQuantity\": 8355.029346348689,\n          \"vestedQuantity\": 4269.015116883015,\n          \"boardApprovalDate\": \"1948-01-26\",\n          \"vestingScheduleId\": 990,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"1973-11-14\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"effectiveDate\": \"1974-08-10\",\n          \"issuePrice\": 7804.022957279133,\n          \"issueReason\": \"ORIGINAL_ISSUANCE_WITH_VESTING\",\n          \"quantity\": 7989.488702475675,\n          \"stakeholderId\": 5064,\n          \"stockCertificateId\": 8465,\n          \"stockCertificateNumber\": \"string\",\n          \"stockDesignationId\": 2853,\n          \"stockDesignationName\": \"string\",\n          \"unvestedQuantity\": 8809.772281475376,\n          \"vestedQuantity\": 2500.503211706865,\n          \"boardApprovalDate\": \"1973-10-26\",\n          \"vestingScheduleId\": 1618,\n          \"vestingScheduleName\": \"string\",\n          \"vestingStartDate\": \"2004-07-14\",\n          \"manualVestingRows\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ]\n    },\n    \"percentOwnershipTotalCommonStockEquivalent\": 7223.416820342966,\n    \"percentOwnershipTotalOutstanding\": 6318.559374287071,\n    \"stakeholderId\": 9941,\n    \"stakeholderName\": \"string\",\n    \"totalCommonStockEquivalentShares\": 8577.80087612967,\n    \"totalOutstandingShares\": 3604.2102945850243\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fbb5acda-5a9f-43dd-b109-05a28c13106f",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 39,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3583,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3072821c-f5d9-452f-984b-453c48fb5906",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14bb5b36-6d98-4d33-adf7-0df8a1a41e49",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93fe9abc-a739-4624-83a8-11c108ad97c9",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "585c37ea-aab5-4f1a-83ca-af87035ae0c6",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9cf0d2d-2cd6-47dd-bdb3-11df15525e16",
+          "name": "GET Holdings (Single)",
+          "request": {
+            "name": "GET Holdings (Single)",
+            "description": {
+              "content": "Retrieve the calculated summary of the holding for a single stakeholder. This includes the calculated breakdown for all individual stock certificates and grants",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "stakeholder",
+                "holdings",
+                ":stakeholderId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "stakeholderId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "cf2a1b55-78be-4e3a-a7bd-c7f39e3da80c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"designationsParticipated\": [\n    \"string\",\n    \"string\"\n  ],\n  \"holdings\": {\n    \"grants\": [\n      {\n        \"allowEarlyExercise\": true,\n        \"awardTypeId\": 7831,\n        \"awardTypeName\": \"string\",\n        \"cancelledShares\": 7732.97419594822,\n        \"exercisedShares\": 2893.6477810393703,\n        \"expiryDate\": \"1999-10-19\",\n        \"grantCurrency\": \"KYD\",\n        \"grantDate\": \"1982-11-09\",\n        \"grantId\": 770,\n        \"grantName\": \"string\",\n        \"grantNumber\": \"string\",\n        \"grantPrice\": 7357.305443846909,\n        \"grantedShares\": 2390.732634253888,\n        \"marketPriceAtTimeOfGrant\": 8065.400817745085,\n        \"outstandingShares\": 8613.90393155644,\n        \"planId\": 4747,\n        \"stakeholderId\": 5052,\n        \"underRule701\": true,\n        \"vestingScheduleId\": 1319,\n        \"vestingScheduleName\": \"string\",\n        \"vestingStartDate\": \"2021-03-26\",\n        \"manualVestingRows\": [\n          {\n            \"vestQuantity\": 6617.02309576385,\n            \"vestDate\": \"2020-02-18\"\n          },\n          {\n            \"vestQuantity\": 5333.429636721735,\n            \"vestDate\": \"2014-05-27\"\n          }\n        ],\n        \"vestingAcceleration\": [\n          {\n            \"accelerationPercent\": 6065,\n            \"accelerationPeriod\": 8241,\n            \"accelerationTrigger\": \"string\"\n          },\n          {\n            \"accelerationPercent\": 7785,\n            \"accelerationPeriod\": 1868,\n            \"accelerationTrigger\": \"string\"\n          }\n        ]\n      },\n      {\n        \"allowEarlyExercise\": false,\n        \"awardTypeId\": 7088,\n        \"awardTypeName\": \"string\",\n        \"cancelledShares\": 7110.261599130587,\n        \"exercisedShares\": 8904.641003193348,\n        \"expiryDate\": \"2012-06-10\",\n        \"grantCurrency\": \"JPY\",\n        \"grantDate\": \"1984-11-27\",\n        \"grantId\": 9769,\n        \"grantName\": \"string\",\n        \"grantNumber\": \"string\",\n        \"grantPrice\": 6891.771635121442,\n        \"grantedShares\": 1759.8931150436892,\n        \"marketPriceAtTimeOfGrant\": 3017.9145077729963,\n        \"outstandingShares\": 4978.515046788858,\n        \"planId\": 1780,\n        \"stakeholderId\": 3612,\n        \"underRule701\": true,\n        \"vestingScheduleId\": 9117,\n        \"vestingScheduleName\": \"string\",\n        \"vestingStartDate\": \"1951-08-22\",\n        \"manualVestingRows\": [\n          {\n            \"vestQuantity\": 6339.568317109525,\n            \"vestDate\": \"1994-11-23\"\n          },\n          {\n            \"vestQuantity\": 6804.293252704716,\n            \"vestDate\": \"1957-11-28\"\n          }\n        ],\n        \"vestingAcceleration\": [\n          {\n            \"accelerationPercent\": 8952,\n            \"accelerationPeriod\": 331,\n            \"accelerationTrigger\": \"string\"\n          },\n          {\n            \"accelerationPercent\": 7518,\n            \"accelerationPeriod\": 328,\n            \"accelerationTrigger\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"stockCertificates\": [\n      {\n        \"effectiveDate\": \"2017-11-22\",\n        \"issuePrice\": 7217.865542918006,\n        \"issueReason\": \"ORIGINAL_ISSUANCE\",\n        \"quantity\": 8836.177518323122,\n        \"stakeholderId\": 6995,\n        \"stockCertificateId\": 2963,\n        \"stockCertificateNumber\": \"string\",\n        \"stockDesignationId\": 365,\n        \"stockDesignationName\": \"string\",\n        \"unvestedQuantity\": 3517.914038714203,\n        \"vestedQuantity\": 9000.379504809225,\n        \"boardApprovalDate\": \"1961-08-18\",\n        \"vestingScheduleId\": 9152,\n        \"vestingScheduleName\": \"string\",\n        \"vestingStartDate\": \"1969-03-15\",\n        \"manualVestingRows\": [\n          {\n            \"vestQuantity\": 917.7941089733754,\n            \"vestDate\": \"1954-09-29\"\n          },\n          {\n            \"vestQuantity\": 9205.698309131136,\n            \"vestDate\": \"1964-08-24\"\n          }\n        ]\n      },\n      {\n        \"effectiveDate\": \"1992-01-30\",\n        \"issuePrice\": 4125.363675059056,\n        \"issueReason\": \"ORIGINAL_ISSUANCE\",\n        \"quantity\": 1438.7728543195587,\n        \"stakeholderId\": 6145,\n        \"stockCertificateId\": 5103,\n        \"stockCertificateNumber\": \"string\",\n        \"stockDesignationId\": 8365,\n        \"stockDesignationName\": \"string\",\n        \"unvestedQuantity\": 4396.748318558394,\n        \"vestedQuantity\": 4796.334901899658,\n        \"boardApprovalDate\": \"1984-02-19\",\n        \"vestingScheduleId\": 4304,\n        \"vestingScheduleName\": \"string\",\n        \"vestingStartDate\": \"2016-08-04\",\n        \"manualVestingRows\": [\n          {\n            \"vestQuantity\": 5371.453065013362,\n            \"vestDate\": \"1947-12-29\"\n          },\n          {\n            \"vestQuantity\": 1296.6914266495012,\n            \"vestDate\": \"1992-09-04\"\n          }\n        ]\n      }\n    ]\n  },\n  \"percentOwnershipTotalCommonStockEquivalent\": 6344.477833247519,\n  \"percentOwnershipTotalOutstanding\": 5120.844520998743,\n  \"stakeholderId\": 3894,\n  \"stakeholderName\": \"string\",\n  \"totalCommonStockEquivalentShares\": 5047.270405933869,\n  \"totalOutstandingShares\": 3836.118169905861\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f67672c2-5bac-451c-8dbf-7c04931a1eef",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ab17c64-3b00-4660-9eda-56bba0b63663",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "21ee44c4-6cda-4fe9-bfd6-0daed483db5f",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5491cb66-7244-4511-a184-7916944c968d",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6d9458ea-2620-4e17-bc20-1465401f2d51",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "stakeholder",
+                    "holdings",
+                    ":stakeholderId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "stakeholderId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 1528,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 5615,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shareworks.solium.com/rest/admin",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9873980d-1c5b-4fdf-a9e8-2fbd1cdcd268",
+    "name": "Shareworks Admin REST Authentication Token Holdings API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Shareworks Admin REST API",
+      "type": "text/plain"
+    }
+  }
+}

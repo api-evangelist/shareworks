@@ -1,0 +1,2253 @@
+{
+  "item": [
+    {
+      "id": "dbd780f2-4e62-4896-85d5-5d637d3ed598",
+      "name": "Vesting Schedule",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "073f9f7d-6bf9-4ca7-b983-688eb43f5acc",
+          "name": "GET Vesting Schedule (All)",
+          "request": {
+            "name": "GET Vesting Schedule (All)",
+            "description": {
+              "content": "Retrieve the details of all vesting schedules for the specified company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "vesting-schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Number of items to return per page. Default is 50. Maximum is 250"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNumber",
+                  "value": "<integer>",
+                  "description": "Which page of the data set to fetch. Default is 1."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25a933d7-8741-4dad-8973-48391bb27c44",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Which page of the data set to fetch. Default is 1.",
+                  "key": "Page-Number",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "Number of items to return per page. Default is 50. Maximum is 250",
+                  "key": "Page-Size",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"vestingBasis\": \"SPECIFIED_DATE\",\n    \"vestingScheduleDescription\": \"string\",\n    \"vestingScheduleId\": 5951,\n    \"vestingScheduleName\": \"string\",\n    \"vestingScheduleRows\": [\n      {\n        \"amountDenominator\": 2442,\n        \"amountNumerator\": 8352,\n        \"vestingScheduleRowId\": 2003,\n        \"vestingPeriodLength\": 646,\n        \"vestingPeriodType\": \"MONTH\"\n      },\n      {\n        \"amountDenominator\": 8634,\n        \"amountNumerator\": 673,\n        \"vestingScheduleRowId\": 1091,\n        \"vestingPeriodLength\": 280,\n        \"vestingPeriodType\": \"WEEK\"\n      }\n    ],\n    \"wholeUnitVesting\": false,\n    \"vestingBasisSpecifiedDate\": \"1954-03-30\",\n    \"vestingScheduleAllocationType\": \"CUMULATIVE_ROUND_DOWN\"\n  },\n  {\n    \"vestingBasis\": \"OTHER\",\n    \"vestingScheduleDescription\": \"string\",\n    \"vestingScheduleId\": 8658,\n    \"vestingScheduleName\": \"string\",\n    \"vestingScheduleRows\": [\n      {\n        \"amountDenominator\": 8637,\n        \"amountNumerator\": 9816,\n        \"vestingScheduleRowId\": 365,\n        \"vestingPeriodLength\": 8656,\n        \"vestingPeriodType\": \"MONTH\"\n      },\n      {\n        \"amountDenominator\": 6557,\n        \"amountNumerator\": 3257,\n        \"vestingScheduleRowId\": 1982,\n        \"vestingPeriodLength\": 4410,\n        \"vestingPeriodType\": \"DAY\"\n      }\n    ],\n    \"wholeUnitVesting\": false,\n    \"vestingBasisSpecifiedDate\": \"2001-07-09\",\n    \"vestingScheduleAllocationType\": \"FRONT_LOADED\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "14dea2ac-6ac0-4c55-a5b7-09e5f9f38531",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 768,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3682,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b1aff32b-c784-43f9-b06a-572b1aadb32e",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dba04321-953f-4f3d-b09b-c798b4b040ba",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c64baba-54ea-4d2f-abc4-b49f7dab5133",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fca0d9b0-bdce-442b-b512-ac98a1997899",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f398658-9bc0-4f98-9a19-d39ab5091cda",
+          "name": "POST Vesting Schedule (Create)",
+          "request": {
+            "name": "POST Vesting Schedule (Create)",
+            "description": {
+              "content": "Create a vesting schedule for the specified company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "vesting-schedule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                "key": "Shareworks-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "58c7b938-e351-4e75-8c75-60c5d285e3fe",
+              "name": "Created. An object is created and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vestingBasis\": \"SPECIFIED_DATE\",\n  \"vestingScheduleDescription\": \"string\",\n  \"vestingScheduleId\": 6207,\n  \"vestingScheduleName\": \"string\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": 1858,\n      \"amountNumerator\": 1046,\n      \"vestingScheduleRowId\": 7592,\n      \"vestingPeriodLength\": 6978,\n      \"vestingPeriodType\": \"YEAR\"\n    },\n    {\n      \"amountDenominator\": 2140,\n      \"amountNumerator\": 3979,\n      \"vestingScheduleRowId\": 6428,\n      \"vestingPeriodLength\": 5604,\n      \"vestingPeriodType\": \"WEEK\"\n    }\n  ],\n  \"wholeUnitVesting\": false,\n  \"vestingBasisSpecifiedDate\": \"1959-03-08\",\n  \"vestingScheduleAllocationType\": \"FRONT_LOADED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b4c7cbb2-4ae7-40ed-8078-b32ae94781bf",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4c770407-7d95-4d0a-8a83-ce62417d65d5",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a529f06d-3e06-461a-bac8-3f9e53d42e3d",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5081d289-ca3d-42bb-a4ec-e6c850ff0352",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fa329e4c-3f00-4747-985d-79d28871cb52",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "222f3359-ff9f-4c49-acfa-b3576810cb1b",
+          "name": "GET Manual Vesting Schedules (All)",
+          "request": {
+            "name": "GET Manual Vesting Schedules (All)",
+            "description": {
+              "content": "Retrieve the details of all manual vesting schedules for the specified company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "vesting-schedule",
+                "manual"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "32ca2898-d94e-44b0-9786-280594cf8a92",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"vestingBasis\": \"GRANT_DATE\",\n    \"vestingScheduleDescription\": \"string\",\n    \"vestingScheduleId\": 1295,\n    \"vestingScheduleName\": \"string\",\n    \"vestingScheduleRows\": [\n      {\n        \"amountDenominator\": 1805,\n        \"amountNumerator\": 3756,\n        \"vestingScheduleRowId\": 5001,\n        \"vestingPeriodLength\": 4889,\n        \"vestingPeriodType\": \"YEAR\"\n      },\n      {\n        \"amountDenominator\": 2172,\n        \"amountNumerator\": 7522,\n        \"vestingScheduleRowId\": 7640,\n        \"vestingPeriodLength\": 4579,\n        \"vestingPeriodType\": \"MONTH\"\n      }\n    ],\n    \"wholeUnitVesting\": false,\n    \"vestingBasisSpecifiedDate\": \"2013-02-08\",\n    \"vestingScheduleAllocationType\": \"BACK_LOADED\"\n  },\n  {\n    \"vestingBasis\": \"GRANT_DATE\",\n    \"vestingScheduleDescription\": \"string\",\n    \"vestingScheduleId\": 2132,\n    \"vestingScheduleName\": \"string\",\n    \"vestingScheduleRows\": [\n      {\n        \"amountDenominator\": 8420,\n        \"amountNumerator\": 220,\n        \"vestingScheduleRowId\": 986,\n        \"vestingPeriodLength\": 644,\n        \"vestingPeriodType\": \"MONTH\"\n      },\n      {\n        \"amountDenominator\": 6170,\n        \"amountNumerator\": 3521,\n        \"vestingScheduleRowId\": 2773,\n        \"vestingPeriodLength\": 7862,\n        \"vestingPeriodType\": \"MONTH\"\n      }\n    ],\n    \"wholeUnitVesting\": true,\n    \"vestingBasisSpecifiedDate\": \"1949-11-10\",\n    \"vestingScheduleAllocationType\": \"BACK_LOADED_TO_SINGLE_TRANCHE\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efb05e6c-e407-4974-b5af-5ac5573bbc0e",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ea47a636-2b1f-470f-b09a-da78416cc2ab",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "50ec56aa-eb2d-4f86-b9de-9aaaa0f58e46",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de7ac3b9-b797-4ab1-951b-a733609e84fc",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f8e896b7-75f7-4445-9d4e-c19f7aaba317",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    "manual"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e87bc530-e055-4c33-966f-2ec49d3482cf",
+          "name": "GET Vesting Schedule (Single)",
+          "request": {
+            "name": "GET Vesting Schedule (Single)",
+            "description": {
+              "content": "Retrieve the details of the specified vesting schedule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "vesting-schedule",
+                ":vestingScheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vestingScheduleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e7010817-95d0-4bc0-b5c7-4fe55d1d21b7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vestingBasis\": \"SPECIFIED_DATE\",\n  \"vestingScheduleDescription\": \"string\",\n  \"vestingScheduleId\": 6207,\n  \"vestingScheduleName\": \"string\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": 1858,\n      \"amountNumerator\": 1046,\n      \"vestingScheduleRowId\": 7592,\n      \"vestingPeriodLength\": 6978,\n      \"vestingPeriodType\": \"YEAR\"\n    },\n    {\n      \"amountDenominator\": 2140,\n      \"amountNumerator\": 3979,\n      \"vestingScheduleRowId\": 6428,\n      \"vestingPeriodLength\": 5604,\n      \"vestingPeriodType\": \"WEEK\"\n    }\n  ],\n  \"wholeUnitVesting\": false,\n  \"vestingBasisSpecifiedDate\": \"1959-03-08\",\n  \"vestingScheduleAllocationType\": \"FRONT_LOADED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cf1172e9-ec58-4bcd-a452-f1b27a48d60b",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c6e0fa54-5010-49d9-bb5d-4cad36f20322",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "325e7148-5b8a-4236-be3f-a0faa480bc4f",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "791b2c01-4fbb-4558-bfad-f9eafdd68d99",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b769739-738c-48ca-a8ba-d635579d1b94",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7cdff638-d8e5-4468-996a-cdf48e8abfb3",
+          "name": "PUT Vesting Schedule (Update)",
+          "request": {
+            "name": "PUT Vesting Schedule (Update)",
+            "description": {
+              "content": "Update the details of the specified vesting schedule",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "vesting-schedule",
+                ":vestingScheduleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "vestingScheduleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1f4eb4d6-19a9-4b45-b24c-c30f60aebeb1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"vestingBasis\": \"SPECIFIED_DATE\",\n  \"vestingScheduleDescription\": \"string\",\n  \"vestingScheduleId\": 6207,\n  \"vestingScheduleName\": \"string\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": 1858,\n      \"amountNumerator\": 1046,\n      \"vestingScheduleRowId\": 7592,\n      \"vestingPeriodLength\": 6978,\n      \"vestingPeriodType\": \"YEAR\"\n    },\n    {\n      \"amountDenominator\": 2140,\n      \"amountNumerator\": 3979,\n      \"vestingScheduleRowId\": 6428,\n      \"vestingPeriodLength\": 5604,\n      \"vestingPeriodType\": \"WEEK\"\n    }\n  ],\n  \"wholeUnitVesting\": false,\n  \"vestingBasisSpecifiedDate\": \"1959-03-08\",\n  \"vestingScheduleAllocationType\": \"FRONT_LOADED\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "af8256b5-ef9e-4b82-8fbb-25275c358ded",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "429ce0e3-cb91-441b-a4dd-e726b88a982d",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0fd84b9c-db8a-412d-bf2f-9b9c514e9b8e",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "79e1a933-386f-4dc4-a015-cebe08e6b1ca",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5c9c8107-6177-4d4a-860e-bfeb37ed2b18",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "vesting-schedule",
+                    ":vestingScheduleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "vestingScheduleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"vestingBasis\": \"<string>\",\n  \"vestingScheduleDescription\": \"<string>\",\n  \"vestingScheduleName\": \"<string>\",\n  \"vestingScheduleRows\": [\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    },\n    {\n      \"amountDenominator\": \"<long>\",\n      \"amountNumerator\": \"<long>\",\n      \"vestingPeriodLength\": \"<integer>\",\n      \"vestingPeriodType\": \"<string>\"\n    }\n  ],\n  \"wholeUnitVesting\": \"<boolean>\",\n  \"vestingBasisSpecifiedDate\": \"<date>\",\n  \"vestingScheduleAllocationType\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 6324,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 4298,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shareworks.solium.com/rest/admin",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "bcda7e07-0960-4de4-ba9e-4411dfb8c440",
+    "name": "Shareworks Admin REST Authentication Token Vesting Schedule API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Shareworks Admin REST API",
+      "type": "text/plain"
+    }
+  }
+}

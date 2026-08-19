@@ -1,0 +1,905 @@
+{
+  "item": [
+    {
+      "id": "52f65a79-db93-45ad-a6a3-147e1847af45",
+      "name": "Stock Filing",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0b8f654f-d5e2-4cc8-85b0-7c40867cc9ee",
+          "name": "POST Stock Filing Designation (Create)",
+          "request": {
+            "name": "POST Stock Filing Designation (Create)",
+            "description": {
+              "content": "Create a new stock filing by adding one new stock designation to the most recent filing",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "authorized-capital",
+                "stock-designation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                "key": "Shareworks-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d1454d36-3cf5-4f4c-b2bd-8500adbeabbb",
+              "name": "Created. An object is created and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classesOfSecurities\": [\n    {\n      \"classOfSecurities\": \"PREFERRED_STOCK\",\n      \"designations\": [\n        {\n          \"convertible\": false,\n          \"parValue\": 4015.1866947617277,\n          \"stockDesignationId\": 3458,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 396.41070810047086,\n          \"fundingRound\": 4029,\n          \"pricePerShare\": 1937.0001419205319,\n          \"convertsToStockDesignationId\": 3923,\n          \"conversionRatioAntecedent\": 6530.439343364614,\n          \"conversionRatioConsequent\": 1855.9202945373122,\n          \"rounding\": \"UP\"\n        },\n        {\n          \"convertible\": true,\n          \"parValue\": 3256.907191975186,\n          \"stockDesignationId\": 8033,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 4634.2952931207,\n          \"fundingRound\": 4003,\n          \"pricePerShare\": 5425.55727417721,\n          \"convertsToStockDesignationId\": 2632,\n          \"conversionRatioAntecedent\": 6677.759249268024,\n          \"conversionRatioConsequent\": 7659.784213024733,\n          \"rounding\": \"UP\"\n        }\n      ],\n      \"totalAuthorizedShares\": 6186.442422861252\n    },\n    {\n      \"classOfSecurities\": \"COMMON\",\n      \"designations\": [\n        {\n          \"convertible\": true,\n          \"parValue\": 2928.5585376840118,\n          \"stockDesignationId\": 6096,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 1959.3987539894053,\n          \"fundingRound\": 1407,\n          \"pricePerShare\": 3092.227083180168,\n          \"convertsToStockDesignationId\": 9243,\n          \"conversionRatioAntecedent\": 7869.920007581054,\n          \"conversionRatioConsequent\": 3515.2717071651864,\n          \"rounding\": \"NORMAL\"\n        },\n        {\n          \"convertible\": true,\n          \"parValue\": 3620.655584682002,\n          \"stockDesignationId\": 9320,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 5687.069203880315,\n          \"fundingRound\": 4151,\n          \"pricePerShare\": 7222.490598430096,\n          \"convertsToStockDesignationId\": 3647,\n          \"conversionRatioAntecedent\": 4278.456644619827,\n          \"conversionRatioConsequent\": 1760.6235615376265,\n          \"rounding\": \"DOWN\"\n        }\n      ],\n      \"totalAuthorizedShares\": 4105.712702493595\n    }\n  ],\n  \"companyId\": 8075,\n  \"filingDate\": \"1997-11-07\",\n  \"stockFilingId\": 3590\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e370aaa3-7cb4-4553-aa7a-437775606374",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 3060,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 7598,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "feb31edc-ecbe-4bf0-b963-ec09bfcfb1d4",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b05b81c9-f10c-4a39-8d04-5a64d6b8795a",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e24ec965-f391-4d6c-ac1f-24ccb64b2f6f",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "46a23634-527f-478d-98c4-2ca34ecf7171",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-designation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"classOfSecurities\": \"<string>\",\n  \"convertible\": \"<boolean>\",\n  \"filingDate\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stockDesignationName\": \"<string>\",\n  \"fundingRound\": \"<integer>\",\n  \"pricePerShare\": \"<double>\",\n  \"convertsToStockDesignationId\": \"<integer>\",\n  \"conversionRatioAntecedent\": \"<double>\",\n  \"conversionRatioConsequent\": \"<double>\",\n  \"rounding\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80caf761-9a46-4f65-b9e2-0c040673e176",
+          "name": "GET Stock Filing (Latest)",
+          "request": {
+            "name": "GET Stock Filing (Latest)",
+            "description": {
+              "content": "Retrieve the details of the company's most recent stock filing",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId",
+                "authorized-capital",
+                "stock-filing",
+                "latest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c05b62e6-714a-4e45-9d7e-8b7f90ee23e4",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"classesOfSecurities\": [\n    {\n      \"classOfSecurities\": \"COMMON_STOCK\",\n      \"designations\": [\n        {\n          \"convertible\": true,\n          \"parValue\": 7593.051378857488,\n          \"stockDesignationId\": 6869,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 8669.923702728734,\n          \"fundingRound\": 4721,\n          \"pricePerShare\": 5894.353319029866,\n          \"convertsToStockDesignationId\": 9275,\n          \"conversionRatioAntecedent\": 4353.673749154508,\n          \"conversionRatioConsequent\": 3581.1792288974607,\n          \"rounding\": \"UP\"\n        },\n        {\n          \"convertible\": true,\n          \"parValue\": 5456.36027958869,\n          \"stockDesignationId\": 9033,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 4777.617641675439,\n          \"fundingRound\": 7777,\n          \"pricePerShare\": 2179.9532410600054,\n          \"convertsToStockDesignationId\": 697,\n          \"conversionRatioAntecedent\": 7498.5815299263,\n          \"conversionRatioConsequent\": 7162.382148686317,\n          \"rounding\": \"DOWN\"\n        }\n      ],\n      \"totalAuthorizedShares\": 2969.5656828695383\n    },\n    {\n      \"classOfSecurities\": \"PREFERRED\",\n      \"designations\": [\n        {\n          \"convertible\": true,\n          \"parValue\": 5544.478656297699,\n          \"stockDesignationId\": 3067,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 6692.470905091053,\n          \"fundingRound\": 1760,\n          \"pricePerShare\": 1836.296133890931,\n          \"convertsToStockDesignationId\": 9404,\n          \"conversionRatioAntecedent\": 1770.0570850652098,\n          \"conversionRatioConsequent\": 1095.3476877075675,\n          \"rounding\": \"DOWN\"\n        },\n        {\n          \"convertible\": true,\n          \"parValue\": 8423.799917346767,\n          \"stockDesignationId\": 6474,\n          \"stockDesignationName\": \"string\",\n          \"totalAuthorizedShares\": 3560.6421448887772,\n          \"fundingRound\": 9652,\n          \"pricePerShare\": 6101.652554577742,\n          \"convertsToStockDesignationId\": 3800,\n          \"conversionRatioAntecedent\": 9226.041086853087,\n          \"conversionRatioConsequent\": 3423.127057963834,\n          \"rounding\": \"NORMAL\"\n        }\n      ],\n      \"totalAuthorizedShares\": 6455.31913046148\n    }\n  ],\n  \"companyId\": 1775,\n  \"filingDate\": \"2024-11-03\",\n  \"stockFilingId\": 178\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ff2447f-44a1-4a1f-9d12-fc15e23f7eb3",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02bc102c-2e41-43f6-b24a-9902706eb144",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1a68ce13-a599-45c3-b31a-22e3375bb3e8",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c1ea5f71-9d2e-49ca-bc0d-6c83bcb0e54f",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78072b23-6fe1-47a5-ac9c-e663861174cc",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId",
+                    "authorized-capital",
+                    "stock-filing",
+                    "latest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 407,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 6802,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shareworks.solium.com/rest/admin",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ab4daf94-ff16-4d02-ad2d-41b06b0c157f",
+    "name": "Shareworks Admin REST Authentication Token Stock Filing API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Shareworks Admin REST API",
+      "type": "text/plain"
+    }
+  }
+}

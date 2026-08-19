@@ -1,0 +1,70 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Stock Filing API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stock Filing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST Stock Filing Designation (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/stock-designation",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new stock filing by adding one new stock designation to the most recent filing"
+        },
+        {
+          "info": {
+            "name": "GET Stock Filing (Latest)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/stock-filing/latest",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the company's most recent stock filing"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

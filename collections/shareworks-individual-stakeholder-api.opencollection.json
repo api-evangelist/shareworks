@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Individual Stakeholder API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Individual Stakeholder",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET Individual Stakeholder (All)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page. Default is 100. Maximum is 500"
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Which page of the data set to fetch. Default is 1."
+              }
+            ]
+          },
+          "docs": "Retrieve the details of all individual stakeholders in the company"
+        },
+        {
+          "info": {
+            "name": "POST Individual Stakeholder (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an individual stakeholder for the specified company"
+        },
+        {
+          "info": {
+            "name": "GET Individual Stakeholder (Single)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve the details of the specified individual stakeholder"
+        },
+        {
+          "info": {
+            "name": "PUT Individual Stakeholder (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified individual stakeholder"
+        },
+        {
+          "info": {
+            "name": "POST Individual Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual/search",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "Number of items to return per page. Default is 100. Maximum is 500"
+              },
+              {
+                "name": "pageNumber",
+                "value": "",
+                "type": "query",
+                "description": "Which page of the data set to fetch. Default is 1."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a search and retrieve a list of individual stakeholders matching the criteria"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

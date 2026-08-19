@@ -1,0 +1,1610 @@
+{
+  "item": [
+    {
+      "id": "eb683a03-a547-4b6f-a8d8-aa86252d6c8f",
+      "name": "Company",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1ad62c69-4575-443c-b183-00cc3baad74e",
+          "name": "GET Company (All)",
+          "request": {
+            "name": "GET Company (All)",
+            "description": {
+              "content": "Retrieve the details of all managed companies",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "<integer>",
+                  "description": "Number of items to return per page. Default is 50. Maximum is 250"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageNumber",
+                  "value": "<integer>",
+                  "description": "Which page of the data set to fetch. Default is 1."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b847d5f-e88e-4224-af8f-5066623c7711",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Identifies which page of the target data set is returned in this response (1 to n). (Only present when the response is paginated)",
+                  "key": "Page-Number",
+                  "value": ""
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of items per page used to paginate the target data set. (Only present when the response is paginated)",
+                  "key": "Page-Size",
+                  "value": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"companyName\": \"string\",\n    \"companyId\": 330,\n    \"enforceOneToOneDesignationToFund\": true,\n    \"phone\": \"string\",\n    \"fiscalYearEnd\": \"1972-03-12\",\n    \"stateOfIncorporation\": \"DE_TH\",\n    \"dateOfIncorporation\": \"1966-06-30\",\n    \"entityType\": \"C_CORP\",\n    \"companyAddresses\": [\n      {\n        \"addressLine1\": \"string\",\n        \"addressType\": \"BUSINESS\",\n        \"city\": \"string\",\n        \"companyAddressId\": 5116,\n        \"country\": \"CZ\",\n        \"addressLine2\": \"string\",\n        \"addressLine3\": \"string\",\n        \"stateProvince\": \"US_IA\",\n        \"postalCode\": \"string\"\n      },\n      {\n        \"addressLine1\": \"string\",\n        \"addressType\": \"BUSINESS\",\n        \"city\": \"string\",\n        \"companyAddressId\": 9109,\n        \"country\": \"UZ\",\n        \"addressLine2\": \"string\",\n        \"addressLine3\": \"string\",\n        \"stateProvince\": \"AU_QLD\",\n        \"postalCode\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contactId\": 7761,\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"primaryEmailAddress\": \"string\",\n        \"primaryPhone\": \"string\",\n        \"primaryPhoneExt\": \"string\"\n      },\n      {\n        \"contactId\": 5898,\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"primaryEmailAddress\": \"string\",\n        \"primaryPhone\": \"string\",\n        \"primaryPhoneExt\": \"string\"\n      }\n    ]\n  },\n  {\n    \"companyName\": \"string\",\n    \"companyId\": 1418,\n    \"enforceOneToOneDesignationToFund\": false,\n    \"phone\": \"string\",\n    \"fiscalYearEnd\": \"2018-06-05\",\n    \"stateOfIncorporation\": \"CA_NU\",\n    \"dateOfIncorporation\": \"2021-02-17\",\n    \"entityType\": \"PARTNERSHIP\",\n    \"companyAddresses\": [\n      {\n        \"addressLine1\": \"string\",\n        \"addressType\": \"BUSINESS\",\n        \"city\": \"string\",\n        \"companyAddressId\": 8250,\n        \"country\": \"GI\",\n        \"addressLine2\": \"string\",\n        \"addressLine3\": \"string\",\n        \"stateProvince\": \"US_NJ\",\n        \"postalCode\": \"string\"\n      },\n      {\n        \"addressLine1\": \"string\",\n        \"addressType\": \"FUNDS_DELIVERY\",\n        \"city\": \"string\",\n        \"companyAddressId\": 7068,\n        \"country\": \"PK\",\n        \"addressLine2\": \"string\",\n        \"addressLine3\": \"string\",\n        \"stateProvince\": \"US_AP\",\n        \"postalCode\": \"string\"\n      }\n    ],\n    \"contacts\": [\n      {\n        \"contactId\": 133,\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"primaryEmailAddress\": \"string\",\n        \"primaryPhone\": \"string\",\n        \"primaryPhoneExt\": \"string\"\n      },\n      {\n        \"contactId\": 5834,\n        \"name\": \"string\",\n        \"title\": \"string\",\n        \"primaryEmailAddress\": \"string\",\n        \"primaryPhone\": \"string\",\n        \"primaryPhoneExt\": \"string\"\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "efa1e16f-add3-4dad-a921-7457c9e0503b",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 8228,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 1605,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a13bd316-1433-4de1-983b-108e6aaed6ca",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "453adc74-3706-4836-a0a7-efb92bc8c987",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ba219019-e637-454c-a80c-50d59699bb53",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "03664668-a132-4cdd-a8ae-37f87b3cec95",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageNumber",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7404d6bf-fe92-416e-b4f4-3a9b4b89c54f",
+          "name": "POST Company (Create)",
+          "request": {
+            "name": "POST Company (Create)",
+            "description": {
+              "content": "Create a new private company with the default setup",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                "key": "Shareworks-Request-Id",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "89a1a774-ab23-4e67-9258-01b5820a4c9e",
+              "name": "Created. An object is created and returned",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyName\": \"string\",\n  \"companyId\": 6167,\n  \"enforceOneToOneDesignationToFund\": true,\n  \"phone\": \"string\",\n  \"fiscalYearEnd\": \"2019-04-30\",\n  \"stateOfIncorporation\": \"US_UT\",\n  \"dateOfIncorporation\": \"2007-03-16\",\n  \"entityType\": \"C_CORP\",\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"MAIL\",\n      \"city\": \"string\",\n      \"companyAddressId\": 1082,\n      \"country\": \"BF\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_AG\",\n      \"postalCode\": \"string\"\n    },\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"BUSINESS\",\n      \"city\": \"string\",\n      \"companyAddressId\": 197,\n      \"country\": \"MC\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_SZ\",\n      \"postalCode\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contactId\": 2801,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    },\n    {\n      \"contactId\": 3155,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6951acee-534b-4b0d-8e41-624cdd5b376c",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.\n\nAlso occurs when using Shareworks-Request-Id header if:  \n- A previous request with the identifier has been submitted but is not yet complete  \n    - errors[] will include {code: 461, message: A request with the provided Shareworks-Request-Id is currently in-progress}  \n- A previous, but different, request was already processed with the same identifier  \n    - errors[] will include {code: 460, message: The provided Shareworks-Request-Id header is not unique for this user}",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "64e646d8-0139-4dd5-961b-413962d2063e",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ec777772-cbcf-495a-b343-26bf5534fc6f",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9238f5aa-51fc-462c-9bee-4e613e09e517",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39c4cb4d-7059-4ca4-9662-679c2fcdfe14",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "An identifier unique to this request.  If a connection is broken or a response does not come in a timely manner, submit the same request again with this same identifier. Shareworks ensures that duplicate requests with the same identifier will only be processed once and will all return the same response.",
+                    "key": "Shareworks-Request-Id",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "32f84b3e-2973-4108-9870-98150cb9366b",
+          "name": "GET Company (Single)",
+          "request": {
+            "name": "GET Company (Single)",
+            "description": {
+              "content": "Retrieve the details of the specified company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e9e6a78d-d88d-4371-9dd9-1461edcdada8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyName\": \"string\",\n  \"companyId\": 6167,\n  \"enforceOneToOneDesignationToFund\": true,\n  \"phone\": \"string\",\n  \"fiscalYearEnd\": \"2019-04-30\",\n  \"stateOfIncorporation\": \"US_UT\",\n  \"dateOfIncorporation\": \"2007-03-16\",\n  \"entityType\": \"C_CORP\",\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"MAIL\",\n      \"city\": \"string\",\n      \"companyAddressId\": 1082,\n      \"country\": \"BF\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_AG\",\n      \"postalCode\": \"string\"\n    },\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"BUSINESS\",\n      \"city\": \"string\",\n      \"companyAddressId\": 197,\n      \"country\": \"MC\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_SZ\",\n      \"postalCode\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contactId\": 2801,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    },\n    {\n      \"contactId\": 3155,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3bd61a66-a45a-4d6e-899c-9aa1bd85d12b",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f9e76666-81bc-45c1-b3f6-2234c0a8f159",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9783dc13-40d3-4807-908d-d0a424c91e11",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be1bb52d-4e44-4431-9ca5-8b341aa7eae9",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8b2312d8-b6e7-4a69-a34a-fb2a7de7d94e",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "93f8ca1d-6c6a-4ec2-93fa-0e93f1a64980",
+          "name": "PUT Company (Update)",
+          "request": {
+            "name": "PUT Company (Update)",
+            "description": {
+              "content": "Update the details of the specified company",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "company",
+                ":companyId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "companyId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0c756b36-e8ef-42c2-a95f-9edb04edc6e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"companyName\": \"string\",\n  \"companyId\": 6167,\n  \"enforceOneToOneDesignationToFund\": true,\n  \"phone\": \"string\",\n  \"fiscalYearEnd\": \"2019-04-30\",\n  \"stateOfIncorporation\": \"US_UT\",\n  \"dateOfIncorporation\": \"2007-03-16\",\n  \"entityType\": \"C_CORP\",\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"MAIL\",\n      \"city\": \"string\",\n      \"companyAddressId\": 1082,\n      \"country\": \"BF\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_AG\",\n      \"postalCode\": \"string\"\n    },\n    {\n      \"addressLine1\": \"string\",\n      \"addressType\": \"BUSINESS\",\n      \"city\": \"string\",\n      \"companyAddressId\": 197,\n      \"country\": \"MC\",\n      \"addressLine2\": \"string\",\n      \"addressLine3\": \"string\",\n      \"stateProvince\": \"CH_SZ\",\n      \"postalCode\": \"string\"\n    }\n  ],\n  \"contacts\": [\n    {\n      \"contactId\": 2801,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    },\n    {\n      \"contactId\": 3155,\n      \"name\": \"string\",\n      \"title\": \"string\",\n      \"primaryEmailAddress\": \"string\",\n      \"primaryPhone\": \"string\",\n      \"primaryPhoneExt\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "37455dc7-27ad-4fde-9ee6-a9c0bfbdd531",
+              "name": "The request was unacceptable, often due to missing a required parameter, malformed query, or malformed request body.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b90969ca-f249-42a2-a23c-dfacd193eff3",
+              "name": "You request was successful and valid but you do not have access to this resource.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e2070b55-cf02-43ee-8d34-4fca3164c9db",
+              "name": "When a request tries to access a resource that doesn't belong to them.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2e99a360-10f5-4d6d-bb27-99b9fe9a766f",
+              "name": "There was a validation error. Check the error message to see what values caused the error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4df1ade-5a72-46bc-a465-e6cc59c878a2",
+              "name": "Servers are not working as expected.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "company",
+                    ":companyId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "companyId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"companyName\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"fiscalYearEnd\": \"<date>\",\n  \"initialNumberOfAuthorizedShares\": \"<double>\",\n  \"numberOfSharesWithVestingAllocatedToFounders\": \"<double>\",\n  \"parValue\": \"<double>\",\n  \"stateOfIncorporation\": \"<string>\",\n  \"dateOfIncorporation\": \"<date>\",\n  \"entityType\": \"<string>\",\n  \"contacts\": [\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"primaryEmailAddress\": \"<string>\",\n      \"primaryPhone\": \"<string>\",\n      \"title\": \"<string>\",\n      \"primaryPhoneExt\": \"<string>\"\n    }\n  ],\n  \"companyAddresses\": [\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    },\n    {\n      \"addressLine1\": \"<string>\",\n      \"addressType\": \"<string>\",\n      \"city\": \"<string>\",\n      \"country\": \"<string>\",\n      \"postalCode\": \"<string>\",\n      \"addressLine2\": \"<string>\",\n      \"addressLine3\": \"<string>\",\n      \"stateProvince\": \"<string>\"\n    }\n  ],\n  \"enforceOneToOneDesignationToFund\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"string\",\n  \"errorId\": \"string\",\n  \"message\": \"string\",\n  \"errors\": [\n    {\n      \"code\": 2103,\n      \"message\": \"string\"\n    },\n    {\n      \"code\": 3123,\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://shareworks.solium.com/rest/admin",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb3f3e1b-1ac5-4dc2-9d9b-51e949d799f6",
+    "name": "Shareworks Admin REST Authentication Token Company API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Shareworks Admin REST API",
+      "type": "text/plain"
+    }
+  }
+}

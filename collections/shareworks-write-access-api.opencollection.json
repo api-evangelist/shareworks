@@ -1,0 +1,513 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Shareworks Admin REST Authentication Token Write Access API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Write Access",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "POST Company (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new private company with the default setup"
+        },
+        {
+          "info": {
+            "name": "PUT Company (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified company"
+        },
+        {
+          "info": {
+            "name": "POST Plan (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/plan",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a plan for the specified company"
+        },
+        {
+          "info": {
+            "name": "POST Stock Certificate (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/:stakeholderId/stock-certificate",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a stock certificate for the specified stakeholder"
+        },
+        {
+          "info": {
+            "name": "PUT Stock Certificate (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/stock-certificate/:stockCertificateId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stockCertificateId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified stock certificate"
+        },
+        {
+          "info": {
+            "name": "POST Stock Filing Designation (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/authorized-capital/stock-designation",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new stock filing by adding one new stock designation to the most recent filing"
+        },
+        {
+          "info": {
+            "name": "POST Vesting Schedule (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/vesting-schedule",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a vesting schedule for the specified company"
+        },
+        {
+          "info": {
+            "name": "PUT Vesting Schedule (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/vesting-schedule/:vestingScheduleId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "vestingScheduleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified vesting schedule"
+        },
+        {
+          "info": {
+            "name": "POST Company Board Appointment (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board/appointment",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a company board appointment to assign a stakeholder to the board"
+        },
+        {
+          "info": {
+            "name": "POST Company Board (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create the company board for officer/director tracking"
+        },
+        {
+          "info": {
+            "name": "PUT Company Board (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the company board for officer/director tracking"
+        },
+        {
+          "info": {
+            "name": "PUT Company Board Appointment (Update) ",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/board/appointment/:appointmentId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appointmentId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified company board appointment"
+        },
+        {
+          "info": {
+            "name": "POST Grant (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/:stakeholderId/grant",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a grant for the specified stakeholder"
+        },
+        {
+          "info": {
+            "name": "PUT Grant (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/grant/:grantId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "grantId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified grant"
+        },
+        {
+          "info": {
+            "name": "POST Entity Stakeholder (Create) ",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an entity stakeholder for the specified company"
+        },
+        {
+          "info": {
+            "name": "POST Individual Stakeholder (Create)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual",
+            "headers": [
+              {
+                "name": "Shareworks-Request-Id",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an individual stakeholder for the specified company"
+        },
+        {
+          "info": {
+            "name": "PUT Entity Stakeholder (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/entity/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified entity stakeholder"
+        },
+        {
+          "info": {
+            "name": "PUT Individual Stakeholder (Update)",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://shareworks.solium.com/rest/admin/v1/company/:companyId/stakeholder/individual/:stakeholderId",
+            "params": [
+              {
+                "name": "companyId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "stakeholderId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the details of the specified individual stakeholder"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
