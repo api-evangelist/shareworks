@@ -183,16 +183,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/shareworks-plan-api-openapi.yml
-- aid: shareworks:shareworks-read-access-api
-  name: Shareworks Read Access API
-  description: The Read Access API from Shareworks — 30 operation(s) for read access.
-  humanURL: https://downloads.shareworks.com/api/index.html
-  baseURL: https://shareworks-api.solium.com/
-  tags:
-  - Read Access
-  properties:
-  - type: OpenAPI
-    url: openapi/shareworks-read-access-api-openapi.yml
 - aid: shareworks:shareworks-stock-certificate-api
   name: Shareworks Stock Certificate API
   description: The Stock Certificate API from Shareworks — 2 operation(s) for stock certificate.
@@ -223,16 +213,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/shareworks-vesting-schedule-api-openapi.yml
-- aid: shareworks:shareworks-write-access-api
-  name: Shareworks Write Access API
-  description: The Write Access API from Shareworks — 17 operation(s) for write access.
-  humanURL: https://downloads.shareworks.com/api/index.html
-  baseURL: https://shareworks-api.solium.com/
-  tags:
-  - Write Access
-  properties:
-  - type: OpenAPI
-    url: openapi/shareworks-write-access-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/shareworks-agentic-access.yml
