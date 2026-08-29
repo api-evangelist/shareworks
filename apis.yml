@@ -226,6 +226,9 @@ apis:
   - type: OpenAPI
     url: openapi/shareworks-vesting-schedule-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/shareworks-capability-edges.yml
+    name: Shareworks Business Capability Map
   - type: AgenticAccess
     url: agentic-access/shareworks-agentic-access.yml
   - type: VulnerabilityDisclosure
