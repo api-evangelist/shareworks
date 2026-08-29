@@ -8,6 +8,18 @@ description: >-
   and JWT-based bearer token authentication. Access requires IP whitelisting and
   initial setup through Morgan Stanley at Work.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: enterprise
   onboarding: self-serve
