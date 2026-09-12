@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Authorized Capital API
+  title: Shareworks Admin REST Authorized Capital API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:
@@ -356,102 +356,231 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    SecuritiesDesignationDetails:
-      title: Designation Summary Response
+    ClassOfSecuritiesDetails:
+      title: Authorized Capital Class Detailed Response
       required:
-      - amountRaisedCurrency
-      - dollarAmountRaised
-      - numberOfCertificates
-      - parValue
-      - percentDiluted
-      - percentOutstanding
-      - percentOwnership
-      - stockDesignationId
-      - stockDesignationName
+      - classOfSecurities
+      - stockDesignations
       - totalAuthorizedShares
-      - totalAvailableShares
       - totalCommonStockEquivalentShares
+      - totalDesignatedShares
       - totalOutstandingShares
       type: object
       properties:
-        stockDesignationId:
-          type: integer
-          description: Identifier for the stock designation
-          format: int32
-        stockDesignationName:
+        classOfSecurities:
           type: string
-          description: Name for the stock designation
-        numberOfCertificates:
-          type: integer
-          description: The number of certificates associated to a specific stock designation
-          format: int32
-        dollarAmountRaised:
-          type: number
-          description: The stock designation total dollar amount raised derived from the number of certificates issued multiplied by the price of each certificate.
-          format: double
-        amountRaisedCurrency:
-          type: string
-          description: The three letter currency code of the currency used in the calculation of the amount raised
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
         parValue:
           type: number
-          description: Par value for the stock designation
+          description: Par value for the class of securities
           format: double
-        pricePerShare:
-          type: number
-          description: Price per share for the stock designation
-          format: double
-        pricePerShareCurrency:
-          type: string
-          description: The three letter currency code of the price per share currency
-        filingDate:
-          type: string
-          description: The date of the stock filing
-          format: date
-        conversionRatio:
-          type: string
-          description: When the stock designation is convertible, this ratio represents number of converted shares to each original share
-        rounding:
-          type: string
-          description: Rounding type used when converting shares from the stock designation
-          enum:
-          - NORMAL
-          - UP
-          - DOWN
-        convertsToStockDesignationName:
-          type: string
-          description: Name for the stock designation which the stock designation converts to
-        convertsToStockDesignationId:
-          type: integer
-          description: Identifier for the stock designation which the stock designation converts to
-          format: int32
         totalAuthorizedShares:
           type: number
-          description: Total number of authorized shares for the stock designation
+          description: Total number of authorized shares for the class of securities
           format: double
-        totalAvailableShares:
+        totalDesignatedShares:
           type: number
-          description: Total available shares across the stock designations for the class
+          description: Total shares designated to one or more stock designations for the class
           format: double
         totalOutstandingShares:
           type: number
-          description: Total outstanding shares across the stock designations for the class
+          description: Total outstanding shares from all stock designations for the class
           format: double
         totalCommonStockEquivalentShares:
           type: number
-          description: Total common equivalent (a.k.a. fully diluted) shares across the stock designations for the class
+          description: Total fully diluted shares from all stock designations for the class
           format: double
-        percentOwnership:
+        stockDesignations:
+          type: array
+          description: List of all stock designations for the class of securities
+          items:
+            $ref: '#/components/schemas/SecuritiesDesignationDetails'
+    WarrantsSummaryDetails:
+      title: Warrant Details Response
+      required:
+      - numberOfWarrants
+      - percentageFullyDiluted
+      - totalCommonStockEquivalentShares
+      type: object
+      properties:
+        numberOfWarrants:
+          type: integer
+          description: Total number of warrants
+          format: int32
+        totalCommonStockEquivalentShares:
           type: number
-          description: Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares for the stock designation
+          description: Total Common Stock Equivalent shares represented by warrants
           format: double
-        percentDiluted:
+        percentageFullyDiluted:
           type: number
-          description: Percentage representing the fraction of total common equivalent (a.k.a fully diluted) and available shares for the stock designation
+          description: Percentage of fully diluted shares outstanding across all warrants
           format: double
-        percentOutstanding:
+      description: Summary information on warrants for the company
+    FundDetails:
+      title: Fund Details Response
+      type: object
+      properties:
+        fundName:
+          type: string
+          description: Full name of the fund
+        fmv:
+          type: number
+          description: Fair market value of the fund
+          format: double
+        effectiveDate:
+          type: string
+          description: The effective date of the fund
+          format: date
+        expirationDate:
+          type: string
+          description: The expiration date of the fund
+          format: date
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    ClassOfSecuritiesSummaryDetails:
+      title: Class Summary Response
+      required:
+      - classOfSecurities
+      - designationSummary
+      - totalAuthorizedShares
+      - totalAvailableToDesignate
+      type: object
+      properties:
+        classOfSecurities:
+          type: string
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
+        parValue:
+          type: number
+          description: Par value for the class of securities
+          format: double
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the class of securities
+          format: double
+        totalAvailableToDesignate:
+          type: number
+          description: Total shares remaining to designate to stock designations for the class
+          format: double
+        designationSummary:
+          $ref: '#/components/schemas/DesignatedSharesSummaryDetails'
+      description: List of summary information for all classes of securities for the company
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    AuthorizedCapitalDetails:
+      title: Authorized Capital Response
+      required:
+      - certificatedShares
+      - classesOfSecurities
+      - companyId
+      - percentageOfFullyDilutedAvailableShares
+      - percentageOfFullyDilutedOutstandingShares
+      - plans
+      - totalAuthorizedShares
+      - totalCommonStockEquivalentShares
+      - totalOutstandingShares
+      - warrants
+      type: object
+      properties:
+        companyId:
+          type: integer
+          description: Identifier for the company
+          format: int32
+        totalAuthorizedShares:
+          type: number
+          description: Total shares authorized across all types of securities
+          format: double
+        totalOutstandingShares:
+          type: number
+          description: Total outstanding shares across all types of securities
+          format: double
+        totalCommonStockEquivalentShares:
+          type: number
+          description: Total common equivalent (a.k.a. fully diluted) shares across all types of securities
+          format: double
+        percentageOfFullyDilutedOutstandingShares:
           type: number
           description: Percentage of fully diluted outstanding shares across all types of securities
           format: double
+        percentageOfFullyDilutedAvailableShares:
+          type: number
+          description: Percentage of fully diluted available shares across all types of securities
+          format: double
+        currentFMV:
+          type: number
+          description: The fair market value for the company per share (usually the latest 409A valuation for private companies)
+          format: double
+        classesOfSecurities:
+          type: array
+          description: List of summary information for all classes of securities for the company
+          items:
+            $ref: '#/components/schemas/ClassOfSecuritiesSummaryDetails'
+        warrants:
+          $ref: '#/components/schemas/WarrantsSummaryDetails'
+        plans:
+          type: array
+          description: List of summary information for all plans for the company
+          items:
+            $ref: '#/components/schemas/PlanSummaryDetails'
+        certificatedShares:
+          type: boolean
+          description: Whether the stock certificates are paper (value 'false' indicates they are digital)
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     PlanSummaryDetailsWithGrants:
       title: Plan Summary Detailed Response
       required:
@@ -668,40 +797,6 @@ components:
           description: List of all grants under the plan
           items:
             $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
-    StakeholderGrantAcceleratedVestingDetails:
-      title: Accelerated Vesting Response
-      required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
-      type: object
-      properties:
-        accelerationTrigger:
-          type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: List of the vesting acceleration stipulations of the grant. May be empty.
     DesignatedSharesSummaryDetails:
       title: Class Designated Share Summary Response
       required:
@@ -723,91 +818,6 @@ components:
           description: Total common equivalent (a.k.a. fully diluted) shares across the stock designations for the class
           format: double
       description: Summary of all shares across the stock designations for the class
-    FundDetails:
-      title: Fund Details Response
-      type: object
-      properties:
-        fundName:
-          type: string
-          description: Full name of the fund
-        fmv:
-          type: number
-          description: Fair market value of the fund
-          format: double
-        effectiveDate:
-          type: string
-          description: The effective date of the fund
-          format: date
-        expirationDate:
-          type: string
-          description: The expiration date of the fund
-          format: date
-    ClassOfSecuritiesDetails:
-      title: Authorized Capital Class Detailed Response
-      required:
-      - classOfSecurities
-      - stockDesignations
-      - totalAuthorizedShares
-      - totalCommonStockEquivalentShares
-      - totalDesignatedShares
-      - totalOutstandingShares
-      type: object
-      properties:
-        classOfSecurities:
-          type: string
-          description: Whether the class is common or preferred stock
-          enum:
-          - COMMON
-          - PREFERRED
-          - COMMON_STOCK
-          - PREFERRED_STOCK
-        parValue:
-          type: number
-          description: Par value for the class of securities
-          format: double
-        totalAuthorizedShares:
-          type: number
-          description: Total number of authorized shares for the class of securities
-          format: double
-        totalDesignatedShares:
-          type: number
-          description: Total shares designated to one or more stock designations for the class
-          format: double
-        totalOutstandingShares:
-          type: number
-          description: Total outstanding shares from all stock designations for the class
-          format: double
-        totalCommonStockEquivalentShares:
-          type: number
-          description: Total fully diluted shares from all stock designations for the class
-          format: double
-        stockDesignations:
-          type: array
-          description: List of all stock designations for the class of securities
-          items:
-            $ref: '#/components/schemas/SecuritiesDesignationDetails'
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     StakeholderGrantSummaryDetails:
       title: Grant Summary Response
       required:
@@ -1028,117 +1038,26 @@ components:
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
       description: List of grants held by the stakeholder
-    WarrantsSummaryDetails:
-      title: Warrant Details Response
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
       required:
-      - numberOfWarrants
-      - percentageFullyDiluted
-      - totalCommonStockEquivalentShares
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
       type: object
       properties:
-        numberOfWarrants:
-          type: integer
-          description: Total number of warrants
-          format: int32
-        totalCommonStockEquivalentShares:
-          type: number
-          description: Total Common Stock Equivalent shares represented by warrants
-          format: double
-        percentageFullyDiluted:
-          type: number
-          description: Percentage of fully diluted shares outstanding across all warrants
-          format: double
-      description: Summary information on warrants for the company
-    AuthorizedCapitalDetails:
-      title: Authorized Capital Response
-      required:
-      - certificatedShares
-      - classesOfSecurities
-      - companyId
-      - percentageOfFullyDilutedAvailableShares
-      - percentageOfFullyDilutedOutstandingShares
-      - plans
-      - totalAuthorizedShares
-      - totalCommonStockEquivalentShares
-      - totalOutstandingShares
-      - warrants
-      type: object
-      properties:
-        companyId:
-          type: integer
-          description: Identifier for the company
-          format: int32
-        totalAuthorizedShares:
-          type: number
-          description: Total shares authorized across all types of securities
-          format: double
-        totalOutstandingShares:
-          type: number
-          description: Total outstanding shares across all types of securities
-          format: double
-        totalCommonStockEquivalentShares:
-          type: number
-          description: Total common equivalent (a.k.a. fully diluted) shares across all types of securities
-          format: double
-        percentageOfFullyDilutedOutstandingShares:
-          type: number
-          description: Percentage of fully diluted outstanding shares across all types of securities
-          format: double
-        percentageOfFullyDilutedAvailableShares:
-          type: number
-          description: Percentage of fully diluted available shares across all types of securities
-          format: double
-        currentFMV:
-          type: number
-          description: The fair market value for the company per share (usually the latest 409A valuation for private companies)
-          format: double
-        classesOfSecurities:
-          type: array
-          description: List of summary information for all classes of securities for the company
-          items:
-            $ref: '#/components/schemas/ClassOfSecuritiesSummaryDetails'
-        warrants:
-          $ref: '#/components/schemas/WarrantsSummaryDetails'
-        plans:
-          type: array
-          description: List of summary information for all plans for the company
-          items:
-            $ref: '#/components/schemas/PlanSummaryDetails'
-        certificatedShares:
-          type: boolean
-          description: Whether the stock certificates are paper (value 'false' indicates they are digital)
-    ClassOfSecuritiesSummaryDetails:
-      title: Class Summary Response
-      required:
-      - classOfSecurities
-      - designationSummary
-      - totalAuthorizedShares
-      - totalAvailableToDesignate
-      type: object
-      properties:
-        classOfSecurities:
+        accelerationTrigger:
           type: string
-          description: Whether the class is common or preferred stock
-          enum:
-          - COMMON
-          - PREFERRED
-          - COMMON_STOCK
-          - PREFERRED_STOCK
-        parValue:
-          type: number
-          description: Par value for the class of securities
-          format: double
-        totalAuthorizedShares:
-          type: number
-          description: Total number of authorized shares for the class of securities
-          format: double
-        totalAvailableToDesignate:
-          type: number
-          description: Total shares remaining to designate to stock designations for the class
-          format: double
-        designationSummary:
-          $ref: '#/components/schemas/DesignatedSharesSummaryDetails'
-      description: List of summary information for all classes of securities for the company
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
     PlanSummaryDetails:
       title: Plan Summary Response
       required:
@@ -1350,21 +1269,102 @@ components:
           description: The total number of grants issued under the plan
           format: int32
       description: List of summary information for all plans for the company
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
+    SecuritiesDesignationDetails:
+      title: Designation Summary Response
       required:
-      - vestQuantity
+      - amountRaisedCurrency
+      - dollarAmountRaised
+      - numberOfCertificates
+      - parValue
+      - percentDiluted
+      - percentOutstanding
+      - percentOwnership
+      - stockDesignationId
+      - stockDesignationName
+      - totalAuthorizedShares
+      - totalAvailableShares
+      - totalCommonStockEquivalentShares
+      - totalOutstandingShares
       type: object
       properties:
-        vestDate:
+        stockDesignationId:
+          type: integer
+          description: Identifier for the stock designation
+          format: int32
+        stockDesignationName:
           type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
+          description: Name for the stock designation
+        numberOfCertificates:
+          type: integer
+          description: The number of certificates associated to a specific stock designation
+          format: int32
+        dollarAmountRaised:
           type: number
-          description: Quantity of shares to vest for the row/tranche
+          description: The stock designation total dollar amount raised derived from the number of certificates issued multiplied by the price of each certificate.
           format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+        amountRaisedCurrency:
+          type: string
+          description: The three letter currency code of the currency used in the calculation of the amount raised
+        parValue:
+          type: number
+          description: Par value for the stock designation
+          format: double
+        pricePerShare:
+          type: number
+          description: Price per share for the stock designation
+          format: double
+        pricePerShareCurrency:
+          type: string
+          description: The three letter currency code of the price per share currency
+        filingDate:
+          type: string
+          description: The date of the stock filing
+          format: date
+        conversionRatio:
+          type: string
+          description: When the stock designation is convertible, this ratio represents number of converted shares to each original share
+        rounding:
+          type: string
+          description: Rounding type used when converting shares from the stock designation
+          enum:
+          - NORMAL
+          - UP
+          - DOWN
+        convertsToStockDesignationName:
+          type: string
+          description: Name for the stock designation which the stock designation converts to
+        convertsToStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation which the stock designation converts to
+          format: int32
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the stock designation
+          format: double
+        totalAvailableShares:
+          type: number
+          description: Total available shares across the stock designations for the class
+          format: double
+        totalOutstandingShares:
+          type: number
+          description: Total outstanding shares across the stock designations for the class
+          format: double
+        totalCommonStockEquivalentShares:
+          type: number
+          description: Total common equivalent (a.k.a. fully diluted) shares across the stock designations for the class
+          format: double
+        percentOwnership:
+          type: number
+          description: Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares for the stock designation
+          format: double
+        percentDiluted:
+          type: number
+          description: Percentage representing the fraction of total common equivalent (a.k.a fully diluted) and available shares for the stock designation
+          format: double
+        percentOutstanding:
+          type: number
+          description: Percentage of fully diluted outstanding shares across all types of securities
+          format: double
   securitySchemes:
     accessToken:
       type: http

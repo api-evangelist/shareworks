@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Grant API
+  title: Shareworks Admin REST Grant API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:
@@ -338,6 +338,41 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    ManualVestingRowCrudRequest:
+      title: Manual Vesting Row Body
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
     StakeholderGrantCrudRequest:
       title: Grant Body
       required:
@@ -517,6 +552,21 @@ components:
           description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingCrudRequest'
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     ErrorWithCode:
       title: Validation Error
       required:
@@ -531,81 +581,6 @@ components:
           type: integer
           description: Unique code for the validation error
           format: int32
-    StakeholderGrantAcceleratedVestingDetails:
-      title: Accelerated Vesting Response
-      required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
-      type: object
-      properties:
-        accelerationTrigger:
-          type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: List of the vesting acceleration stipulations of the grant. May be empty.
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
-    ManualVestingRowCrudRequest:
-      title: Manual Vesting Row Body
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-    StakeholderGrantAcceleratedVestingCrudRequest:
-      title: Vesting Acceleration Body
-      required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
-      type: object
-      properties:
-        accelerationTrigger:
-          type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
     StakeholderGrantDetails:
       title: Grant Response
       required:
@@ -810,21 +785,46 @@ components:
           description: List of the vesting acceleration stipulations of the grant. May be empty.
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
       required:
-      - vestQuantity
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
       type: object
       properties:
-        vestDate:
+        accelerationTrigger:
           type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
+    StakeholderGrantAcceleratedVestingCrudRequest:
+      title: Vesting Acceleration Body
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
   securitySchemes:
     accessToken:
       type: http

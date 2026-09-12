@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Company Integration API
+  title: Shareworks Admin REST Company Integration API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:
@@ -86,20 +86,15 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    ErrorWithCode:
-      title: Validation Error
+    CompanyIntegrationRequest:
+      title: Company Integration Body
       required:
-      - code
-      - message
+      - integrationKey
       type: object
       properties:
-        message:
+        integrationKey:
           type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
+          description: Integration key for the company
     CompanyIntegrationDetails:
       title: Company Integration Response
       required:
@@ -135,15 +130,20 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    CompanyIntegrationRequest:
-      title: Company Integration Body
+    ErrorWithCode:
+      title: Validation Error
       required:
-      - integrationKey
+      - code
+      - message
       type: object
       properties:
-        integrationKey:
+        message:
           type: string
-          description: Integration key for the company
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
   securitySchemes:
     accessToken:
       type: http

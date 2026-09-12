@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Stock Certificate API
+  title: Shareworks Admin REST Stock Certificate API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:
@@ -338,20 +338,19 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
+    ManualVestingRowCrudRequest:
+      title: Manual Vesting Row Body
       type: object
       properties:
-        message:
+        vestDate:
           type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -374,6 +373,35 @@ components:
         errorId:
           type: string
           description: Identifier for the error
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     StockCertificateDetails:
       title: Stock Certificate Response
       required:
@@ -445,34 +473,6 @@ components:
           description: List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule
           items:
             $ref: '#/components/schemas/ManualVestingRowDetails'
-    ManualVestingRowCrudRequest:
-      title: Manual Vesting Row Body
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
-      required:
-      - vestQuantity
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     StockCertificateCrudRequest:
       title: Stock Certificate Body
       required:

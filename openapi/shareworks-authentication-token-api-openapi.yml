@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
   title: Shareworks Admin REST Authentication Token API
   description: Shareworks Admin REST API
@@ -216,20 +216,14 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    ErrorWithCode:
-      title: Validation Error
+    AccessTokenRequest:
+      title: Access Token Body
       required:
-      - code
-      - message
+      - accessToken
       type: object
       properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
+        accessToken:
+          $ref: '#/components/schemas/AccessToken'
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -252,24 +246,6 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    AccessTokenRequest:
-      title: Access Token Body
-      required:
-      - accessToken
-      type: object
-      properties:
-        accessToken:
-          $ref: '#/components/schemas/AccessToken'
-    AccessToken:
-      title: Access Token Body
-      required:
-      - value
-      type: object
-      properties:
-        value:
-          type: string
-          description: Access Token Value
-      description: Token to accompany all API requests for authentication purposes
     AccessTokenResponse:
       title: Token Response
       required:
@@ -303,6 +279,30 @@ components:
         tokenType:
           type: string
           description: Type of the token
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    AccessToken:
+      title: Access Token Body
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: string
+          description: Access Token Value
+      description: Token to accompany all API requests for authentication purposes
   securitySchemes:
     accessToken:
       type: http

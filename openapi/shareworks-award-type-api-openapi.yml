@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Award Type API
+  title: Shareworks Admin REST Award Type API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:

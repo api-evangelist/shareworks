@@ -1,6 +1,6 @@
-openapi: 3.0.1
+openapi: 3.2.0
 info:
-  title: Shareworks Admin REST Authentication Token Entity Stakeholder API
+  title: Shareworks Admin REST Entity Stakeholder API
   description: Shareworks Admin REST API
   version: 1.0.0
 servers:
@@ -424,6 +424,28 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
     EntityStakeholderSearchRequest:
       title: Entity Stakeholder Search Body
       type: object
@@ -465,28 +487,6 @@ components:
         stakeholderNumber:
           type: string
           description: Number for the stakeholder, typically generated
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     EntityStakeholderCrudRequest:
       title: Entity Stakeholder Body
       type: object

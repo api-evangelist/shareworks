@@ -1,22 +1,7 @@
 {
   "provider": "shareworks",
   "sources": [
-    "shareworks-authentication-token-api-openapi.yml",
-    "shareworks-authorized-capital-api-openapi.yml",
-    "shareworks-award-type-api-openapi.yml",
-    "shareworks-company-api-openapi.yml",
-    "shareworks-company-board-api-openapi.yml",
-    "shareworks-company-integration-api-openapi.yml",
-    "shareworks-entity-stakeholder-api-openapi.yml",
-    "shareworks-grant-api-openapi.yml",
-    "shareworks-holdings-api-openapi.yml",
-    "shareworks-individual-stakeholder-api-openapi.yml",
-    "shareworks-plan-api-openapi.yml",
-    "shareworks-read-access-api-openapi.yml",
-    "shareworks-stock-certificate-api-openapi.yml",
-    "shareworks-stock-filing-api-openapi.yml",
-    "shareworks-vesting-schedule-api-openapi.yml",
-    "shareworks-write-access-api-openapi.yml"
+    "shareworks-shareworks-public-api-openapi.yml"
   ],
   "outputs": [
     "shareworks-authentication-token-api-openapi.yml",
@@ -30,15 +15,35 @@
     "shareworks-holdings-api-openapi.yml",
     "shareworks-individual-stakeholder-api-openapi.yml",
     "shareworks-plan-api-openapi.yml",
-    "shareworks-read-access-api-openapi.yml",
     "shareworks-stock-certificate-api-openapi.yml",
     "shareworks-stock-filing-api-openapi.yml",
-    "shareworks-vesting-schedule-api-openapi.yml",
-    "shareworks-write-access-api-openapi.yml"
+    "shareworks-vesting-schedule-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "archived openapi/shareworks-shareworks-public-api-openapi.yml"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "shareworks-shareworks-public-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Authentication Token",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Authorized Capital",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Award Type",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Company",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Company Board",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Company Integration",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Entity Stakeholder",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Grant",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Holdings",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Individual Stakeholder",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Plan",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Read Access",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Stock Certificate",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Stock Filing",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Vesting Schedule",
+    "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Write Access",
+    "shareworks-shareworks-public-api-openapi.yml: multi-axis tagging (16 tags, 14 first tags, 2.00x duplication over 48 operations) \u2014 split on first tag, 48 operations narrowed",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
