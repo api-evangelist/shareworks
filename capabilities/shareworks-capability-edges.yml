@@ -1,0 +1,83 @@
+slug: shareworks
+provider: Shareworks
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Banking & Capital Markets
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 7
+edges:
+- tag: Company Board
+  spec_file: shareworks-company-board-api-openapi.yml
+  capability_id: BC-110.10
+  capability_id_l1: BC-110
+  capability_name: Board & Committee Management
+  confidence: 0.9
+  evidence: POST /v1/company/{companyId}/board/appointment  createAppointment  POST Company Board Appointment
+    (Create); schema CompanyBoardDetailsWithAppointments
+  reason: Operations create and maintain the company board and board appointments — board composition
+    governance.
+- tag: Authorized Capital
+  spec_file: shareworks-authorized-capital-api-openapi.yml
+  capability_id: BC-110.20
+  capability_id_l1: BC-110
+  capability_name: Shareholder & Equity Management
+  confidence: 0.8
+  evidence: GET /v1/company/{companyId}/authorized-capital/securities/{classOfSecurities}  GET Authorized
+    Capital Class; GET 409A Valuations; schema ClassOfSecuritiesDetails, DesignatedSharesSummaryDetails
+  reason: Operations expose authorised capital, classes of securities, stock designations and 409A valuations
+    — the company's equity/share structure, i.e. shareholder & equity management.
+- tag: Entity Stakeholder
+  spec_file: shareworks-entity-stakeholder-api-openapi.yml
+  capability_id: BC-110.20
+  capability_id_l1: BC-110
+  capability_name: Shareholder & Equity Management
+  confidence: 0.7
+  evidence: POST /v1/company/{companyId}/stakeholder/entity  createEntityStakeholder; schema EntityStakeholderDetails
+  reason: Maintains corporate/entity stakeholders (shareholders) of the company in the cap-table platform
+    — share register / shareholder record management.
+- tag: Grant
+  spec_file: shareworks-grant-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /v1/company/{companyId}/stakeholder/{stakeholderId}/grant  createStakeholderGrant; schemas
+    StakeholderGrantDetails, ManualVestingRowCrudRequest, StakeholderGrantAcceleratedVestingDetails
+  reason: Creation and maintenance of equity grants with vesting schedules and accelerated vesting — administration
+    of equity compensation awards. Some ambiguity with shareholder/equity register management.
+- tag: Holdings
+  spec_file: shareworks-holdings-api-openapi.yml
+  capability_id: BC-110.20
+  capability_id_l1: BC-110
+  capability_name: Shareholder & Equity Management
+  confidence: 0.7
+  evidence: GET /v1/company/{companyId}/stakeholder/holdings  getAllStakeholderHoldings; schemas StockCertificateSummaryDetails,
+    StakeholderHoldingsDetails
+  reason: Reports each stakeholder's holdings including stock certificates — the company's share register
+    / equity ownership view.
+- tag: Individual Stakeholder
+  spec_file: shareworks-individual-stakeholder-api-openapi.yml
+  capability_id: BC-110.20
+  capability_id_l1: BC-110
+  capability_name: Shareholder & Equity Management
+  confidence: 0.7
+  evidence: POST /v1/company/{companyId}/stakeholder/individual  createIndividualStakeholder; schema IndividualStakeholderDetails
+  reason: CRUD and search over individual stakeholders (shareholders/grant holders) of the company — shareholder
+    register record management.
+- tag: Plan
+  spec_file: shareworks-plan-api-openapi.yml
+  capability_id: BC-300.30
+  capability_id_l1: BC-300
+  capability_name: Compensation & Benefits Management
+  confidence: 0.7
+  evidence: POST /v1/company/{companyId}/plan  createEquityIncentivePlan; schemas SharePoolPlanCreationRequest,
+    SharePoolPlanDetails
+  reason: Creates equity incentive plans and share pools — the plan design layer of employee equity compensation
+    administration.
