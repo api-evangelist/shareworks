@@ -148,7 +148,7 @@ paths:
       tags:
       - Authentication Token
       summary: POST Terminate Token
-      description: 'Revoke access to the token '
+      description: Revoke access to the token
       operationId: terminateSession
       parameters:
       - name: Shareworks-Request-Id
@@ -216,36 +216,6 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    AccessTokenRequest:
-      title: Access Token Body
-      required:
-      - accessToken
-      type: object
-      properties:
-        accessToken:
-          $ref: '#/components/schemas/AccessToken'
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     AccessTokenResponse:
       title: Token Response
       required:
@@ -279,6 +249,14 @@ components:
         tokenType:
           type: string
           description: Type of the token
+    AccessTokenRequest:
+      title: Access Token Body
+      required:
+      - accessToken
+      type: object
+      properties:
+        accessToken:
+          $ref: '#/components/schemas/AccessToken'
     ErrorWithCode:
       title: Validation Error
       required:
@@ -303,6 +281,28 @@ components:
           type: string
           description: Access Token Value
       description: Token to accompany all API requests for authentication purposes
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
   securitySchemes:
     accessToken:
       type: http

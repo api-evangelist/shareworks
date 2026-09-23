@@ -155,28 +155,6 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     StockCertificateSummaryDetails:
       title: Stock Certificate Summary Response
       required:
@@ -259,97 +237,6 @@ components:
           description: Quantity of the total shares which are yet unvested, and are only held as the result of an early exercise
           format: double
       description: List of stock certificates held by the stakeholder
-    StakeholderHoldingsDetails:
-      title: Holdings Summary Response
-      required:
-      - grants
-      - stockCertificates
-      type: object
-      properties:
-        stockCertificates:
-          type: array
-          description: List of stock certificates held by the stakeholder
-          items:
-            $ref: '#/components/schemas/StockCertificateSummaryDetails'
-        grants:
-          type: array
-          description: List of grants held by the stakeholder
-          items:
-            $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
-      description: List of all stakeholder holdings (excepting warrants and convertible promissory notes, as yet unsupported)
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
-      required:
-      - vestQuantity
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-    StakeholderHoldingsSummaryDetails:
-      title: Stakeholder Holdings Response
-      required:
-      - designationsParticipated
-      - holdings
-      - percentOwnershipTotalCommonStockEquivalent
-      - percentOwnershipTotalOutstanding
-      - stakeholderId
-      - stakeholderName
-      - totalCommonStockEquivalentShares
-      - totalOutstandingShares
-      type: object
-      properties:
-        stakeholderId:
-          type: integer
-          description: Identifier for the stakeholder
-          format: int32
-        stakeholderName:
-          type: string
-          description: Formatted full name for the stakeholder
-        totalOutstandingShares:
-          type: number
-          description: Total outstanding shares across all holdings for the stakeholder
-          format: double
-        totalCommonStockEquivalentShares:
-          type: number
-          description: Total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
-          format: double
-        percentOwnershipTotalOutstanding:
-          type: number
-          description: Percentage representing the fraction of total outstanding shares across all holdings for the stakeholder
-          format: double
-        percentOwnershipTotalCommonStockEquivalent:
-          type: number
-          description: Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
-          format: double
-        designationsParticipated:
-          type: array
-          description: List of all the designations a stakeholder has participated in
-          items:
-            type: string
-            description: List of all the designations a stakeholder has participated in
-        holdings:
-          $ref: '#/components/schemas/StakeholderHoldingsDetails'
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
     StakeholderGrantSummaryDetails:
       title: Grant Summary Response
       required:
@@ -570,6 +457,119 @@ components:
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
       description: List of grants held by the stakeholder
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    StakeholderHoldingsDetails:
+      title: Holdings Summary Response
+      required:
+      - grants
+      - stockCertificates
+      type: object
+      properties:
+        stockCertificates:
+          type: array
+          description: List of stock certificates held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StockCertificateSummaryDetails'
+        grants:
+          type: array
+          description: List of grants held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
+      description: List of all stakeholder holdings (excepting warrants and convertible promissory notes, as yet unsupported)
+    StakeholderHoldingsSummaryDetails:
+      title: Stakeholder Holdings Response
+      required:
+      - designationsParticipated
+      - holdings
+      - percentOwnershipTotalCommonStockEquivalent
+      - percentOwnershipTotalOutstanding
+      - stakeholderId
+      - stakeholderName
+      - totalCommonStockEquivalentShares
+      - totalOutstandingShares
+      type: object
+      properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
+        stakeholderName:
+          type: string
+          description: Formatted full name for the stakeholder
+        totalOutstandingShares:
+          type: number
+          description: Total outstanding shares across all holdings for the stakeholder
+          format: double
+        totalCommonStockEquivalentShares:
+          type: number
+          description: Total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
+          format: double
+        percentOwnershipTotalOutstanding:
+          type: number
+          description: Percentage representing the fraction of total outstanding shares across all holdings for the stakeholder
+          format: double
+        percentOwnershipTotalCommonStockEquivalent:
+          type: number
+          description: Percentage representing the fraction of total common equivalent (a.k.a. fully diluted) shares across all holdings for the stakeholder
+          format: double
+        designationsParticipated:
+          type: array
+          description: List of all the designations a stakeholder has participated in
+          items:
+            type: string
+            description: List of all the designations a stakeholder has participated in
+        holdings:
+          $ref: '#/components/schemas/StakeholderHoldingsDetails'
     StakeholderGrantAcceleratedVestingDetails:
       title: Accelerated Vesting Response
       required:

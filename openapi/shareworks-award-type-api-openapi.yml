@@ -83,20 +83,20 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    AwardTypeDetails:
-      title: Award Type Response
+    ErrorWithCode:
+      title: Validation Error
       required:
-      - awardTypeId
-      - awardTypeName
+      - code
+      - message
       type: object
       properties:
-        awardTypeId:
-          type: integer
-          description: Identifier for the company award type
-          format: int32
-        awardTypeName:
+        message:
           type: string
-          description: Name for the company award type
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -119,20 +119,20 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    ErrorWithCode:
-      title: Validation Error
+    AwardTypeDetails:
+      title: Award Type Response
       required:
-      - code
-      - message
+      - awardTypeId
+      - awardTypeName
       type: object
       properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
+        awardTypeId:
           type: integer
-          description: Unique code for the validation error
+          description: Identifier for the company award type
           format: int32
+        awardTypeName:
+          type: string
+          description: Name for the company award type
   securitySchemes:
     accessToken:
       type: http

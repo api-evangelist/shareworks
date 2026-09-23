@@ -424,17 +424,40 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    IndividualStakeholderDetails:
-      title: Individual Stakeholder Response
+    ErrorWithCode:
+      title: Validation Error
       required:
-      - lastName
-      - stakeholderId
+      - code
+      - message
       type: object
       properties:
-        stakeholderId:
+        message:
+          type: string
+          description: Message describing the error
+        code:
           type: integer
-          description: Identifier for the stakeholder
+          description: Unique code for the validation error
           format: int32
+    IndividualStakeholderSearchRequest:
+      title: Individual Stakeholder Search Body
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name for the stakeholder
+        lastName:
+          type: string
+          description: Last name for the stakeholder
+        stakeholderNumber:
+          type: string
+          description: Number for the stakeholder, typically generated
+    IndividualStakeholderCrudRequest:
+      title: Individual Stakeholder Body
+      required:
+      - firstName
+      - lastName
+      type: object
+      properties:
         firstName:
           type: string
           description: First name for the stakeholder
@@ -469,46 +492,23 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    ErrorWithCode:
-      title: Validation Error
+    IndividualStakeholderDetails:
+      title: Individual Stakeholder Response
       required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
-    IndividualStakeholderCrudRequest:
-      title: Individual Stakeholder Body
-      required:
-      - firstName
       - lastName
+      - stakeholderId
       type: object
       properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
         firstName:
           type: string
           description: First name for the stakeholder
         middleName:
           type: string
           description: Middle name for the stakeholder
-        lastName:
-          type: string
-          description: Last name for the stakeholder
-        stakeholderNumber:
-          type: string
-          description: Number for the stakeholder, typically generated
-    IndividualStakeholderSearchRequest:
-      title: Individual Stakeholder Search Body
-      type: object
-      properties:
-        firstName:
-          type: string
-          description: First name for the stakeholder
         lastName:
           type: string
           description: Last name for the stakeholder

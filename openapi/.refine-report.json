@@ -1,7 +1,7 @@
 {
   "provider": "shareworks",
   "sources": [
-    "shareworks-shareworks-public-api-openapi.yml"
+    "_original/shareworks-shareworks-public-api-openapi.yml"
   ],
   "outputs": [
     "shareworks-authentication-token-api-openapi.yml",
@@ -19,12 +19,11 @@
     "shareworks-stock-filing-api-openapi.yml",
     "shareworks-vesting-schedule-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/shareworks-shareworks-public-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "shareworks-shareworks-public-api-openapi.yml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
     "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Authentication Token",
     "shareworks-shareworks-public-api-openapi.yml: declared missing tag: Authorized Capital",
@@ -45,5 +44,20 @@
     "shareworks-shareworks-public-api-openapi.yml: multi-axis tagging (16 tags, 14 first tags, 2.00x duplication over 48 operations) \u2014 split on first tag, 48 operations narrowed",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "shareworks-authentication-token-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-authorized-capital-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-award-type-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-company-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-company-board-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-company-integration-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-entity-stakeholder-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-grant-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-holdings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-individual-stakeholder-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-plan-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-stock-certificate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-stock-filing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "shareworks-vesting-schedule-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

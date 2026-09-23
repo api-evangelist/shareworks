@@ -158,6 +158,46 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    StockFilingDetails:
+      title: Stock Filing Response
+      required:
+      - classesOfSecurities
+      - companyId
+      - filingDate
+      - stockFilingId
+      type: object
+      properties:
+        stockFilingId:
+          type: integer
+          description: Identifier for the stock filing
+          format: int32
+        companyId:
+          type: integer
+          description: Identifier for the company
+          format: int32
+        filingDate:
+          type: string
+          description: Date on which the stock filing occurred
+          format: date
+        classesOfSecurities:
+          type: array
+          description: List of all classes of securities for the stock filing
+          items:
+            $ref: '#/components/schemas/StockFilingClassDetails'
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     StockFilingDesignationDetails:
       title: Stock Filing Designation Response
       required:
@@ -214,28 +254,6 @@ components:
           - UP
           - DOWN
       description: List of all stock designations for the class of securities
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     StockFilingClassDetails:
       title: Stock Filing Class Response
       required:
@@ -262,20 +280,6 @@ components:
           items:
             $ref: '#/components/schemas/StockFilingDesignationDetails'
       description: List of all classes of securities for the stock filing
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
     StockFilingWithNewDesignationCreationRequest:
       title: Stock Filing Designation Body
       required:
@@ -340,32 +344,28 @@ components:
           - NORMAL
           - UP
           - DOWN
-    StockFilingDetails:
-      title: Stock Filing Response
+    RestApiErrorResponse:
+      title: Error Response
       required:
-      - classesOfSecurities
-      - companyId
-      - filingDate
-      - stockFilingId
+      - code
+      - errorId
+      - message
       type: object
       properties:
-        stockFilingId:
-          type: integer
-          description: Identifier for the stock filing
-          format: int32
-        companyId:
-          type: integer
-          description: Identifier for the company
-          format: int32
-        filingDate:
+        code:
           type: string
-          description: Date on which the stock filing occurred
-          format: date
-        classesOfSecurities:
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
           type: array
-          description: List of all classes of securities for the stock filing
+          description: List of all further error details, usually due to validation checks
           items:
-            $ref: '#/components/schemas/StockFilingClassDetails'
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
   securitySchemes:
     accessToken:
       type: http
