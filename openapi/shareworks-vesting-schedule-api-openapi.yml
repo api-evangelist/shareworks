@@ -394,6 +394,28 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
     VestingScheduleCrudRequest:
       title: Vesting Schedule Body
       required:
@@ -442,6 +464,36 @@ components:
           description: List of all rows/tranches for the vesting schedule
           items:
             $ref: '#/components/schemas/VestingScheduleRowRequest'
+    VestingScheduleRowRequest:
+      title: Vesting Schedule Row Body
+      required:
+      - amountDenominator
+      - amountNumerator
+      - vestingPeriodLength
+      - vestingPeriodType
+      type: object
+      properties:
+        amountNumerator:
+          type: integer
+          description: Numerator of the vesting amount for the row/tranche
+          format: int64
+        amountDenominator:
+          type: integer
+          description: Denominator of the vesting amount for the row/tranche
+          format: int64
+        vestingPeriodLength:
+          type: integer
+          description: Number of periods between the row/tranche and the previous row/tranche (or vesting start date)
+          format: int32
+        vestingPeriodType:
+          type: string
+          description: Type of vesting period for the row/tranche
+          enum:
+          - YEAR
+          - MONTH
+          - WEEK
+          - DAY
+      description: List of all rows/tranches for the vesting schedule
     ErrorWithCode:
       title: Validation Error
       required:
@@ -542,58 +594,6 @@ components:
           description: List of all rows/tranches for the vesting schedule
           items:
             $ref: '#/components/schemas/VestingScheduleRowDetails'
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
-    VestingScheduleRowRequest:
-      title: Vesting Schedule Row Body
-      required:
-      - amountDenominator
-      - amountNumerator
-      - vestingPeriodLength
-      - vestingPeriodType
-      type: object
-      properties:
-        amountNumerator:
-          type: integer
-          description: Numerator of the vesting amount for the row/tranche
-          format: int64
-        amountDenominator:
-          type: integer
-          description: Denominator of the vesting amount for the row/tranche
-          format: int64
-        vestingPeriodLength:
-          type: integer
-          description: Number of periods between the row/tranche and the previous row/tranche (or vesting start date)
-          format: int32
-        vestingPeriodType:
-          type: string
-          description: Type of vesting period for the row/tranche
-          enum:
-          - YEAR
-          - MONTH
-          - WEEK
-          - DAY
-      description: List of all rows/tranches for the vesting schedule
   securitySchemes:
     accessToken:
       type: http

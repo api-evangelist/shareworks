@@ -237,6 +237,43 @@ components:
           description: Quantity of the total shares which are yet unvested, and are only held as the result of an early exercise
           format: double
       description: List of stock certificates held by the stakeholder
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
+      required:
+      - vestQuantity
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     StakeholderGrantSummaryDetails:
       title: Grant Summary Response
       required:
@@ -457,6 +494,26 @@ components:
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
       description: List of grants held by the stakeholder
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
     ErrorWithCode:
       title: Validation Error
       required:
@@ -471,61 +528,6 @@ components:
           type: integer
           description: Unique code for the validation error
           format: int32
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
-      required:
-      - vestQuantity
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
-    StakeholderHoldingsDetails:
-      title: Holdings Summary Response
-      required:
-      - grants
-      - stockCertificates
-      type: object
-      properties:
-        stockCertificates:
-          type: array
-          description: List of stock certificates held by the stakeholder
-          items:
-            $ref: '#/components/schemas/StockCertificateSummaryDetails'
-        grants:
-          type: array
-          description: List of grants held by the stakeholder
-          items:
-            $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
-      description: List of all stakeholder holdings (excepting warrants and convertible promissory notes, as yet unsupported)
     StakeholderHoldingsSummaryDetails:
       title: Stakeholder Holdings Response
       required:
@@ -570,26 +572,24 @@ components:
             description: List of all the designations a stakeholder has participated in
         holdings:
           $ref: '#/components/schemas/StakeholderHoldingsDetails'
-    StakeholderGrantAcceleratedVestingDetails:
-      title: Accelerated Vesting Response
+    StakeholderHoldingsDetails:
+      title: Holdings Summary Response
       required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
+      - grants
+      - stockCertificates
       type: object
       properties:
-        accelerationTrigger:
-          type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: List of the vesting acceleration stipulations of the grant. May be empty.
+        stockCertificates:
+          type: array
+          description: List of stock certificates held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StockCertificateSummaryDetails'
+        grants:
+          type: array
+          description: List of grants held by the stakeholder
+          items:
+            $ref: '#/components/schemas/StakeholderGrantSummaryDetails'
+      description: List of all stakeholder holdings (excepting warrants and convertible promissory notes, as yet unsupported)
   securitySchemes:
     accessToken:
       type: http

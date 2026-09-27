@@ -45,7 +45,7 @@ tags:
   - RSU
   - ESPP
   - Employee Equity
-  - Financial-Services
+  - Financial Services
   - Morgan Stanley
   - Equity Administration
   - Private Companies
@@ -61,6 +61,7 @@ tags_raw:
   - Equity Administration
   - Private Companies
   - Public Companies
+  - Financial-Services
 apis:
 - aid: shareworks:shareworks-public-api
   name: Shareworks Public API

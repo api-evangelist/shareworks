@@ -338,247 +338,6 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    StakeholderGrantCrudRequest:
-      title: Grant Body
-      required:
-      - allowEarlyExercise
-      - awardTypeId
-      - expiryDate
-      - grantCurrency
-      - grantDate
-      - grantPrice
-      - grantedShares
-      - planId
-      - underRule701
-      - vestingScheduleId
-      type: object
-      properties:
-        planId:
-          type: integer
-          description: Identifier for the company plan
-          format: int32
-        grantName:
-          type: string
-          description: Name for the grant, typically generated
-        awardTypeId:
-          type: integer
-          description: Identifier for the company award type
-          format: int32
-        grantDate:
-          type: string
-          description: Date on which the shares are granted
-          format: date
-        expiryDate:
-          type: string
-          description: Expiry date for the grant
-          format: date
-        grantPrice:
-          type: number
-          description: Price at which the shares are granted
-          format: double
-        grantCurrency:
-          type: string
-          description: Currency for the grant price / market price at time of grant
-          enum:
-          - USD
-          - CAD
-          - GBP
-          - EUR
-          - JPY
-          - AUD
-          - KRW
-          - DZD
-          - AOA
-          - ARS
-          - AMD
-          - AWG
-          - BSD
-          - BHD
-          - BDT
-          - BBD
-          - BOB
-          - BWP
-          - BRL
-          - BND
-          - BGN
-          - BZD
-          - KYD
-          - CLP
-          - CNY
-          - COP
-          - CRC
-          - HRK
-          - CZK
-          - DKK
-          - DOP
-          - XCD
-          - EGP
-          - ETB
-          - FJD
-          - XAF
-          - GMD
-          - GHS
-          - GIP
-          - GTQ
-          - HNL
-          - HKD
-          - HUF
-          - ISK
-          - INR
-          - IDR
-          - IQD
-          - ILS
-          - JMD
-          - JOD
-          - KZT
-          - KES
-          - KWD
-          - LSL
-          - MOP
-          - MWK
-          - MYR
-          - MUR
-          - MXN
-          - MAD
-          - MZN
-          - MMK
-          - NAD
-          - ANG
-          - NZD
-          - NGN
-          - NOK
-          - OMR
-          - PKR
-          - PAB
-          - PGK
-          - PYG
-          - PEN
-          - PHP
-          - PLN
-          - QAR
-          - RON
-          - RUB
-          - SAR
-          - RSD
-          - SCR
-          - SGD
-          - ZAR
-          - SDG
-          - LKR
-          - SZL
-          - SEK
-          - CHF
-          - TWD
-          - TZS
-          - THB
-          - TTD
-          - TND
-          - TRY
-          - UGX
-          - UAH
-          - AED
-          - UYU
-          - UZS
-          - VEF
-          - VES
-          - VND
-          - XOF
-          - ZWL
-          - ZMW
-        grantedShares:
-          type: number
-          description: Quantity of shares for the grant
-          format: double
-        vestingScheduleId:
-          type: integer
-          description: Identifier for the vesting schedule
-          format: int32
-        vestingStartDate:
-          type: string
-          description: Vesting base or commencement date for the vesting schedule
-          format: date
-        marketPriceAtTimeOfGrant:
-          type: number
-          description: The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)
-          format: double
-        allowEarlyExercise:
-          type: boolean
-          description: Whether early exercises are allowed for the grant
-        underRule701:
-          type: boolean
-          description: Whether rule 701 applies to the grant
-        manualVestingRows:
-          type: array
-          description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-          items:
-            $ref: '#/components/schemas/ManualVestingRowCrudRequest'
-        vestingAcceleration:
-          type: array
-          description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
-          items:
-            $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingCrudRequest'
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
-    ManualVestingRowCrudRequest:
-      title: Manual Vesting Row Body
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
-    StakeholderGrantAcceleratedVestingCrudRequest:
-      title: Vesting Acceleration Body
-      required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
-      type: object
-      properties:
-        accelerationTrigger:
-          type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
-    ManualVestingRowDetails:
-      title: Manual Vesting Row Response
-      required:
-      - vestQuantity
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -601,26 +360,21 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    StakeholderGrantAcceleratedVestingDetails:
-      title: Accelerated Vesting Response
+    ManualVestingRowDetails:
+      title: Manual Vesting Row Response
       required:
-      - accelerationPercent
-      - accelerationPeriod
-      - accelerationTrigger
+      - vestQuantity
       type: object
       properties:
-        accelerationTrigger:
+        vestDate:
           type: string
-          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
-        accelerationPeriod:
-          type: integer
-          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
-          format: int32
-        accelerationPercent:
-          type: integer
-          description: The percent of the unvested shares that will be accelerated (1 to 100)
-          format: int32
-      description: List of the vesting acceleration stipulations of the grant. May be empty.
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
     StakeholderGrantDetails:
       title: Grant Response
       required:
@@ -825,6 +579,252 @@ components:
           description: List of the vesting acceleration stipulations of the grant. May be empty.
           items:
             $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingDetails'
+    StakeholderGrantAcceleratedVestingCrudRequest:
+      title: Vesting Acceleration Body
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
+    StakeholderGrantCrudRequest:
+      title: Grant Body
+      required:
+      - allowEarlyExercise
+      - awardTypeId
+      - expiryDate
+      - grantCurrency
+      - grantDate
+      - grantPrice
+      - grantedShares
+      - planId
+      - underRule701
+      - vestingScheduleId
+      type: object
+      properties:
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
+        grantName:
+          type: string
+          description: Name for the grant, typically generated
+        awardTypeId:
+          type: integer
+          description: Identifier for the company award type
+          format: int32
+        grantDate:
+          type: string
+          description: Date on which the shares are granted
+          format: date
+        expiryDate:
+          type: string
+          description: Expiry date for the grant
+          format: date
+        grantPrice:
+          type: number
+          description: Price at which the shares are granted
+          format: double
+        grantCurrency:
+          type: string
+          description: Currency for the grant price / market price at time of grant
+          enum:
+          - USD
+          - CAD
+          - GBP
+          - EUR
+          - JPY
+          - AUD
+          - KRW
+          - DZD
+          - AOA
+          - ARS
+          - AMD
+          - AWG
+          - BSD
+          - BHD
+          - BDT
+          - BBD
+          - BOB
+          - BWP
+          - BRL
+          - BND
+          - BGN
+          - BZD
+          - KYD
+          - CLP
+          - CNY
+          - COP
+          - CRC
+          - HRK
+          - CZK
+          - DKK
+          - DOP
+          - XCD
+          - EGP
+          - ETB
+          - FJD
+          - XAF
+          - GMD
+          - GHS
+          - GIP
+          - GTQ
+          - HNL
+          - HKD
+          - HUF
+          - ISK
+          - INR
+          - IDR
+          - IQD
+          - ILS
+          - JMD
+          - JOD
+          - KZT
+          - KES
+          - KWD
+          - LSL
+          - MOP
+          - MWK
+          - MYR
+          - MUR
+          - MXN
+          - MAD
+          - MZN
+          - MMK
+          - NAD
+          - ANG
+          - NZD
+          - NGN
+          - NOK
+          - OMR
+          - PKR
+          - PAB
+          - PGK
+          - PYG
+          - PEN
+          - PHP
+          - PLN
+          - QAR
+          - RON
+          - RUB
+          - SAR
+          - RSD
+          - SCR
+          - SGD
+          - ZAR
+          - SDG
+          - LKR
+          - SZL
+          - SEK
+          - CHF
+          - TWD
+          - TZS
+          - THB
+          - TTD
+          - TND
+          - TRY
+          - UGX
+          - UAH
+          - AED
+          - UYU
+          - UZS
+          - VEF
+          - VES
+          - VND
+          - XOF
+          - ZWL
+          - ZMW
+        grantedShares:
+          type: number
+          description: Quantity of shares for the grant
+          format: double
+        vestingScheduleId:
+          type: integer
+          description: Identifier for the vesting schedule
+          format: int32
+        vestingStartDate:
+          type: string
+          description: Vesting base or commencement date for the vesting schedule
+          format: date
+        marketPriceAtTimeOfGrant:
+          type: number
+          description: The fair market value (or latest 409A valuation for private companies) at the time of grant (this is typically auto-populated from the most recent quote, but can also be specified if desired)
+          format: double
+        allowEarlyExercise:
+          type: boolean
+          description: Whether early exercises are allowed for the grant
+        underRule701:
+          type: boolean
+          description: Whether rule 701 applies to the grant
+        manualVestingRows:
+          type: array
+          description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+          items:
+            $ref: '#/components/schemas/ManualVestingRowCrudRequest'
+        vestingAcceleration:
+          type: array
+          description: (Optional) List of the vesting acceleration stipulations of the grant. May be empty. Include one stipulation per trigger that is applicable.
+          items:
+            $ref: '#/components/schemas/StakeholderGrantAcceleratedVestingCrudRequest'
+    StakeholderGrantAcceleratedVestingDetails:
+      title: Accelerated Vesting Response
+      required:
+      - accelerationPercent
+      - accelerationPeriod
+      - accelerationTrigger
+      type: object
+      properties:
+        accelerationTrigger:
+          type: string
+          description: 'The name of the event that will trigger vesting acceleration: TERMINATION_WITHOUT_CAUSE, RESIGNATION_FOR_GOOD_REASON, or CHANGE_OF_CONTROL'
+        accelerationPeriod:
+          type: integer
+          description: The number of months after the trigger event that vesting acceleration will occur (0 to 60). A value > 0 defines a double-trigger acceleration
+          format: int32
+        accelerationPercent:
+          type: integer
+          description: The percent of the unvested shares that will be accelerated (1 to 100)
+          format: int32
+      description: List of the vesting acceleration stipulations of the grant. May be empty.
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
+    ManualVestingRowCrudRequest:
+      title: Manual Vesting Row Body
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
   securitySchemes:
     accessToken:
       type: http
