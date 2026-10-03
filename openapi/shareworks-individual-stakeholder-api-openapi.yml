@@ -438,6 +438,19 @@ components:
           type: integer
           description: Unique code for the validation error
           format: int32
+    IndividualStakeholderSearchRequest:
+      title: Individual Stakeholder Search Body
+      type: object
+      properties:
+        firstName:
+          type: string
+          description: First name for the stakeholder
+        lastName:
+          type: string
+          description: Last name for the stakeholder
+        stakeholderNumber:
+          type: string
+          description: Number for the stakeholder, typically generated
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -460,13 +473,17 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    IndividualStakeholderCrudRequest:
-      title: Individual Stakeholder Body
+    IndividualStakeholderDetails:
+      title: Individual Stakeholder Response
       required:
-      - firstName
       - lastName
+      - stakeholderId
       type: object
       properties:
+        stakeholderId:
+          type: integer
+          description: Identifier for the stakeholder
+          format: int32
         firstName:
           type: string
           description: First name for the stakeholder
@@ -479,30 +496,13 @@ components:
         stakeholderNumber:
           type: string
           description: Number for the stakeholder, typically generated
-    IndividualStakeholderSearchRequest:
-      title: Individual Stakeholder Search Body
-      type: object
-      properties:
-        firstName:
-          type: string
-          description: First name for the stakeholder
-        lastName:
-          type: string
-          description: Last name for the stakeholder
-        stakeholderNumber:
-          type: string
-          description: Number for the stakeholder, typically generated
-    IndividualStakeholderDetails:
-      title: Individual Stakeholder Response
+    IndividualStakeholderCrudRequest:
+      title: Individual Stakeholder Body
       required:
+      - firstName
       - lastName
-      - stakeholderId
       type: object
       properties:
-        stakeholderId:
-          type: integer
-          description: Identifier for the stakeholder
-          format: int32
         firstName:
           type: string
           description: First name for the stakeholder

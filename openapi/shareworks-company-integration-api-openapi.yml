@@ -86,6 +86,15 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    CompanyIntegrationRequest:
+      title: Company Integration Body
+      required:
+      - integrationKey
+      type: object
+      properties:
+        integrationKey:
+          type: string
+          description: Integration key for the company
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -108,6 +117,19 @@ components:
         errorId:
           type: string
           description: Identifier for the error
+    CompanyIntegrationDetails:
+      title: Company Integration Response
+      required:
+      - companyName
+      type: object
+      properties:
+        companyId:
+          type: integer
+          description: Identifier for the company
+          format: int32
+        companyName:
+          type: string
+          description: Name for the company
     ErrorWithCode:
       title: Validation Error
       required:
@@ -122,28 +144,6 @@ components:
           type: integer
           description: Unique code for the validation error
           format: int32
-    CompanyIntegrationDetails:
-      title: Company Integration Response
-      required:
-      - companyName
-      type: object
-      properties:
-        companyId:
-          type: integer
-          description: Identifier for the company
-          format: int32
-        companyName:
-          type: string
-          description: Name for the company
-    CompanyIntegrationRequest:
-      title: Company Integration Body
-      required:
-      - integrationKey
-      type: object
-      properties:
-        integrationKey:
-          type: string
-          description: Integration key for the company
   securitySchemes:
     accessToken:
       type: http

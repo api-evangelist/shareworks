@@ -83,6 +83,20 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    AwardTypeDetails:
+      title: Award Type Response
+      required:
+      - awardTypeId
+      - awardTypeName
+      type: object
+      properties:
+        awardTypeId:
+          type: integer
+          description: Identifier for the company award type
+          format: int32
+        awardTypeName:
+          type: string
+          description: Name for the company award type
     RestApiErrorResponse:
       title: Error Response
       required:
@@ -119,20 +133,6 @@ components:
           type: integer
           description: Unique code for the validation error
           format: int32
-    AwardTypeDetails:
-      title: Award Type Response
-      required:
-      - awardTypeId
-      - awardTypeName
-      type: object
-      properties:
-        awardTypeId:
-          type: integer
-          description: Identifier for the company award type
-          format: int32
-        awardTypeName:
-          type: string
-          description: Name for the company award type
   securitySchemes:
     accessToken:
       type: http

@@ -338,28 +338,6 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     ManualVestingRowDetails:
       title: Manual Vesting Row Response
       required:
@@ -375,6 +353,20 @@ components:
           description: Quantity of shares to vest for the row/tranche
           format: double
       description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     StockCertificateDetails:
       title: Stock Certificate Response
       required:
@@ -446,20 +438,28 @@ components:
           description: List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule
           items:
             $ref: '#/components/schemas/ManualVestingRowDetails'
-    ErrorWithCode:
-      title: Validation Error
+    RestApiErrorResponse:
+      title: Error Response
       required:
       - code
+      - errorId
       - message
       type: object
       properties:
+        code:
+          type: string
+          description: Code representing the type of error
         message:
           type: string
           description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
     StockCertificateCrudRequest:
       title: Stock Certificate Body
       required:

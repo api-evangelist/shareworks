@@ -158,28 +158,6 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
     StockFilingWithNewDesignationCreationRequest:
       title: Stock Filing Designation Body
       required:
@@ -244,32 +222,6 @@ components:
           - NORMAL
           - UP
           - DOWN
-    StockFilingClassDetails:
-      title: Stock Filing Class Response
-      required:
-      - classOfSecurities
-      - designations
-      - totalAuthorizedShares
-      type: object
-      properties:
-        classOfSecurities:
-          type: string
-          description: Whether the class is common or preferred stock
-          enum:
-          - COMMON
-          - PREFERRED
-          - COMMON_STOCK
-          - PREFERRED_STOCK
-        totalAuthorizedShares:
-          type: number
-          description: Total number of authorized shares for the class of securities
-          format: double
-        designations:
-          type: array
-          description: List of all stock designations for the class of securities
-          items:
-            $ref: '#/components/schemas/StockFilingDesignationDetails'
-      description: List of all classes of securities for the stock filing
     StockFilingDetails:
       title: Stock Filing Response
       required:
@@ -366,6 +318,54 @@ components:
           - UP
           - DOWN
       description: List of all stock designations for the class of securities
+    StockFilingClassDetails:
+      title: Stock Filing Class Response
+      required:
+      - classOfSecurities
+      - designations
+      - totalAuthorizedShares
+      type: object
+      properties:
+        classOfSecurities:
+          type: string
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the class of securities
+          format: double
+        designations:
+          type: array
+          description: List of all stock designations for the class of securities
+          items:
+            $ref: '#/components/schemas/StockFilingDesignationDetails'
+      description: List of all classes of securities for the stock filing
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
   securitySchemes:
     accessToken:
       type: http
