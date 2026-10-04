@@ -158,6 +158,110 @@ paths:
                 : contentType: application/json
 components:
   schemas:
+    StockFilingClassDetails:
+      title: Stock Filing Class Response
+      required:
+      - classOfSecurities
+      - designations
+      - totalAuthorizedShares
+      type: object
+      properties:
+        classOfSecurities:
+          type: string
+          description: Whether the class is common or preferred stock
+          enum:
+          - COMMON
+          - PREFERRED
+          - COMMON_STOCK
+          - PREFERRED_STOCK
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the class of securities
+          format: double
+        designations:
+          type: array
+          description: List of all stock designations for the class of securities
+          items:
+            $ref: '#/components/schemas/StockFilingDesignationDetails'
+      description: List of all classes of securities for the stock filing
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
+    StockFilingDesignationDetails:
+      title: Stock Filing Designation Response
+      required:
+      - convertible
+      - parValue
+      - stockDesignationId
+      - stockDesignationName
+      - totalAuthorizedShares
+      type: object
+      properties:
+        stockDesignationId:
+          type: integer
+          description: Identifier for the stock designation
+          format: int32
+        stockDesignationName:
+          type: string
+          description: Name for the stock designation
+        fundingRound:
+          type: integer
+          description: Funding round number for the stock designation
+          format: int64
+        totalAuthorizedShares:
+          type: number
+          description: Total number of authorized shares for the stock designation
+          format: double
+        parValue:
+          type: number
+          description: Par value for the stock designation
+          format: double
+        pricePerShare:
+          type: number
+          description: Price per share for the stock designation
+          format: double
+        convertible:
+          type: boolean
+          description: Whether the stock designation is convertible
+        convertsToStockDesignationId:
+          type: integer
+          description: Identifier for the stock designation which the stock designation converts to
+          format: int32
+        conversionRatioAntecedent:
+          type: number
+          description: The antecedent of the conversion ratio. E.g. 2 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        conversionRatioConsequent:
+          type: number
+          description: The consequent of the conversion ratio. E.g. 1 for a 2:1 conversion (2 converted shares for each original share)
+          format: double
+        rounding:
+          type: string
+          description: Rounding type used when converting shares from the stock designation
+          enum:
+          - NORMAL
+          - UP
+          - DOWN
+      description: List of all stock designations for the class of securities
     StockFilingWithNewDesignationCreationRequest:
       title: Stock Filing Designation Body
       required:
@@ -222,6 +326,20 @@ components:
           - NORMAL
           - UP
           - DOWN
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     StockFilingDetails:
       title: Stock Filing Response
       required:
@@ -248,124 +366,6 @@ components:
           description: List of all classes of securities for the stock filing
           items:
             $ref: '#/components/schemas/StockFilingClassDetails'
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
-    StockFilingDesignationDetails:
-      title: Stock Filing Designation Response
-      required:
-      - convertible
-      - parValue
-      - stockDesignationId
-      - stockDesignationName
-      - totalAuthorizedShares
-      type: object
-      properties:
-        stockDesignationId:
-          type: integer
-          description: Identifier for the stock designation
-          format: int32
-        stockDesignationName:
-          type: string
-          description: Name for the stock designation
-        fundingRound:
-          type: integer
-          description: Funding round number for the stock designation
-          format: int64
-        totalAuthorizedShares:
-          type: number
-          description: Total number of authorized shares for the stock designation
-          format: double
-        parValue:
-          type: number
-          description: Par value for the stock designation
-          format: double
-        pricePerShare:
-          type: number
-          description: Price per share for the stock designation
-          format: double
-        convertible:
-          type: boolean
-          description: Whether the stock designation is convertible
-        convertsToStockDesignationId:
-          type: integer
-          description: Identifier for the stock designation which the stock designation converts to
-          format: int32
-        conversionRatioAntecedent:
-          type: number
-          description: The antecedent of the conversion ratio. E.g. 2 for a 2:1 conversion (2 converted shares for each original share)
-          format: double
-        conversionRatioConsequent:
-          type: number
-          description: The consequent of the conversion ratio. E.g. 1 for a 2:1 conversion (2 converted shares for each original share)
-          format: double
-        rounding:
-          type: string
-          description: Rounding type used when converting shares from the stock designation
-          enum:
-          - NORMAL
-          - UP
-          - DOWN
-      description: List of all stock designations for the class of securities
-    StockFilingClassDetails:
-      title: Stock Filing Class Response
-      required:
-      - classOfSecurities
-      - designations
-      - totalAuthorizedShares
-      type: object
-      properties:
-        classOfSecurities:
-          type: string
-          description: Whether the class is common or preferred stock
-          enum:
-          - COMMON
-          - PREFERRED
-          - COMMON_STOCK
-          - PREFERRED_STOCK
-        totalAuthorizedShares:
-          type: number
-          description: Total number of authorized shares for the class of securities
-          format: double
-        designations:
-          type: array
-          description: List of all stock designations for the class of securities
-          items:
-            $ref: '#/components/schemas/StockFilingDesignationDetails'
-      description: List of all classes of securities for the stock filing
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
   securitySchemes:
     accessToken:
       type: http

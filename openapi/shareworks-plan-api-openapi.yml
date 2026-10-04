@@ -92,20 +92,15 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    SharePoolPlanDetails:
-      title: Plan Response
+    SharePoolPlanCreationRequest:
+      title: Plan Body
       required:
-      - planId
       - planName
       - sharePoolInitialAuthorizedQuantity
       - sharePoolIssueDate
       - sharePoolStockDesignationId
       type: object
       properties:
-        planId:
-          type: integer
-          description: Identifier for the company plan
-          format: int32
         planName:
           type: string
           description: Name for the company plan
@@ -114,9 +109,9 @@ components:
           description: Issue date of the share pool
           format: date
         sharePoolInitialAuthorizedQuantity:
-          type: number
+          type: integer
           description: Initial authorized quantity of the share pool
-          format: double
+          format: int64
         sharePoolStockDesignationId:
           type: integer
           description: Identifier for the stock designation attached to the share pool
@@ -143,15 +138,20 @@ components:
         errorId:
           type: string
           description: Identifier for the error
-    SharePoolPlanCreationRequest:
-      title: Plan Body
+    SharePoolPlanDetails:
+      title: Plan Response
       required:
+      - planId
       - planName
       - sharePoolInitialAuthorizedQuantity
       - sharePoolIssueDate
       - sharePoolStockDesignationId
       type: object
       properties:
+        planId:
+          type: integer
+          description: Identifier for the company plan
+          format: int32
         planName:
           type: string
           description: Name for the company plan
@@ -160,9 +160,9 @@ components:
           description: Issue date of the share pool
           format: date
         sharePoolInitialAuthorizedQuantity:
-          type: integer
+          type: number
           description: Initial authorized quantity of the share pool
-          format: int64
+          format: double
         sharePoolStockDesignationId:
           type: integer
           description: Identifier for the stock designation attached to the share pool

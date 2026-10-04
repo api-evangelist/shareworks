@@ -302,30 +302,20 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    ErrorWithCode:
-      title: Validation Error
-      required:
-      - code
-      - message
-      type: object
-      properties:
-        message:
-          type: string
-          description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
-    CompanyAddressCrudRequest:
-      title: Company Address Body
+    CompanyAddressDetails:
+      title: Company Address Response
       required:
       - addressLine1
       - addressType
       - city
+      - companyAddressId
       - country
-      - postalCode
       type: object
       properties:
+        companyAddressId:
+          type: integer
+          description: Identifier for the company address
+          format: int32
         addressLine1:
           type: string
           description: First address line
@@ -751,6 +741,53 @@ components:
           - MAIL
           - FUNDS_DELIVERY
       description: List of up to three company addresses
+    CompanyContactCrudRequest:
+      title: Company Contact Body
+      required:
+      - name
+      - primaryEmailAddress
+      - primaryPhone
+      - title
+      type: object
+      properties:
+        name:
+          type: string
+          description: Full name for the company contact
+        title:
+          type: string
+          description: Title for the company contact (e.g. CEO)
+        primaryEmailAddress:
+          type: string
+          description: Email address for the company contact
+        primaryPhone:
+          type: string
+          description: Primary phone number for the company contact
+        primaryPhoneExt:
+          type: string
+          description: Primary phone extension for the company contact, if applicable
+      description: List of all company contacts
+    RestApiErrorResponse:
+      title: Error Response
+      required:
+      - code
+      - errorId
+      - message
+      type: object
+      properties:
+        code:
+          type: string
+          description: Code representing the type of error
+        message:
+          type: string
+          description: Message describing the error
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
     CompanyDetails:
       title: Company Response
       required:
@@ -973,6 +1010,20 @@ components:
           type: string
           description: Primary phone extension for the company contact, if applicable
       description: List of all company contacts
+    ErrorWithCode:
+      title: Validation Error
+      required:
+      - code
+      - message
+      type: object
+      properties:
+        message:
+          type: string
+          description: Message describing the error
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     CompanyCrudRequest:
       title: Company Body
       required:
@@ -1176,67 +1227,16 @@ components:
         enforceOneToOneDesignationToFund:
           type: boolean
           description: Require unique Fund for each Designation
-    CompanyContactCrudRequest:
-      title: Company Contact Body
-      required:
-      - name
-      - primaryEmailAddress
-      - primaryPhone
-      - title
-      type: object
-      properties:
-        name:
-          type: string
-          description: Full name for the company contact
-        title:
-          type: string
-          description: Title for the company contact (e.g. CEO)
-        primaryEmailAddress:
-          type: string
-          description: Email address for the company contact
-        primaryPhone:
-          type: string
-          description: Primary phone number for the company contact
-        primaryPhoneExt:
-          type: string
-          description: Primary phone extension for the company contact, if applicable
-      description: List of all company contacts
-    RestApiErrorResponse:
-      title: Error Response
-      required:
-      - code
-      - errorId
-      - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: Code representing the type of error
-        message:
-          type: string
-          description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
-    CompanyAddressDetails:
-      title: Company Address Response
+    CompanyAddressCrudRequest:
+      title: Company Address Body
       required:
       - addressLine1
       - addressType
       - city
-      - companyAddressId
       - country
+      - postalCode
       type: object
       properties:
-        companyAddressId:
-          type: integer
-          description: Identifier for the company address
-          format: int32
         addressLine1:
           type: string
           description: First address line
