@@ -338,41 +338,20 @@ paths:
                 : contentType: application/json
 components:
   schemas:
-    RestApiErrorResponse:
-      title: Error Response
+    ErrorWithCode:
+      title: Validation Error
       required:
       - code
-      - errorId
       - message
       type: object
       properties:
-        code:
-          type: string
-          description: Code representing the type of error
         message:
           type: string
           description: Message describing the error
-        errors:
-          type: array
-          description: List of all further error details, usually due to validation checks
-          items:
-            $ref: '#/components/schemas/ErrorWithCode'
-        errorId:
-          type: string
-          description: Identifier for the error
-    ManualVestingRowCrudRequest:
-      title: Manual Vesting Row Body
-      type: object
-      properties:
-        vestDate:
-          type: string
-          description: Date on which the vesting occurs for the row/tranche
-          format: date
-        vestQuantity:
-          type: number
-          description: Quantity of shares to vest for the row/tranche
-          format: double
-      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+        code:
+          type: integer
+          description: Unique code for the validation error
+          format: int32
     StockCertificateCrudRequest:
       title: Stock Certificate Body
       required:
@@ -505,20 +484,41 @@ components:
           description: List of all manual vesting rows for the stock certificate, specified when using a manual vesting schedule
           items:
             $ref: '#/components/schemas/ManualVestingRowDetails'
-    ErrorWithCode:
-      title: Validation Error
+    ManualVestingRowCrudRequest:
+      title: Manual Vesting Row Body
+      type: object
+      properties:
+        vestDate:
+          type: string
+          description: Date on which the vesting occurs for the row/tranche
+          format: date
+        vestQuantity:
+          type: number
+          description: Quantity of shares to vest for the row/tranche
+          format: double
+      description: List of all manual vesting rows for the grant, specified when using a manual vesting schedule
+    RestApiErrorResponse:
+      title: Error Response
       required:
       - code
+      - errorId
       - message
       type: object
       properties:
+        code:
+          type: string
+          description: Code representing the type of error
         message:
           type: string
           description: Message describing the error
-        code:
-          type: integer
-          description: Unique code for the validation error
-          format: int32
+        errors:
+          type: array
+          description: List of all further error details, usually due to validation checks
+          items:
+            $ref: '#/components/schemas/ErrorWithCode'
+        errorId:
+          type: string
+          description: Identifier for the error
   securitySchemes:
     accessToken:
       type: http
